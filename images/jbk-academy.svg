@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF5F0"/>
+      <stop offset="100%" style="stop-color:#FFE8DD"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <!-- Top bar -->
+  <rect x="0" y="0" width="1200" height="30" fill="#E8611A"/>
+  <text x="40" y="20" font-family="Arial, sans-serif" font-size="10" fill="#FFF">+91 8884437200</text>
+  <text x="200" y="20" font-family="Arial, sans-serif" font-size="10" fill="#FFF">jbkacademymarathahalli@gmail.com</text>
+  <!-- Nav -->
+  <rect x="0" y="30" width="1200" height="50" fill="#FFFFFF" opacity="0.95"/>
+  <rect x="40" y="42" width="25" height="22" rx="2" fill="#E8611A"/>
+  <text x="45" y="57" font-family="Arial, sans-serif" font-size="8" fill="#FFF" font-weight="bold">K</text>
+  <text x="75" y="55" font-family="Arial, sans-serif" font-size="13" fill="#333" font-weight="bold">JBK ACADEMY</text>
+  <text x="200" y="55" font-family="Arial, sans-serif" font-size="12" fill="#E8611A">Home</text>
+  <text x="260" y="55" font-family="Arial, sans-serif" font-size="12" fill="#666">About Us</text>
+  <text x="350" y="55" font-family="Arial, sans-serif" font-size="12" fill="#666">Courses</text>
+  <text x="430" y="55" font-family="Arial, sans-serif" font-size="12" fill="#666">Contact Us</text>
+  <rect x="1020" y="40" width="140" height="30" rx="4" fill="#E8611A"/>
+  <text x="1040" y="60" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF">Book a Free Demo</text>
+  <!-- Hero -->
+  <rect x="40" y="110" width="280" height="28" rx="4" fill="#E8611A" opacity="0.15"/>
+  <text x="55" y="130" font-family="Arial, sans-serif" font-size="11" fill="#E8611A" font-weight="bold">IT &amp; FINANCE TRAINING IN MARATHAHALLI</text>
+  <text x="40" y="180" font-family="Arial, sans-serif" font-size="38" fill="#1A1A1A" font-weight="bold">Learn Skills. Build</text>
+  <text x="40" y="230" font-family="Arial, sans-serif" font-size="38" fill="#E8611A" font-weight="bold">Your Future.</text>
+  <text x="40" y="270" font-family="Arial, sans-serif" font-size="13" fill="#666">Job-oriented IT, Finance &amp; Digital Marketing courses with</text>
+  <text x="40" y="290" font-family="Arial, sans-serif" font-size="13" fill="#666">practical training, real-world projects and placement support.</text>
+  <!-- Feature icons -->
+  <rect x="40" y="320" width="100" height="70" rx="6" fill="#FFF" opacity="0.7"/>
+  <text x="55" y="355" font-family="Arial, sans-serif" font-size="10" fill="#333">Practical</text>
+  <text x="55" y="370" font-family="Arial, sans-serif" font-size="10" fill="#333">Training</text>
+  <rect x="160" y="320" width="100" height="70" rx="6" fill="#FFF" opacity="0.7"/>
+  <text x="175" y="355" font-family="Arial, sans-serif" font-size="10" fill="#333">Expert</text>
+  <text x="175" y="370" font-family="Arial, sans-serif" font-size="10" fill="#333">Trainers</text>
+  <rect x="280" y="320" width="100" height="70" rx="6" fill="#FFF" opacity="0.7"/>
+  <text x="295" y="355" font-family="Arial, sans-serif" font-size="10" fill="#333">Placement</text>
+  <text x="295" y="370" font-family="Arial, sans-serif" font-size="10" fill="#333">Assistance</text>
+  <rect x="400" y="320" width="100" height="70" rx="6" fill="#FFF" opacity="0.7"/>
+  <text x="415" y="355" font-family="Arial, sans-serif" font-size="10" fill="#333">Certification</text>
+  <text x="415" y="370" font-family="Arial, sans-serif" font-size="10" fill="#333">Provided</text>
+  <!-- CTAs -->
+  <rect x="40" y="420" width="170" height="40" rx="4" fill="#E8611A"/>
+  <text x="60" y="445" font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF">Book A Free Demo →</text>
+  <rect x="230" y="420" width="170" height="40" rx="4" fill="#FFF" stroke="#E8611A" stroke-width="1"/>
+  <text x="260" y="445" font-family="Arial, sans-serif" font-size="12" fill="#E8611A">Explore Courses</text>
+  <!-- Stats -->
+  <text x="40" y="500" font-family="Arial, sans-serif" font-size="14" fill="#333">2500+ Students Trained Successfully</text>
+  <!-- Form area -->
+  <rect x="600" y="120" width="520" height="400" rx="12" fill="#FFFFFF" opacity="0.7"/>
+  <text x="640" y="160" font-family="Arial, sans-serif" font-size="14" fill="#333">Name *</text>
+  <rect x="640" y="170" width="230" height="35" rx="4" fill="#F5F5F5" stroke="#DDD" stroke-width="1"/>
+  <text x="640" y="225" font-family="Arial, sans-serif" font-size="14" fill="#333">Mobile Number *</text>
+  <rect x="640" y="235" width="230" height="35" rx="4" fill="#F5F5F5" stroke="#DDD" stroke-width="1"/>
+  <text x="640" y="290" font-family="Arial, sans-serif" font-size="14" fill="#333">Email *</text>
+  <rect x="640" y="300" width="460" height="35" rx="4" fill="#F5F5F5" stroke="#DDD" stroke-width="1"/>
+  <rect x="640" y="370" width="460" height="40" rx="4" fill="#E8611A"/>
+  <text x="840" y="395" font-family="Arial, sans-serif" font-size="13" fill="#FFFFFF">Send</text>
+  <!-- Mobile mockup -->
+  <rect x="960" y="520" width="180" height="200" rx="12" fill="#1a1a1a" opacity="0.1"/>
+  <rect x="968" y="530" width="164" height="180" rx="8" fill="#FFF" opacity="0.3"/>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1B2A4A"/>
+      <stop offset="100%" style="stop-color:#0F1B33"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <!-- Nav -->
+  <rect x="0" y="0" width="1200" height="55" fill="#FFFFFF" opacity="0.08"/>
+  <rect x="30" y="15" width="30" height="25" rx="3" fill="#E53E3E"/>
+  <text x="40" y="33" font-family="Arial, sans-serif" font-size="9" fill="#FFF" font-weight="bold">K</text>
+  <text x="70" y="33" font-family="Arial, sans-serif" font-size="14" fill="#FFF" font-weight="bold">JBK TECHNOLOGIES</text>
+  <text x="250" y="33" font-family="Arial, sans-serif" font-size="12" fill="#AAA">Home</text>
+  <text x="310" y="33" font-family="Arial, sans-serif" font-size="12" fill="#AAA">About Us</text>
+  <text x="400" y="33" font-family="Arial, sans-serif" font-size="12" fill="#AAA">Courses</text>
+  <text x="490" y="33" font-family="Arial, sans-serif" font-size="12" fill="#AAA">Students Corner</text>
+  <text x="620" y="33" font-family="Arial, sans-serif" font-size="12" fill="#AAA">Jobs</text>
+  <text x="670" y="33" font-family="Arial, sans-serif" font-size="12" fill="#AAA">Contact Us</text>
+  <!-- Hero -->
+  <text x="60" y="140" font-family="Arial, sans-serif" font-size="50" fill="#FFFFFF" font-weight="bold">ACCOUNTING</text>
+  <text x="60" y="200" font-family="Arial, sans-serif" font-size="50" fill="#E53E3E" font-weight="bold">COURSE</text>
+  <text x="60" y="240" font-family="Arial, sans-serif" font-size="18" fill="#FFF">Learn. Practice. Get Placed.</text>
+  <text x="60" y="280" font-family="Arial, sans-serif" font-size="13" fill="#AAA">From Basics to Advanced Accounting</text>
+  <text x="60" y="300" font-family="Arial, sans-serif" font-size="13" fill="#AAA">Become a Job-Ready Professional</text>
+  <!-- Yellow accent -->
+  <circle cx="900" cy="300" r="150" fill="#F6AD55" opacity="0.15"/>
+  <circle cx="850" cy="250" r="80" fill="#F6AD55" opacity="0.1"/>
+  <!-- Stats -->
+  <rect x="60" y="500" width="200" height="100" rx="8" fill="#FFF" opacity="0.08"/>
+  <text x="100" y="545" font-family="Arial, sans-serif" font-size="28" fill="#F6AD55" font-weight="bold">4.9</text>
+  <text x="100" y="570" font-family="Arial, sans-serif" font-size="11" fill="#AAA">Google Rating</text>
+  <rect x="290" y="500" width="200" height="100" rx="8" fill="#FFF" opacity="0.08"/>
+  <text x="330" y="545" font-family="Arial, sans-serif" font-size="28" fill="#FFF" font-weight="bold">1000+</text>
+  <text x="330" y="570" font-family="Arial, sans-serif" font-size="11" fill="#AAA">Students Trained</text>
+  <rect x="520" y="500" width="200" height="100" rx="8" fill="#FFF" opacity="0.08"/>
+  <text x="555" y="545" font-family="Arial, sans-serif" font-size="28" fill="#FFF" font-weight="bold">100%</text>
+  <text x="555" y="570" font-family="Arial, sans-serif" font-size="11" fill="#AAA">Placement Assistance</text>
+  <!-- Mobile mockup -->
+  <rect x="920" y="60" width="200" height="400" rx="16" fill="#FFF" opacity="0.08"/>
+  <rect x="930" y="75" width="180" height="370" rx="12" fill="#FFF" opacity="0.15"/>
+</svg>

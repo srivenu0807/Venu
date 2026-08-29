@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3D2B1F"/>
+      <stop offset="100%" style="stop-color:#2A1E15"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <!-- Nav -->
+  <rect x="0" y="0" width="1200" height="55" fill="#4A3728" opacity="0.8"/>
+  <text x="40" y="35" font-family="Georgia, serif" font-size="20" fill="#D4A574" font-weight="bold">SMAKE</text>
+  <text x="120" y="35" font-family="Arial, sans-serif" font-size="11" fill="#AAA">A Full Basket of Smiles</text>
+  <text x="300" y="35" font-family="Arial, sans-serif" font-size="12" fill="#CCC">Home</text>
+  <text x="360" y="35" font-family="Arial, sans-serif" font-size="12" fill="#CCC">About Us</text>
+  <text x="450" y="35" font-family="Arial, sans-serif" font-size="12" fill="#CCC">All Products</text>
+  <text x="570" y="35" font-family="Arial, sans-serif" font-size="12" fill="#CCC">Desserts</text>
+  <text x="650" y="35" font-family="Arial, sans-serif" font-size="12" fill="#CCC">My Account</text>
+  <!-- Hero -->
+  <circle cx="200" cy="300" r="120" fill="#D4A574" opacity="0.15"/>
+  <circle cx="200" cy="300" r="80" fill="#D4A574" opacity="0.1"/>
+  <circle cx="900" cy="200" r="100" fill="#D4A574" opacity="0.12"/>
+  <circle cx="950" cy="350" r="80" fill="#D4A574" opacity="0.08"/>
+  <text x="400" y="200" font-family="Georgia, serif" font-size="36" fill="#F5E6D3" font-weight="bold">We sell only what we</text>
+  <text x="400" y="250" font-family="Georgia, serif" font-size="36" fill="#F5E6D3" font-weight="bold">feed our own children.</text>
+  <text x="400" y="290" font-family="Arial, sans-serif" font-size="14" fill="#AAA">Delicious cookies, soft breads, rich brownies, and</text>
+  <text x="400" y="310" font-family="Arial, sans-serif" font-size="14" fill="#AAA">crispy biscuits — baked fresh every day just for you.</text>
+  <rect x="400" y="340" width="130" height="40" rx="4" fill="#D4A574"/>
+  <text x="430" y="365" font-family="Arial, sans-serif" font-size="12" fill="#2A1E15" font-weight="bold">Shop Now</text>
+  <!-- Categories bar -->
+  <rect x="0" y="480" width="1200" height="50" fill="#4A3728" opacity="0.5"/>
+  <text x="60" y="510" font-family="Arial, sans-serif" font-size="11" fill="#D4A574">• BREADS</text>
+  <text x="170" y="510" font-family="Arial, sans-serif" font-size="11" fill="#D4A574">• CUP CAKES</text>
+  <text x="300" y="510" font-family="Arial, sans-serif" font-size="11" fill="#D4A574">• MACARONS</text>
+  <text x="420" y="510" font-family="Arial, sans-serif" font-size="11" fill="#D4A574">• MILLET BREAD</text>
+  <text x="570" y="510" font-family="Arial, sans-serif" font-size="11" fill="#D4A574">• MILLET COOKIES</text>
+  <text x="730" y="510" font-family="Arial, sans-serif" font-size="11" fill="#D4A574">• MUFFINS</text>
+  <text x="840" y="510" font-family="Arial, sans-serif" font-size="11" fill="#D4A574">• DESSERTS</text>
+  <!-- Category circles -->
+  <circle cx="150" cy="620" r="40" fill="#D4A574" opacity="0.15"/>
+  <circle cx="300" cy="620" r="40" fill="#D4A574" opacity="0.15"/>
+  <circle cx="450" cy="620" r="40" fill="#D4A574" opacity="0.15"/>
+  <circle cx="600" cy="620" r="40" fill="#D4A574" opacity="0.15"/>
+  <circle cx="750" cy="620" r="40" fill="#D4A574" opacity="0.15"/>
+  <circle cx="900" cy="620" r="40" fill="#D4A574" opacity="0.15"/>
+  <!-- Mobile mockup -->
+  <rect x="940" y="60" width="200" height="400" rx="16" fill="#FFF" opacity="0.06"/>
+  <rect x="950" y="75" width="180" height="370" rx="12" fill="#FFF" opacity="0.1"/>
+</svg>

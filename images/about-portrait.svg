@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 533" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2d3a2d"/>
+      <stop offset="40%" stop-color="#1a2a1a"/>
+      <stop offset="100%" stop-color="#0d1a0d"/>
+    </linearGradient>
+    <linearGradient id="shirt2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5a4030"/>
+      <stop offset="100%" stop-color="#3a2518"/>
+    </linearGradient>
+    <radialGradient id="face2" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#c4956a"/>
+      <stop offset="100%" stop-color="#a07050"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Background - outdoor greenery -->
+  <rect width="400" height="533" fill="url(#sky)"/>
+  
+  <!-- Trees / foliage -->
+  <ellipse cx="50" cy="100" rx="80" ry="120" fill="#1a3a1a" opacity="0.6"/>
+  <ellipse cx="350" cy="80" rx="90" ry="110" fill="#1a3a1a" opacity="0.5"/>
+  <ellipse cx="200" cy="50" rx="120" ry="80" fill="#1a3a1a" opacity="0.4"/>
+  <ellipse cx="100" cy="200" rx="60" ry="90" fill="#1a3a1a" opacity="0.3"/>
+  <ellipse cx="320" cy="180" rx="70" ry="80" fill="#1a3a1a" opacity="0.35"/>
+  
+  <!-- Light spots through leaves -->
+  <circle cx="120" cy="80" r="20" fill="#C8FF3D" opacity="0.04"/>
+  <circle cx="280" cy="60" r="15" fill="#C8FF3D" opacity="0.05"/>
+  <circle cx="350" cy="150" r="25" fill="#4ade50" opacity="0.03"/>
+  
+  <!-- Ground / grass -->
+  <rect x="0" y="420" width="400" height="113" fill="#1a2a15" opacity="0.5"/>
+  
+  <!-- Body / Brown T-shirt -->
+  <path d="M80 420 Q80 370 130 340 L155 325 Q200 310 245 325 L270 340 Q320 370 320 420 L330 533 L70 533 Z" fill="url(#shirt2)"/>
+  
+  <!-- Neck -->
+  <rect x="175" y="290" width="50" height="50" rx="5" fill="#b07850"/>
+  
+  <!-- Head -->
+  <ellipse cx="200" cy="230" rx="72" ry="82" fill="url(#face2)"/>
+  
+  <!-- Hair -->
+  <path d="M130 210 Q130 140 200 130 Q270 140 270 210 Q270 180 245 170 Q220 160 200 162 Q180 160 155 170 Q130 180 130 210 Z" fill="#1a1a1a"/>
+  
+  <!-- Glasses -->
+  <rect x="160" y="228" width="30" height="18" rx="4" stroke="#333" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <rect x="210" y="228" width="30" height="18" rx="4" stroke="#333" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <line x1="190" y1="236" x2="210" y2="236" stroke="#333" stroke-width="1" opacity="0.6"/>
+  
+  <!-- Eyes -->
+  <ellipse cx="175" cy="236" rx="6" ry="4" fill="#1a1a1a"/>
+  <ellipse cx="225" cy="236" rx="6" ry="4" fill="#1a1a1a"/>
+  
+  <!-- Smile -->
+  <path d="M182 262 Q200 275 218 262" stroke="#8a6040" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Subtle text -->
+  <text x="200" y="518" text-anchor="middle" font-family="monospace" font-size="9" fill="white" opacity="0.12" letter-spacing="0.25em">ABOUT</text>
+</svg>

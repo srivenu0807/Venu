@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 533" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d2d2d"/>
+      <stop offset="50%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#0d0d0d"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4a4a4a"/>
+      <stop offset="100%" stop-color="#2a2a2a"/>
+    </linearGradient>
+    <radialGradient id="face" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#c4956a"/>
+      <stop offset="100%" stop-color="#a07050"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Background with subtle bokeh -->
+  <rect width="400" height="533" fill="url(#bg)"/>
+  
+  <!-- Bokeh lights -->
+  <circle cx="50" cy="80" r="15" fill="#C8FF3D" opacity="0.08"/>
+  <circle cx="350" cy="120" r="20" fill="#C8FF3D" opacity="0.06"/>
+  <circle cx="320" cy="60" r="12" fill="#4ade50" opacity="0.1"/>
+  <circle cx="80" cy="180" r="18" fill="#C8FF3D" opacity="0.05"/>
+  <circle cx="300" cy="200" r="10" fill="#4ade50" opacity="0.08"/>
+  <circle cx="60" cy="300" r="14" fill="#C8FF3D" opacity="0.04"/>
+  <circle cx="340" cy="350" r="16" fill="#4ade50" opacity="0.06"/>
+  <circle cx="100" cy="400" r="22" fill="#C8FF3D" opacity="0.03"/>
+  <circle cx="280" cy="450" r="11" fill="#4ade50" opacity="0.07"/>
+  
+  <!-- Body / Shirt -->
+  <path d="M100 380 Q100 350 140 330 L160 320 Q200 305 240 320 L260 330 Q300 350 300 380 L310 533 L90 533 Z" fill="url(#shirt)"/>
+  
+  <!-- Neck -->
+  <rect x="175" y="280" width="50" height="55" rx="5" fill="#b07850"/>
+  
+  <!-- Head -->
+  <ellipse cx="200" cy="220" rx="75" ry="85" fill="url(#face)"/>
+  
+  <!-- Hair -->
+  <path d="M125 200 Q125 130 200 120 Q275 130 275 200 Q275 170 250 160 Q220 150 200 152 Q180 150 150 160 Q125 170 125 200 Z" fill="#1a1a1a"/>
+  
+  <!-- Eyes -->
+  <ellipse cx="175" cy="225" rx="8" ry="5" fill="#1a1a1a"/>
+  <ellipse cx="225" cy="225" rx="8" ry="5" fill="#1a1a1a"/>
+  
+  <!-- Smile -->
+  <path d="M180 255 Q200 268 220 255" stroke="#8a6040" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Subtle text overlay -->
+  <text x="200" y="510" text-anchor="middle" font-family="monospace" font-size="10" fill="white" opacity="0.15" letter-spacing="0.2em">PORTRAIT</text>
+</svg>
