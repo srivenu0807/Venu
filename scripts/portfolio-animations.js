@@ -346,6 +346,44 @@
   }
 
   /* ==========================================================================
+     8.1 Landing Pages: VIEW MORE / SHOW LESS Toggle
+     ========================================================================== */
+  const toggleLandingBtn = document.getElementById('toggle-landing-pages-btn');
+  const landingExtraWrap = document.getElementById('landing-pages-extra');
+
+  if (toggleLandingBtn && landingExtraWrap) {
+    let isExpanded = false;
+
+    toggleLandingBtn.addEventListener('click', () => {
+      isExpanded = !isExpanded;
+      landingExtraWrap.classList.toggle('is-expanded', isExpanded);
+      toggleLandingBtn.classList.toggle('is-active', isExpanded);
+      toggleLandingBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+      landingExtraWrap.setAttribute('aria-hidden', isExpanded ? 'false' : 'true');
+
+      const btnText = toggleLandingBtn.querySelector('.btn-text');
+      const btnIcon = toggleLandingBtn.querySelector('.btn-icon');
+
+      if (isExpanded) {
+        if (btnText) btnText.textContent = 'SHOW LESS';
+        if (btnIcon) btnIcon.textContent = '↑';
+      } else {
+        if (btnText) btnText.textContent = 'VIEW MORE';
+        if (btnIcon) btnIcon.textContent = '↓';
+
+        // Smoothly scroll back if the user is scrolled past the top of the landing pages section
+        const landingSec = document.getElementById('landing-pages');
+        if (landingSec) {
+          const rect = landingSec.getBoundingClientRect();
+          if (rect.top < -80) {
+            landingSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      }
+    });
+  }
+
+  /* ==========================================================================
      9. Project Details Exploration Modal
      ========================================================================== */
   const projectData = {
