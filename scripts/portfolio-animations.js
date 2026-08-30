@@ -295,45 +295,6 @@
   });
 
   /* ==========================================================================
-     7.1 Interactive Process Steps ("HOW I WORK")
-     ========================================================================== */
-  const processItems = document.querySelectorAll('.process-item');
-
-  function setActiveProcessItem(activeItem) {
-    processItems.forEach((item) => {
-      const isTarget = item === activeItem;
-      item.classList.toggle('is-active', isTarget);
-      const btn = item.querySelector('.process-step-btn');
-      if (btn) {
-        btn.setAttribute('aria-expanded', isTarget ? 'true' : 'false');
-      }
-    });
-  }
-
-  processItems.forEach((item, index) => {
-    // Step 01 active by default
-    if (index === 0) {
-      item.classList.add('is-active');
-      const btn = item.querySelector('.process-step-btn');
-      if (btn) btn.setAttribute('aria-expanded', 'true');
-    }
-
-    // Hover activation on desktop
-    item.addEventListener('mouseenter', () => {
-      setActiveProcessItem(item);
-    });
-
-    // Click / tap activation (mobile and keyboard accessibility)
-    const btn = item.querySelector('.process-step-btn');
-    if (btn) {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        setActiveProcessItem(item);
-      });
-    }
-  });
-
-  /* ==========================================================================
      8. Drag-to-Scroll on Side Quests / Experiments Track
      ========================================================================== */
   const sideQuestsContainer = document.querySelector('.side-quests-container');

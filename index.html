@@ -590,136 +590,90 @@
       <div class="w-16 h-[1px] bg-lime/20"></div>
     </div>
   </div>
-</section><section id="process" class="relative py-24 md:py-40">
+</section><section id="process" class="relative py-24 md:py-36">
   <div class="max-w-[1400px] mx-auto px-6 md:px-10">
-    <div class="mb-16 md:mb-24" data-reveal="fade-up">
+    <div class="mb-14 md:mb-20" data-reveal="fade-up">
       <span class="text-[10px] tracking-[0.35em] text-lime/50 font-mono uppercase block mb-4">03 / Process</span>
       <h2 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-[-0.03em] text-cream leading-[0.95]">HOW I WORK</h2>
     </div>
-    <div class="relative space-y-1" data-stagger>
-      <!-- Step 01: RESEARCH -->
-      <div class="process-item is-active" data-process-step="1">
-        <button class="process-step-btn group" aria-expanded="true">
-          <span class="process-num">01</span>
-          <span class="process-arrow">→</span>
-          <span class="process-name text-xl md:text-3xl lg:text-4xl font-black tracking-[-0.02em]">RESEARCH</span>
-          <div class="hidden md:block flex-1 h-[1px] bg-white/5 mx-4 overflow-hidden">
-            <div class="h-full process-progress-bar"></div>
+
+    <!-- 2-Column Process Grid: Left (01-03), Right (04-06) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-0" data-reveal="fade-up">
+      <!-- Left Column: Steps 01 - 03 -->
+      <div class="flex flex-col">
+        <!-- Step 01: DISCOVER -->
+        <div class="process-card group py-6 md:py-8 border-b border-white/5 transition-all duration-300">
+          <div class="flex items-baseline gap-3 mb-2.5">
+            <span class="process-card-num text-xs font-mono tracking-[0.18em] text-lime/70 group-hover:text-lime transition-colors duration-300">01</span>
+            <span class="process-card-arrow text-xs text-cream/20 font-mono group-hover:text-lime/70 transition-all duration-300">→</span>
+            <h3 class="process-card-title text-xl md:text-2xl lg:text-3xl font-black tracking-[-0.02em] text-cream group-hover:text-lime transition-colors duration-300">DISCOVER</h3>
           </div>
-        </button>
-        <div class="process-desc-wrap">
-          <div class="process-desc-inner">
-            <div class="process-desc-content">
-              <p class="process-desc-text max-w-2xl">
-                Understand the project goals, target audience, requirements, and overall vision before starting the design process.
-              </p>
-            </div>
+          <p class="process-card-desc pl-8 md:pl-9 text-sm md:text-base text-cream/65 font-light leading-relaxed max-w-lg transition-colors duration-300 group-hover:text-cream/90">
+            Understanding the project goals, audience, and requirements.
+          </p>
+        </div>
+
+        <!-- Step 02: PLAN -->
+        <div class="process-card group py-6 md:py-8 border-b border-white/5 transition-all duration-300">
+          <div class="flex items-baseline gap-3 mb-2.5">
+            <span class="process-card-num text-xs font-mono tracking-[0.18em] text-lime/70 group-hover:text-lime transition-colors duration-300">02</span>
+            <span class="process-card-arrow text-xs text-cream/20 font-mono group-hover:text-lime/70 transition-all duration-300">→</span>
+            <h3 class="process-card-title text-xl md:text-2xl lg:text-3xl font-black tracking-[-0.02em] text-cream group-hover:text-lime transition-colors duration-300">PLAN</h3>
           </div>
+          <p class="process-card-desc pl-8 md:pl-9 text-sm md:text-base text-cream/65 font-light leading-relaxed max-w-lg transition-colors duration-300 group-hover:text-cream/90">
+            Creating the website structure and planning the user journey.
+          </p>
+        </div>
+
+        <!-- Step 03: DESIGN -->
+        <div class="process-card group py-6 md:py-8 border-b border-white/5 transition-all duration-300">
+          <div class="flex items-baseline gap-3 mb-2.5">
+            <span class="process-card-num text-xs font-mono tracking-[0.18em] text-lime/70 group-hover:text-lime transition-colors duration-300">03</span>
+            <span class="process-card-arrow text-xs text-cream/20 font-mono group-hover:text-lime/70 transition-all duration-300">→</span>
+            <h3 class="process-card-title text-xl md:text-2xl lg:text-3xl font-black tracking-[-0.02em] text-cream group-hover:text-lime transition-colors duration-300">DESIGN</h3>
+          </div>
+          <p class="process-card-desc pl-8 md:pl-9 text-sm md:text-base text-cream/65 font-light leading-relaxed max-w-lg transition-colors duration-300 group-hover:text-cream/90">
+            Designing clean, modern, and user-friendly interfaces in Figma.
+          </p>
         </div>
       </div>
 
-      <!-- Step 02: STRUCTURE -->
-      <div class="process-item" data-process-step="2">
-        <button class="process-step-btn group" aria-expanded="false">
-          <span class="process-num">02</span>
-          <span class="process-arrow">→</span>
-          <span class="process-name text-xl md:text-3xl lg:text-4xl font-black tracking-[-0.02em]">STRUCTURE</span>
-          <div class="hidden md:block flex-1 h-[1px] bg-white/5 mx-4 overflow-hidden">
-            <div class="h-full process-progress-bar"></div>
+      <!-- Right Column: Steps 04 - 06 -->
+      <div class="flex flex-col">
+        <!-- Step 04: DEVELOP -->
+        <div class="process-card group py-6 md:py-8 border-b border-white/5 transition-all duration-300">
+          <div class="flex items-baseline gap-3 mb-2.5">
+            <span class="process-card-num text-xs font-mono tracking-[0.18em] text-lime/70 group-hover:text-lime transition-colors duration-300">04</span>
+            <span class="process-card-arrow text-xs text-cream/20 font-mono group-hover:text-lime/70 transition-all duration-300">→</span>
+            <h3 class="process-card-title text-xl md:text-2xl lg:text-3xl font-black tracking-[-0.02em] text-cream group-hover:text-lime transition-colors duration-300">DEVELOP</h3>
           </div>
-        </button>
-        <div class="process-desc-wrap">
-          <div class="process-desc-inner">
-            <div class="process-desc-content">
-              <p class="process-desc-text max-w-2xl">
-                Plan the website structure, content hierarchy, user journey, and layout to create a clear and intuitive experience.
-              </p>
-            </div>
-          </div>
+          <p class="process-card-desc pl-8 md:pl-9 text-sm md:text-base text-cream/65 font-light leading-relaxed max-w-lg transition-colors duration-300 group-hover:text-cream/90">
+            Building the approved design into a functional website using WordPress and Elementor.
+          </p>
         </div>
-      </div>
 
-      <!-- Step 03: UI DESIGN -->
-      <div class="process-item" data-process-step="3">
-        <button class="process-step-btn group" aria-expanded="false">
-          <span class="process-num">03</span>
-          <span class="process-arrow">→</span>
-          <span class="process-name text-xl md:text-3xl lg:text-4xl font-black tracking-[-0.02em]">UI DESIGN</span>
-          <div class="hidden md:block flex-1 h-[1px] bg-white/5 mx-4 overflow-hidden">
-            <div class="h-full process-progress-bar"></div>
+        <!-- Step 05: OPTIMIZE -->
+        <div class="process-card group py-6 md:py-8 border-b border-white/5 transition-all duration-300">
+          <div class="flex items-baseline gap-3 mb-2.5">
+            <span class="process-card-num text-xs font-mono tracking-[0.18em] text-lime/70 group-hover:text-lime transition-colors duration-300">05</span>
+            <span class="process-card-arrow text-xs text-cream/20 font-mono group-hover:text-lime/70 transition-all duration-300">→</span>
+            <h3 class="process-card-title text-xl md:text-2xl lg:text-3xl font-black tracking-[-0.02em] text-cream group-hover:text-lime transition-colors duration-300">OPTIMIZE</h3>
           </div>
-        </button>
-        <div class="process-desc-wrap">
-          <div class="process-desc-inner">
-            <div class="process-desc-content">
-              <p class="process-desc-text max-w-2xl">
-                Design a modern, visually engaging interface with strong typography, spacing, colors, and consistent visual identity.
-              </p>
-            </div>
-          </div>
+          <p class="process-card-desc pl-8 md:pl-9 text-sm md:text-base text-cream/65 font-light leading-relaxed max-w-lg transition-colors duration-300 group-hover:text-cream/90">
+            Making the website responsive, fast, and SEO-friendly.
+          </p>
         </div>
-      </div>
 
-      <!-- Step 04: CONTENT -->
-      <div class="process-item" data-process-step="4">
-        <button class="process-step-btn group" aria-expanded="false">
-          <span class="process-num">04</span>
-          <span class="process-arrow">→</span>
-          <span class="process-name text-xl md:text-3xl lg:text-4xl font-black tracking-[-0.02em]">CONTENT</span>
-          <div class="hidden md:block flex-1 h-[1px] bg-white/5 mx-4 overflow-hidden">
-            <div class="h-full process-progress-bar"></div>
+        <!-- Step 06: TEST & LAUNCH -->
+        <div class="process-card group py-6 md:py-8 border-b border-white/5 transition-all duration-300">
+          <div class="flex items-baseline gap-3 mb-2.5">
+            <span class="process-card-num text-xs font-mono tracking-[0.18em] text-lime/70 group-hover:text-lime transition-colors duration-300">06</span>
+            <span class="process-card-arrow text-xs text-cream/20 font-mono group-hover:text-lime/70 transition-all duration-300">→</span>
+            <h3 class="process-card-title text-xl md:text-2xl lg:text-3xl font-black tracking-[-0.02em] text-cream group-hover:text-lime transition-colors duration-300">TEST & LAUNCH</h3>
           </div>
-        </button>
-        <div class="process-desc-wrap">
-          <div class="process-desc-inner">
-            <div class="process-desc-content">
-              <p class="process-desc-text max-w-2xl">
-                Organize and integrate meaningful content that communicates the message clearly and improves user engagement.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 05: IMAGES -->
-      <div class="process-item" data-process-step="5">
-        <button class="process-step-btn group" aria-expanded="false">
-          <span class="process-num">05</span>
-          <span class="process-arrow">→</span>
-          <span class="process-name text-xl md:text-3xl lg:text-4xl font-black tracking-[-0.02em]">IMAGES</span>
-          <div class="hidden md:block flex-1 h-[1px] bg-white/5 mx-4 overflow-hidden">
-            <div class="h-full process-progress-bar"></div>
-          </div>
-        </button>
-        <div class="process-desc-wrap">
-          <div class="process-desc-inner">
-            <div class="process-desc-content">
-              <p class="process-desc-text max-w-2xl">
-                Select and optimize high-quality visuals that support the design and create a stronger visual experience.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 06: FIGMA -->
-      <div class="process-item" data-process-step="6">
-        <button class="process-step-btn group" aria-expanded="false">
-          <span class="process-num">06</span>
-          <span class="process-arrow">→</span>
-          <span class="process-name text-xl md:text-3xl lg:text-4xl font-black tracking-[-0.02em]">FIGMA</span>
-          <div class="hidden md:block flex-1 h-[1px] bg-white/5 mx-4 overflow-hidden">
-            <div class="h-full process-progress-bar"></div>
-          </div>
-        </button>
-        <div class="process-desc-wrap">
-          <div class="process-desc-inner">
-            <div class="process-desc-content">
-              <p class="process-desc-text max-w-2xl">
-                Create and refine the complete design system and prototype, ensuring everything is ready for development.
-              </p>
-            </div>
-          </div>
+          <p class="process-card-desc pl-8 md:pl-9 text-sm md:text-base text-cream/65 font-light leading-relaxed max-w-lg transition-colors duration-300 group-hover:text-cream/90">
+            Testing everything across devices and preparing the website for launch.
+          </p>
         </div>
       </div>
     </div>

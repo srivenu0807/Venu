@@ -452,156 +452,65 @@ div[id] {
 }
 
 /* ==========================================================================
-   Process Section: Interactive "HOW I WORK" Steps
+   Process Section: 2-Column Grid "HOW I WORK"
    ========================================================================== */
-.process-item {
+.process-card {
   position: relative;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  transition: border-color 0.3s ease, background-color 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  transition: border-color 0.3s ease;
 }
 
-.process-step-btn {
-  width: 100%;
-  text-align: left;
-  padding: 1.25rem 0;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
+.process-card:hover {
+  border-bottom-color: rgba(200, 255, 61, 0.35);
 }
 
-@media (min-width: 768px) {
-  .process-step-btn {
-    padding: 1.5rem 0;
-    gap: 1.5rem;
-  }
-}
-
-.process-num {
+.process-card-num {
   font-family: "JetBrains Mono", monospace;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  color: rgba(244, 241, 234, 0.25);
-  width: 1.75rem;
-  flex-shrink: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: rgba(200, 255, 61, 0.8);
   transition: color 0.3s ease;
 }
 
-.process-arrow {
-  font-size: 1rem;
+.process-card:hover .process-card-num {
+  color: var(--color-accent-lime);
+}
+
+.process-card-arrow {
   color: rgba(244, 241, 234, 0.25);
-  flex-shrink: 0;
-  transition: transform 0.35s var(--anim-ease-out-expo), color 0.3s ease;
+  display: inline-block;
+  transition: transform 0.3s var(--anim-ease-out-expo), color 0.3s ease;
 }
 
-.process-name {
-  color: rgba(244, 241, 234, 0.45);
-  transition: color 0.3s ease, transform 0.35s var(--anim-ease-out-expo);
-}
-
-.process-progress-bar {
-  width: 0%;
-  background-color: rgba(200, 255, 61, 0.2);
-  transition: width 0.45s var(--anim-ease-out-expo), background-color 0.3s ease;
-}
-
-/* Description Accordion Wrap */
-.process-desc-wrap {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 350ms var(--anim-ease-out-expo);
-}
-
-.process-desc-inner {
-  overflow: hidden;
-}
-
-.process-desc-content {
-  padding-left: 2.75rem;
-  padding-right: 1rem;
-  padding-bottom: 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .process-desc-content {
-    padding-left: 4.25rem;
-    padding-bottom: 2rem;
-  }
-}
-
-.process-desc-text {
-  opacity: 0;
-  transform: translateY(-8px);
-  transition: opacity 300ms ease, transform 350ms var(--anim-ease-out-expo);
-  color: rgba(244, 241, 234, 0.72);
-  font-size: 0.95rem;
-  line-height: 1.7;
-  font-weight: 300;
-}
-
-@media (min-width: 768px) {
-  .process-desc-text {
-    font-size: 1.05rem;
-  }
-}
-
-/* Active State */
-.process-item.is-active {
-  border-bottom-color: rgba(200, 255, 61, 0.2);
-}
-
-.process-item.is-active .process-num {
+.process-card:hover .process-card-arrow {
   color: var(--color-accent-lime);
-  font-weight: 700;
-}
-
-.process-item.is-active .process-arrow {
-  color: var(--color-accent-lime);
-  transform: translateX(6px);
-}
-
-.process-item.is-active .process-name {
-  color: var(--color-cream);
   transform: translateX(4px);
 }
 
-.process-item.is-active .process-progress-bar {
-  width: 100% !important;
-  background-color: var(--color-accent-lime);
-  box-shadow: 0 0 10px rgba(200, 255, 61, 0.35);
+.process-card-title {
+  color: var(--color-cream);
+  transition: color 0.3s ease;
 }
 
-.process-item.is-active .process-desc-wrap {
-  grid-template-rows: 1fr;
+.process-card:hover .process-card-title {
+  color: var(--color-accent-lime);
 }
 
-.process-item.is-active .process-desc-text {
-  opacity: 1;
-  transform: translateY(0);
+.process-card-desc {
+  color: rgba(244, 241, 234, 0.65);
+  font-size: 0.925rem;
+  line-height: 1.65;
+  transition: color 0.3s ease;
 }
 
-/* Desktop Hover on non-active rows */
-@media (hover: hover) and (pointer: fine) {
-  .process-item:not(.is-active):hover .process-num {
-    color: rgba(244, 241, 234, 0.5);
+@media (min-width: 768px) {
+  .process-card-desc {
+    font-size: 0.975rem;
   }
+}
 
-  .process-item:not(.is-active):hover .process-arrow {
-    color: rgba(200, 255, 61, 0.7);
-    transform: translateX(3px);
-  }
-
-  .process-item:not(.is-active):hover .process-name {
-    color: rgba(244, 241, 234, 0.75);
-  }
-
-  .process-item:not(.is-active):hover .process-progress-bar {
-    width: 30%;
-    background-color: rgba(200, 255, 61, 0.4);
-  }
+.process-card:hover .process-card-desc {
+  color: rgba(244, 241, 234, 0.9);
 }
 
 /* ==========================================================================
