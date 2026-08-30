@@ -452,44 +452,156 @@ div[id] {
 }
 
 /* ==========================================================================
-   Process Section Step Highlights (Clean, subtle progress fill)
+   Process Section: Interactive "HOW I WORK" Steps
    ========================================================================== */
-.process-step-btn {
+.process-item {
   position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.process-step-btn {
   width: 100%;
   text-align: left;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   padding: 1.25rem 0;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  transition: background-color 0.25s ease, border-color 0.25s ease;
+  gap: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
 }
 
-.process-step-btn .process-arrow {
-  transition: transform 0.25s var(--anim-ease-out-expo), color 0.25s ease;
+@media (min-width: 768px) {
+  .process-step-btn {
+    padding: 1.5rem 0;
+    gap: 1.5rem;
+  }
 }
 
-.process-step-btn:hover .process-arrow {
-  transform: translateX(4px);
-  color: var(--color-accent-lime) !important;
+.process-num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: rgba(244, 241, 234, 0.25);
+  width: 1.75rem;
+  flex-shrink: 0;
+  transition: color 0.3s ease;
 }
 
-.process-step-btn .process-name {
-  transition: color 0.25s ease;
+.process-arrow {
+  font-size: 1rem;
+  color: rgba(244, 241, 234, 0.25);
+  flex-shrink: 0;
+  transition: transform 0.35s var(--anim-ease-out-expo), color 0.3s ease;
 }
 
-.process-step-btn:hover .process-name {
-  color: var(--color-cream) !important;
+.process-name {
+  color: rgba(244, 241, 234, 0.45);
+  transition: color 0.3s ease, transform 0.35s var(--anim-ease-out-expo);
 }
 
 .process-progress-bar {
-  transition: width 0.4s var(--anim-ease-out-expo);
+  width: 0%;
+  background-color: rgba(200, 255, 61, 0.2);
+  transition: width 0.45s var(--anim-ease-out-expo), background-color 0.3s ease;
 }
 
-.process-step-btn:hover .process-progress-bar {
+/* Description Accordion Wrap */
+.process-desc-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 350ms var(--anim-ease-out-expo);
+}
+
+.process-desc-inner {
+  overflow: hidden;
+}
+
+.process-desc-content {
+  padding-left: 2.75rem;
+  padding-right: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .process-desc-content {
+    padding-left: 4.25rem;
+    padding-bottom: 2rem;
+  }
+}
+
+.process-desc-text {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 300ms ease, transform 350ms var(--anim-ease-out-expo);
+  color: rgba(244, 241, 234, 0.72);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  .process-desc-text {
+    font-size: 1.05rem;
+  }
+}
+
+/* Active State */
+.process-item.is-active {
+  border-bottom-color: rgba(200, 255, 61, 0.2);
+}
+
+.process-item.is-active .process-num {
+  color: var(--color-accent-lime);
+  font-weight: 700;
+}
+
+.process-item.is-active .process-arrow {
+  color: var(--color-accent-lime);
+  transform: translateX(6px);
+}
+
+.process-item.is-active .process-name {
+  color: var(--color-cream);
+  transform: translateX(4px);
+}
+
+.process-item.is-active .process-progress-bar {
   width: 100% !important;
-  background-color: var(--color-accent-lime) !important;
+  background-color: var(--color-accent-lime);
+  box-shadow: 0 0 10px rgba(200, 255, 61, 0.35);
+}
+
+.process-item.is-active .process-desc-wrap {
+  grid-template-rows: 1fr;
+}
+
+.process-item.is-active .process-desc-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Desktop Hover on non-active rows */
+@media (hover: hover) and (pointer: fine) {
+  .process-item:not(.is-active):hover .process-num {
+    color: rgba(244, 241, 234, 0.5);
+  }
+
+  .process-item:not(.is-active):hover .process-arrow {
+    color: rgba(200, 255, 61, 0.7);
+    transform: translateX(3px);
+  }
+
+  .process-item:not(.is-active):hover .process-name {
+    color: rgba(244, 241, 234, 0.75);
+  }
+
+  .process-item:not(.is-active):hover .process-progress-bar {
+    width: 30%;
+    background-color: rgba(200, 255, 61, 0.4);
+  }
 }
 
 /* ==========================================================================
@@ -725,9 +837,16 @@ nav.is-scrolled {
     transition: none !important;
   }
 
-  .accordion-content {
+  .accordion-content,
+  .process-desc-wrap {
     grid-template-rows: 1fr !important;
     opacity: 1 !important;
+    transition: none !important;
+  }
+
+  .process-desc-text {
+    opacity: 1 !important;
+    transform: none !important;
     transition: none !important;
   }
 
