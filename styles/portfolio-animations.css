@@ -596,6 +596,104 @@ div[id] {
 }
 
 /* ==========================================================================
+   Hero Section Action Buttons (Capsule Pills)
+   ========================================================================== */
+.hero-cta-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 520px) {
+  .hero-cta-wrap {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+.hero-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.875rem 2rem;
+  border-radius: 9999px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  min-height: 48px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  .hero-cta-btn {
+    width: 100%;
+  }
+}
+
+/* Primary Button: Subtle Lime Accent */
+.hero-cta-primary {
+  background: rgba(200, 255, 61, 0.09);
+  border: 1px solid rgba(200, 255, 61, 0.4);
+  color: var(--color-accent-lime);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-cta-primary:hover {
+  background: rgba(200, 255, 61, 0.2);
+  border-color: var(--color-accent-lime);
+  color: #efffc0;
+  box-shadow: 0 0 25px rgba(200, 255, 61, 0.3), 0 8px 24px rgba(0, 0, 0, 0.45);
+  transform: translateY(-2px);
+}
+
+.hero-cta-primary .hero-cta-icon {
+  font-size: 0.85rem;
+  transition: transform 0.3s var(--anim-ease-out-expo);
+  color: var(--color-accent-lime);
+}
+
+.hero-cta-primary:hover .hero-cta-icon {
+  transform: translateY(2px);
+}
+
+/* Secondary Button: Clean High-Contrast Pill */
+.hero-cta-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(244, 241, 234, 0.92);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.hero-cta-secondary:hover {
+  background: rgba(200, 255, 61, 0.08);
+  border-color: rgba(200, 255, 61, 0.5);
+  color: var(--color-accent-lime);
+  box-shadow: 0 0 25px rgba(200, 255, 61, 0.18), 0 8px 24px rgba(0, 0, 0, 0.45);
+  transform: translateY(-2px);
+}
+
+.hero-cta-secondary .hero-cta-icon {
+  font-size: 0.75rem;
+  transition: transform 0.3s var(--anim-ease-out-expo), color 0.3s ease;
+  color: rgba(244, 241, 234, 0.6);
+}
+
+.hero-cta-secondary:hover .hero-cta-icon {
+  color: var(--color-accent-lime);
+  transform: translate(2px, -2px);
+}
+
+/* ==========================================================================
    Journey Timeline Animations
    ========================================================================== */
 .journey-timeline-line {

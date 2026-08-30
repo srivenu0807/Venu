@@ -190,6 +190,19 @@
     });
   });
 
+  // Hero Resume / Contact CTA button -> smooth scroll to #contact
+  const contactLinks = document.querySelectorAll('a[href="#contact"]');
+  contactLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        const pos = contactSection.getBoundingClientRect().top + window.pageYOffset;
+        smoothScrollTo(pos);
+      }
+    });
+  });
+
   // Hero vertical "SCROLL" button click -> scroll down smoothly
   const heroScrollBtn = document.querySelector('.hero-scroll-btn');
   if (heroScrollBtn) {
