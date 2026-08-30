@@ -429,7 +429,8 @@
       role: 'WEB DESIGN',
       tools: 'Figma · WordPress · Elementor',
       description: 'A modern, patient-first healthcare and clinic website designed for trust, clarity, and rapid appointment booking. Crafted with clean typographic hierarchy, custom iconography, and responsive layouts.',
-      image: './images/maynu-clinics.svg',
+      image: './images/maynu-clinics.jpg',
+      imageWebp: './images/maynu-clinics.webp',
       liveUrl: 'https://maynuclinics.com/'
     },
     'onclick-digital': {
@@ -440,7 +441,8 @@
       role: 'WEB DESIGN',
       tools: 'Figma · WordPress · Elementor',
       description: 'Complete brand and website redesign for a full-service digital marketing agency. Focused on high-conversion landing page structures, bold modern aesthetics, and interactive case study presentations.',
-      image: './images/onclick-digital.svg',
+      image: './images/onclick-digital.jpg',
+      imageWebp: './images/onclick-digital.webp',
       liveUrl: 'https://onclickdigitalmarketing.com/'
     },
     'jbk-it': {
@@ -451,7 +453,8 @@
       role: 'WEB DESIGN',
       tools: 'Figma · WordPress · Elementor',
       description: 'Corporate tech infrastructure & enterprise services website redesign. Emphasizing technical credibility, structured service catalogs, responsive design, and seamless customer inquiry workflows.',
-      image: './images/jbk-it.svg',
+      image: './images/jbk-it.jpg',
+      imageWebp: './images/jbk-it.webp',
       liveUrl: 'https://jbkittechnologies.com/'
     },
     'smake': {
@@ -462,7 +465,8 @@
       role: 'WEB DESIGN',
       tools: 'Figma · WordPress',
       description: 'A sleek, visual-first e-commerce shopping experience for fashion and merchandise. Featuring high-impact product showcases, intuitive checkout user flows, and mobile-optimized browsing.',
-      image: './images/smake.svg',
+      image: './images/smake.jpg',
+      imageWebp: './images/smake.webp',
       liveUrl: 'https://smake.in/'
     },
     'jbk-academy': {
@@ -473,7 +477,8 @@
       role: 'WEB DESIGN',
       tools: 'Figma · WordPress · Elementor',
       description: 'Comprehensive digital portal for an educational academy in Marathahalli. Includes interactive course roadmaps, faculty showcases, student success stories, and enrollment call-to-actions.',
-      image: './images/jbk-academy.svg',
+      image: './images/jbk-academy.jpg',
+      imageWebp: './images/jbk-academy.webp',
       liveUrl: 'https://jbkacademy.in/marathahalli/'
     }
   };
@@ -496,7 +501,10 @@
       </div>
       <h3 class="text-2xl md:text-4xl font-black tracking-[-0.03em] text-cream mb-4">${project.title}</h3>
       <div class="w-full rounded-lg overflow-hidden bg-graphite border border-white/10 mb-6">
-        <img src="${project.image}" alt="${project.title}" class="w-full h-auto aspect-[16/10] object-cover" />
+        <picture>
+          <source srcset="${project.imageWebp}" type="image/webp">
+          <img src="${project.image}" alt="${project.title} — preview mockup" class="w-full h-auto aspect-[16/10] object-cover" />
+        </picture>
       </div>
       <p class="text-sm md:text-base text-cream/70 leading-relaxed font-light mb-6">${project.description}</p>
       <div class="py-4 border-t border-b border-white/10 mb-6 flex flex-wrap gap-6 text-xs font-mono">
@@ -504,7 +512,7 @@
         <div><span class="text-cream/30 block mb-1">TOOLS</span><span class="text-cream/80">${project.tools}</span></div>
       </div>
       <div class="flex items-center justify-end gap-4">
-        <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300" style="background: ${project.color}; color: #0b0b0d;">
+        <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 hover:opacity-90" style="background: ${project.color}; color: #0b0b0d;">
           <span>Visit Live Website</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
         </a>
