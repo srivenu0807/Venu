@@ -185,6 +185,10 @@ div[id] {
 }
 
 .accordion-heading {
+  font-size: clamp(2.25rem, 5.2vw, 4.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-weight: 900;
   color: rgba(244, 241, 234, 0.55);
   transition: color 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-block;
