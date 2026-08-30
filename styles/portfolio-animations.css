@@ -1,0 +1,647 @@
+/* ==========================================================================
+   Sri Venu Puduvayila — Creative Developer Portfolio Animations
+   High-performance, cinematic scroll-triggered reveals, smooth inertia,
+   gentle multi-layer parallax, and refined micro-interactions.
+   ========================================================================== */
+
+:root {
+  --anim-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --anim-ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+  --anim-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --anim-duration-reveal: 850ms;
+  --color-accent-lime: #c8ff3d;
+  --color-accent-coral: #ff7657;
+  --color-cream: #f4f1ea;
+  --color-dark: #0b0b0d;
+  --color-graphite: #19191d;
+}
+
+/* ==========================================================================
+   Smooth Scrolling & Document Base
+   ========================================================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+html.has-smooth-scroll {
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Section scroll margins to account for fixed navbar */
+section[id],
+article[id],
+div[id] {
+  scroll-margin-top: 5rem;
+}
+
+@media (min-width: 768px) {
+  section[id],
+  article[id],
+  div[id] {
+    scroll-margin-top: 6rem;
+  }
+}
+
+/* ==========================================================================
+   Scroll Progress Bar
+   ========================================================================== */
+#scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent-lime), #a3e635, var(--color-accent-lime));
+  transform-origin: 0% 50%;
+  transform: scaleX(0);
+  z-index: 9999;
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(200, 255, 61, 0.5), 0 0 20px rgba(200, 255, 61, 0.2);
+  transition: opacity 0.3s ease;
+}
+
+/* ==========================================================================
+   Scroll Reveal System
+   ========================================================================== */
+[data-reveal] {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition-property: transform, opacity;
+  transition-duration: var(--anim-duration-reveal);
+  transition-timing-function: var(--anim-ease-out-expo);
+  transition-delay: calc(var(--reveal-delay, 0ms));
+}
+
+/* Fade Up Reveal */
+[data-reveal="fade-up"] {
+  transform: translate3d(0, 36px, 0);
+}
+
+/* Fade In Reveal */
+[data-reveal="fade-in"] {
+  transform: translate3d(0, 0, 0);
+}
+
+/* Scale Up Reveal (images, cards) */
+[data-reveal="scale-up"] {
+  transform: translate3d(0, 24px, 0) scale(0.96);
+}
+
+/* Slide Left Reveal (alternating timeline) */
+[data-reveal="slide-left"] {
+  transform: translate3d(-35px, 0, 0);
+}
+
+/* Slide Right Reveal (alternating timeline) */
+[data-reveal="slide-right"] {
+  transform: translate3d(35px, 0, 0);
+}
+
+/* Revealed State */
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* Stagger Children Support */
+[data-stagger] > * {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition: transform 700ms var(--anim-ease-out-expo), opacity 700ms ease;
+  will-change: transform, opacity;
+}
+
+[data-stagger].is-revealed > * {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+[data-stagger].is-revealed > *:nth-child(1) { transition-delay: 40ms; }
+[data-stagger].is-revealed > *:nth-child(2) { transition-delay: 100ms; }
+[data-stagger].is-revealed > *:nth-child(3) { transition-delay: 160ms; }
+[data-stagger].is-revealed > *:nth-child(4) { transition-delay: 220ms; }
+[data-stagger].is-revealed > *:nth-child(5) { transition-delay: 280ms; }
+[data-stagger].is-revealed > *:nth-child(6) { transition-delay: 340ms; }
+[data-stagger].is-revealed > *:nth-child(7) { transition-delay: 400ms; }
+[data-stagger].is-revealed > *:nth-child(8) { transition-delay: 460ms; }
+[data-stagger].is-revealed > *:nth-child(9) { transition-delay: 520ms; }
+[data-stagger].is-revealed > *:nth-child(10) { transition-delay: 580ms; }
+[data-stagger].is-revealed > *:nth-child(11) { transition-delay: 640ms; }
+[data-stagger].is-revealed > *:nth-child(12) { transition-delay: 700ms; }
+
+/* ==========================================================================
+   Hero Visual Flourishes & Floating Accents
+   ========================================================================== */
+.hero-bg-grid {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.hero-portrait-wrap {
+  position: relative;
+  transition: transform 0.5s var(--anim-ease-out-expo);
+}
+
+.hero-portrait-wrap:hover {
+  transform: translateY(-4px);
+}
+
+.hero-portrait-wrap img {
+  transition: transform 1.2s var(--anim-ease-out-expo), filter 0.8s ease;
+}
+
+.hero-portrait-wrap:hover img {
+  transform: scale(1.03);
+}
+
+/* Scroll indicator bounce */
+.hero-scroll-indicator {
+  animation: hero-scroll-bounce 2.6s ease-in-out infinite;
+}
+
+@keyframes hero-scroll-bounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+
+.hero-arrow-pulse {
+  display: inline-block;
+  animation: hero-arrow-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes hero-arrow-pulse {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+/* ==========================================================================
+   Interactive Accordion: I DESIGN / I BUILD / I EXPERIMENT
+   ========================================================================== */
+.accordion-item {
+  cursor: pointer;
+  padding: 0.5rem 0;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.accordion-title {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  transition: color 0.4s var(--anim-ease-out-expo), transform 0.4s var(--anim-ease-out-expo);
+}
+
+.accordion-item:hover .accordion-title {
+  color: var(--color-accent-lime) !important;
+  transform: translateX(4px);
+}
+
+.accordion-item.is-active .accordion-title {
+  color: var(--color-accent-lime) !important;
+}
+
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 450ms var(--anim-ease-out-expo), opacity 400ms ease;
+  opacity: 0;
+}
+
+.accordion-content-inner {
+  overflow: hidden;
+}
+
+.accordion-item.is-active .accordion-content,
+.accordion-item:hover .accordion-content {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.accordion-tag {
+  transition: all 0.25s ease;
+}
+
+.accordion-tag:hover {
+  border-color: rgba(200, 255, 61, 0.4) !important;
+  color: var(--color-accent-lime) !important;
+  background-color: rgba(200, 255, 61, 0.05);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Selected Work Project Cards
+   ========================================================================== */
+.project-card {
+  position: relative;
+  transition: transform 0.5s var(--anim-ease-out-expo);
+}
+
+.project-card-image-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background-color: var(--color-graphite);
+  transition: border-color 0.4s ease, box-shadow 0.5s ease;
+}
+
+.project-card:hover .project-card-image-wrap {
+  border-color: rgba(200, 255, 61, 0.3);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5), 0 0 25px -5px rgba(200, 255, 61, 0.15);
+}
+
+.project-card-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.9s var(--anim-ease-out-expo);
+  will-change: transform;
+}
+
+.project-card:hover .project-card-image {
+  transform: scale(1.035);
+}
+
+.project-card-overlay {
+  transition: background-color 0.4s ease;
+}
+
+.project-card:hover .project-card-overlay {
+  background-color: rgba(11, 11, 13, 0.25);
+}
+
+.project-badge-num {
+  will-change: transform;
+  transition: transform 0.3s ease-out;
+}
+
+/* ==========================================================================
+   Side Quests / Experiments Track
+   ========================================================================== */
+.side-quests-container {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: grab;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  padding-bottom: 1rem;
+}
+
+.side-quests-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.side-quests-container.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+  scroll-behavior: auto;
+}
+
+.side-quests-track {
+  display: flex;
+  gap: 1.25rem;
+  padding-left: clamp(1.5rem, 5vw, 2.5rem);
+  padding-right: clamp(1.5rem, 5vw, 2.5rem);
+  width: max-content;
+  transition: transform 0.3s ease;
+}
+
+.side-quest-card {
+  transition: transform 0.4s var(--anim-ease-out-expo), border-color 0.4s ease;
+}
+
+.side-quest-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ==========================================================================
+   Journey Timeline Animations
+   ========================================================================== */
+.journey-timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(200, 255, 61, 0.4) 0%, rgba(244, 241, 234, 0.1) 50%, rgba(200, 255, 61, 0.3) 100%);
+}
+
+.journey-node {
+  transition: transform 0.4s var(--anim-ease-spring), box-shadow 0.4s ease;
+}
+
+.journey-item:hover .journey-node {
+  transform: scale(1.3);
+  box-shadow: 0 0 12px var(--color-accent-lime);
+}
+
+/* ==========================================================================
+   Process Section Step Highlights
+   ========================================================================== */
+.process-step-btn {
+  position: relative;
+  width: 100%;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.25rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.process-step-btn .process-arrow {
+  transition: transform 0.35s var(--anim-ease-out-expo), color 0.3s ease;
+}
+
+.process-step-btn:hover .process-arrow {
+  transform: translateX(8px);
+  color: var(--color-accent-lime) !important;
+}
+
+.process-step-btn .process-name {
+  transition: color 0.3s ease, transform 0.35s var(--anim-ease-out-expo);
+}
+
+.process-step-btn:hover .process-name {
+  color: var(--color-cream) !important;
+  transform: translateX(4px);
+}
+
+.process-progress-bar {
+  transition: width 0.5s var(--anim-ease-out-expo);
+}
+
+.process-step-btn:hover .process-progress-bar {
+  width: 100% !important;
+  background-color: var(--color-accent-lime) !important;
+  box-shadow: 0 0 8px rgba(200, 255, 61, 0.4);
+}
+
+/* ==========================================================================
+   Toolbox Skill Badges
+   ========================================================================== */
+.skill-row {
+  transition: transform 0.3s var(--anim-ease-out-expo), border-color 0.3s ease;
+}
+
+.skill-row:hover {
+  transform: translateX(6px);
+  border-color: rgba(200, 255, 61, 0.25) !important;
+}
+
+.skill-row:hover span {
+  color: var(--color-cream) !important;
+}
+
+/* ==========================================================================
+   About Tags Micro-animation
+   ========================================================================== */
+.about-tag {
+  transition: all 0.3s var(--anim-ease-out-expo);
+}
+
+.about-tag:hover {
+  color: var(--color-accent-lime) !important;
+  border-color: rgba(200, 255, 61, 0.4) !important;
+  background-color: rgba(200, 255, 61, 0.06);
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* ==========================================================================
+   Contact Links Polish
+   ========================================================================== */
+.contact-row {
+  position: relative;
+  transition: border-color 0.3s ease, padding-left 0.3s var(--anim-ease-out-expo);
+}
+
+.contact-row:hover {
+  border-color: rgba(200, 255, 61, 0.25) !important;
+  padding-left: 0.5rem;
+}
+
+.contact-row .contact-arrow {
+  transition: transform 0.3s var(--anim-ease-out-expo), color 0.3s ease;
+}
+
+.contact-row:hover .contact-arrow {
+  transform: translate(6px, -2px);
+  color: var(--color-accent-lime) !important;
+}
+
+/* ==========================================================================
+   Navbar & Active Nav Indicator
+   ========================================================================== */
+nav {
+  transition: background-color 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+nav.is-scrolled {
+  background-color: rgba(11, 11, 13, 0.88) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color 0.3s ease;
+}
+
+.nav-link-indicator {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-accent-lime);
+  transform: scaleX(0);
+  transform-origin: 0% 50%;
+  transition: transform 0.35s var(--anim-ease-out-expo);
+  box-shadow: 0 0 6px rgba(200, 255, 61, 0.5);
+}
+
+.nav-link.is-active {
+  color: var(--color-accent-lime) !important;
+}
+
+.nav-link.is-active .nav-link-indicator {
+  transform: scaleX(1);
+}
+
+/* ==========================================================================
+   Mobile Menu Overlay
+   ========================================================================== */
+#mobile-nav-menu {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 11, 13, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 49;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-20px);
+  transition: opacity 0.4s var(--anim-ease-out-expo), transform 0.4s var(--anim-ease-out-expo);
+}
+
+#mobile-nav-menu.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.mobile-nav-link {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.5rem;
+  letter-spacing: 0.2em;
+  color: rgba(244, 241, 234, 0.7);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.is-active {
+  color: var(--color-accent-lime);
+  transform: translateX(6px);
+}
+
+/* ==========================================================================
+   Project Details Modal
+   ========================================================================== */
+#project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+#project-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 11, 13, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.project-modal-dialog {
+  position: relative;
+  max-width: 760px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: #151518;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 40px rgba(200, 255, 61, 0.08);
+  transform: scale(0.95) translateY(15px);
+  transition: transform 0.4s var(--anim-ease-out-expo);
+}
+
+#project-modal.is-open .project-modal-dialog {
+  transform: scale(1) translateY(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(200, 255, 61, 0.15);
+  border-color: var(--color-accent-lime);
+  color: var(--color-accent-lime);
+  transform: rotate(90deg);
+}
+
+/* ==========================================================================
+   Accessibility: prefers-reduced-motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  [data-reveal],
+  [data-stagger] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+
+  #scroll-progress-bar {
+    display: none !important;
+  }
+
+  .hero-scroll-indicator,
+  .hero-arrow-pulse {
+    animation: none !important;
+  }
+
+  .project-card-image,
+  .hero-portrait-wrap img,
+  .project-badge-num {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .accordion-content {
+    grid-template-rows: 1fr !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  #mobile-nav-menu,
+  #project-modal .project-modal-dialog {
+    transition: opacity 0.15s ease !important;
+    transform: none !important;
+  }
+}
