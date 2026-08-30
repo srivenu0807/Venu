@@ -295,6 +295,21 @@
   });
 
   /* ==========================================================================
+     Process Cards: Mobile / Touch Tap to Toggle
+     ========================================================================== */
+  const processCards = document.querySelectorAll('[data-process-card]');
+
+  processCards.forEach((card) => {
+    card.addEventListener('click', () => {
+      const isActive = card.classList.contains('is-active');
+      processCards.forEach((c) => c.classList.remove('is-active'));
+      if (!isActive) {
+        card.classList.add('is-active');
+      }
+    });
+  });
+
+  /* ==========================================================================
      8. Drag-to-Scroll on Side Quests / Experiments Track
      ========================================================================== */
   const sideQuestsContainer = document.querySelector('.side-quests-container');

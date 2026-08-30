@@ -457,60 +457,77 @@ div[id] {
 .process-card {
   position: relative;
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-  transition: border-color 0.3s ease;
-}
-
-.process-card:hover {
-  border-bottom-color: rgba(200, 255, 61, 0.35);
+  transition: border-color 0.25s ease;
+  user-select: none;
 }
 
 .process-card-num {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.85rem;
   letter-spacing: 0.15em;
-  color: rgba(200, 255, 61, 0.8);
-  transition: color 0.3s ease;
-}
-
-.process-card:hover .process-card-num {
-  color: var(--color-accent-lime);
+  color: rgba(200, 255, 61, 0.65);
+  transition: color 0.25s ease;
 }
 
 .process-card-arrow {
   color: rgba(244, 241, 234, 0.25);
   display: inline-block;
-  transition: transform 0.3s var(--anim-ease-out-expo), color 0.3s ease;
+  transition: transform 0.25s var(--anim-ease-out-expo), color 0.25s ease;
 }
 
-.process-card:hover .process-card-arrow {
+.process-card-title {
+  color: rgba(244, 241, 234, 0.7);
+  transition: color 0.25s ease;
+}
+
+/* Accordion Description Wrap */
+.process-card-desc-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 280ms var(--anim-ease-out-expo);
+}
+
+.process-card-desc-inner {
+  overflow: hidden;
+}
+
+.process-card-desc-text {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 220ms ease, transform 280ms var(--anim-ease-out-expo);
+}
+
+/* Desktop Hover and Touch Active States */
+.process-card:hover,
+.process-card.is-active {
+  border-bottom-color: rgba(200, 255, 61, 0.35);
+}
+
+.process-card:hover .process-card-num,
+.process-card.is-active .process-card-num {
+  color: var(--color-accent-lime);
+}
+
+.process-card:hover .process-card-arrow,
+.process-card.is-active .process-card-arrow {
   color: var(--color-accent-lime);
   transform: translateX(4px);
 }
 
-.process-card-title {
-  color: var(--color-cream);
-  transition: color 0.3s ease;
-}
-
-.process-card:hover .process-card-title {
+.process-card:hover .process-card-title,
+.process-card.is-active .process-card-title {
   color: var(--color-accent-lime);
 }
 
-.process-card-desc {
-  color: rgba(244, 241, 234, 0.65);
-  font-size: 0.925rem;
-  line-height: 1.65;
-  transition: color 0.3s ease;
+.process-card:hover .process-card-desc-wrap,
+.process-card.is-active .process-card-desc-wrap {
+  grid-template-rows: 1fr;
 }
 
-@media (min-width: 768px) {
-  .process-card-desc {
-    font-size: 0.975rem;
-  }
-}
-
-.process-card:hover .process-card-desc {
-  color: rgba(244, 241, 234, 0.9);
+.process-card:hover .process-card-desc-text,
+.process-card.is-active .process-card-desc-text {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ==========================================================================
@@ -747,13 +764,13 @@ nav.is-scrolled {
   }
 
   .accordion-content,
-  .process-desc-wrap {
+  .process-card-desc-wrap {
     grid-template-rows: 1fr !important;
     opacity: 1 !important;
     transition: none !important;
   }
 
-  .process-desc-text {
+  .process-card-desc-text {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
