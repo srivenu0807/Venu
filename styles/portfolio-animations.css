@@ -542,6 +542,54 @@ div[id] {
 }
 
 /* ==========================================================================
+   Hero Portrait Presentation & Animation
+   ========================================================================== */
+.hero-portrait-card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(200, 255, 61, 0.03);
+  transition: transform 0.5s var(--anim-ease-out-expo), border-color 0.4s ease, box-shadow 0.5s ease;
+}
+
+.hero-portrait-card:hover {
+  border-color: rgba(200, 255, 61, 0.25);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7), 0 0 45px rgba(200, 255, 61, 0.06);
+}
+
+.hero-portrait-img {
+  transition: transform 0.7s var(--anim-ease-out-expo);
+  display: block;
+}
+
+.hero-portrait-card:hover .hero-portrait-img {
+  transform: scale(1.015);
+}
+
+/* Subtle cinematic floating movement on desktop */
+@media (min-width: 1024px) {
+  @keyframes heroFloat {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  .hero-portrait-float {
+    animation: heroFloat 8s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .hero-portrait-wrap:hover .hero-portrait-float {
+    animation-play-state: paused;
+  }
+}
+
+/* ==========================================================================
    Journey Timeline Animations
    ========================================================================== */
 .journey-timeline-line {
@@ -862,7 +910,8 @@ nav.is-scrolled {
   }
 
   .hero-scroll-indicator,
-  .hero-arrow-pulse {
+  .hero-arrow-pulse,
+  .hero-portrait-float {
     animation: none !important;
   }
 

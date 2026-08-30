@@ -113,20 +113,26 @@
         <div class="md:col-span-5 relative z-0 mt-12 md:mt-0">
           <div class="relative">
             <div class="relative hero-portrait-wrap" data-reveal="fade-up" style="--reveal-delay: 200ms;">
-              <div class="relative w-full aspect-[3/4] max-w-[400px] ml-auto overflow-hidden">
-                <div class="absolute -top-3 -right-3 w-16 h-16 border-t-[1.5px] border-r-[1.5px] border-lime/25 z-10"></div>
-                <div class="absolute -bottom-3 -left-3 w-16 h-16 border-b-[1.5px] border-l-[1.5px] border-lime/25 z-10"></div>
-                <div class="w-full h-full bg-graphite overflow-hidden relative">
-                  <img alt="Sri Venu Puduvayila — portrait" class="w-full h-full object-cover" src="./images/profile-hero.jpg">
-                  <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-dark via-dark/60 to-transparent"></div>
-                  <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between">
-                    <div><p class="text-[10px] tracking-[0.3em] text-cream/25 uppercase font-mono">Portrait</p></div>
-                    <p class="text-[9px] tracking-[0.2em] text-cream/15 font-mono">2026</p>
+              <div class="relative w-full aspect-[4/5] max-w-[340px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[440px] mx-auto md:ml-auto">
+                <!-- Architectural corner brackets -->
+                <div class="absolute -top-2.5 -right-2.5 w-10 h-10 border-t-[1.5px] border-r-[1.5px] border-lime/30 z-10 pointer-events-none"></div>
+                <div class="absolute -bottom-2.5 -left-2.5 w-10 h-10 border-b-[1.5px] border-l-[1.5px] border-lime/30 z-10 pointer-events-none"></div>
+
+                <!-- Portrait Card with subtle desktop floating animation -->
+                <div class="hero-portrait-float w-full h-full">
+                  <div class="hero-portrait-card w-full h-full">
+                    <picture>
+                      <source srcset="./images/profile-hero.webp" type="image/webp">
+                      <img alt="Sri Venu Puduvayila — Web Designer & Developer" class="w-full h-full object-cover object-[center_18%] hero-portrait-img select-none" src="./images/profile-hero.jpg" width="859" height="1024" fetchpriority="high">
+                    </picture>
                   </div>
                 </div>
-              </div>
-              <div class="absolute -right-2 md:-right-14 top-1/4 bg-dark border border-white/8 px-4 py-2.5">
-                <span class="text-[10px] tracking-[0.2em] text-lime/50 font-mono">DESIGN × CODE</span>
+
+                <!-- Minimal status badge positioned cleanly outside the photo -->
+                <div class="absolute -bottom-3 -right-2 md:-right-4 bg-dark/95 border border-white/10 rounded-full px-3.5 py-1.5 flex items-center gap-2 shadow-2xl backdrop-blur-md z-20 pointer-events-none">
+                  <span class="w-1.5 h-1.5 rounded-full bg-lime"></span>
+                  <span class="text-[10px] tracking-[0.2em] text-cream/70 font-mono uppercase">Design × Code</span>
+                </div>
               </div>
             </div>
           </div>
