@@ -1,14 +1,20 @@
 /* ==========================================================================
    Sri Venu Puduvayila — Creative Developer Portfolio Animations
-   High-performance, cinematic scroll-triggered reveals, smooth inertia,
-   gentle multi-layer parallax, and refined micro-interactions.
+   Design Philosophy: MINIMAL + SMOOTH + PREMIUM + PROFESSIONAL
+   - Consistent timing & easing curves
+   - Subtle vertical reveals (20-24px max, zero horizontal slide)
+   - Staggered reveals for grouped items only
+   - Minimal, refined hover interactions (no aggressive zooming/bouncing)
+   - Zero continuous movement / zero parallax jitter
+   - Full prefers-reduced-motion accessibility
    ========================================================================== */
 
 :root {
   --anim-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --anim-ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
-  --anim-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --anim-duration-reveal: 850ms;
+  --anim-duration-reveal: 750ms;
+  --anim-duration-reveal-mobile: 450ms;
+  --anim-translate-reveal: 24px;
+  --anim-translate-reveal-mobile: 16px;
   --color-accent-lime: #c8ff3d;
   --color-accent-coral: #ff7657;
   --color-cream: #f4f1ea;
@@ -23,13 +29,10 @@ html {
   scroll-behavior: smooth;
 }
 
-html.has-smooth-scroll {
-  overflow: hidden;
-  height: 100%;
-}
-
 body {
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Section scroll margins to account for fixed navbar */
@@ -48,7 +51,7 @@ div[id] {
 }
 
 /* ==========================================================================
-   Scroll Progress Bar
+   Scroll Progress Bar (Sleek, minimal top reading indicator)
    ========================================================================== */
 #scroll-progress-bar {
   position: fixed;
@@ -56,64 +59,41 @@ div[id] {
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, var(--color-accent-lime), #a3e635, var(--color-accent-lime));
+  background: var(--color-accent-lime);
   transform-origin: 0% 50%;
   transform: scaleX(0);
   z-index: 9999;
   pointer-events: none;
-  box-shadow: 0 0 10px rgba(200, 255, 61, 0.5), 0 0 20px rgba(200, 255, 61, 0.2);
-  transition: opacity 0.3s ease;
+  opacity: 0.85;
 }
 
 /* ==========================================================================
-   Scroll Reveal System
+   Scroll Reveal System (Unified, subtle vertical reveals)
    ========================================================================== */
 [data-reveal] {
   opacity: 0;
-  will-change: transform, opacity;
-  transition-property: transform, opacity;
-  transition-duration: var(--anim-duration-reveal);
-  transition-timing-function: var(--anim-ease-out-expo);
+  transform: translate3d(0, var(--anim-translate-reveal), 0);
+  transition: opacity var(--anim-duration-reveal) var(--anim-ease-out-expo),
+              transform var(--anim-duration-reveal) var(--anim-ease-out-expo);
   transition-delay: calc(var(--reveal-delay, 0ms));
-}
-
-/* Fade Up Reveal */
-[data-reveal="fade-up"] {
-  transform: translate3d(0, 36px, 0);
-}
-
-/* Fade In Reveal */
-[data-reveal="fade-in"] {
-  transform: translate3d(0, 0, 0);
-}
-
-/* Scale Up Reveal (images, cards) */
-[data-reveal="scale-up"] {
-  transform: translate3d(0, 24px, 0) scale(0.96);
-}
-
-/* Slide Left Reveal (alternating timeline) */
-[data-reveal="slide-left"] {
-  transform: translate3d(-35px, 0, 0);
-}
-
-/* Slide Right Reveal (alternating timeline) */
-[data-reveal="slide-right"] {
-  transform: translate3d(35px, 0, 0);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
 }
 
 /* Revealed State */
 [data-reveal].is-revealed {
   opacity: 1;
-  transform: translate3d(0, 0, 0) scale(1);
+  transform: translate3d(0, 0, 0);
 }
 
-/* Stagger Children Support */
+/* Stagger Children Support (Grouped items: projects, skills, process, tools) */
 [data-stagger] > * {
   opacity: 0;
-  transform: translate3d(0, 24px, 0);
-  transition: transform 700ms var(--anim-ease-out-expo), opacity 700ms ease;
-  will-change: transform, opacity;
+  transform: translate3d(0, 18px, 0);
+  transition: opacity 600ms var(--anim-ease-out-expo),
+              transform 600ms var(--anim-ease-out-expo);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
 }
 
 [data-stagger].is-revealed > * {
@@ -121,72 +101,71 @@ div[id] {
   transform: translate3d(0, 0, 0);
 }
 
-[data-stagger].is-revealed > *:nth-child(1) { transition-delay: 40ms; }
-[data-stagger].is-revealed > *:nth-child(2) { transition-delay: 100ms; }
-[data-stagger].is-revealed > *:nth-child(3) { transition-delay: 160ms; }
-[data-stagger].is-revealed > *:nth-child(4) { transition-delay: 220ms; }
-[data-stagger].is-revealed > *:nth-child(5) { transition-delay: 280ms; }
-[data-stagger].is-revealed > *:nth-child(6) { transition-delay: 340ms; }
-[data-stagger].is-revealed > *:nth-child(7) { transition-delay: 400ms; }
-[data-stagger].is-revealed > *:nth-child(8) { transition-delay: 460ms; }
-[data-stagger].is-revealed > *:nth-child(9) { transition-delay: 520ms; }
-[data-stagger].is-revealed > *:nth-child(10) { transition-delay: 580ms; }
-[data-stagger].is-revealed > *:nth-child(11) { transition-delay: 640ms; }
-[data-stagger].is-revealed > *:nth-child(12) { transition-delay: 700ms; }
+[data-stagger].is-revealed > *:nth-child(1) { transition-delay: 30ms; }
+[data-stagger].is-revealed > *:nth-child(2) { transition-delay: 70ms; }
+[data-stagger].is-revealed > *:nth-child(3) { transition-delay: 110ms; }
+[data-stagger].is-revealed > *:nth-child(4) { transition-delay: 150ms; }
+[data-stagger].is-revealed > *:nth-child(5) { transition-delay: 190ms; }
+[data-stagger].is-revealed > *:nth-child(6) { transition-delay: 230ms; }
+[data-stagger].is-revealed > *:nth-child(7) { transition-delay: 270ms; }
+[data-stagger].is-revealed > *:nth-child(8) { transition-delay: 310ms; }
+[data-stagger].is-revealed > *:nth-child(9) { transition-delay: 350ms; }
+[data-stagger].is-revealed > *:nth-child(10) { transition-delay: 390ms; }
+[data-stagger].is-revealed > *:nth-child(11) { transition-delay: 430ms; }
+[data-stagger].is-revealed > *:nth-child(12) { transition-delay: 470ms; }
 
-/* ==========================================================================
-   Hero Visual Flourishes & Floating Accents
-   ========================================================================== */
-.hero-bg-grid {
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
+/* Faster, lighter reveals on mobile for snappier performance */
+@media (max-width: 768px) {
+  [data-reveal] {
+    transform: translate3d(0, var(--anim-translate-reveal-mobile), 0);
+    transition-duration: var(--anim-duration-reveal-mobile);
+  }
+
+  [data-stagger] > * {
+    transform: translate3d(0, 12px, 0);
+    transition-duration: 400ms;
+  }
+
+  [data-stagger].is-revealed > *:nth-child(1) { transition-delay: 20ms; }
+  [data-stagger].is-revealed > *:nth-child(2) { transition-delay: 45ms; }
+  [data-stagger].is-revealed > *:nth-child(3) { transition-delay: 70ms; }
+  [data-stagger].is-revealed > *:nth-child(4) { transition-delay: 95ms; }
+  [data-stagger].is-revealed > *:nth-child(5) { transition-delay: 120ms; }
 }
 
+/* ==========================================================================
+   Hero Visual Flourishes (Clean, static, elegant)
+   ========================================================================== */
 .hero-portrait-wrap {
   position: relative;
-  transition: transform 0.5s var(--anim-ease-out-expo);
+  transition: transform 0.4s var(--anim-ease-out-expo);
 }
 
 .hero-portrait-wrap:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
 }
 
 .hero-portrait-wrap img {
-  transition: transform 1.2s var(--anim-ease-out-expo), filter 0.8s ease;
+  transition: transform 0.65s var(--anim-ease-out-expo);
 }
 
 .hero-portrait-wrap:hover img {
-  transform: scale(1.03);
+  transform: scale(1.015);
 }
 
-/* Scroll indicator bounce */
+/* Clean, non-distracting scroll indicator */
 .hero-scroll-indicator {
-  animation: hero-scroll-bounce 2.6s ease-in-out infinite;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
 }
 
-@keyframes hero-scroll-bounce {
-  0%, 100% {
-    transform: translateY(0);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateY(8px);
-    opacity: 1;
-  }
+.hero-scroll-indicator:hover {
+  opacity: 1;
 }
 
 .hero-arrow-pulse {
   display: inline-block;
-  animation: hero-arrow-pulse 1.8s ease-in-out infinite;
-}
-
-@keyframes hero-arrow-pulse {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(5px);
-  }
+  opacity: 0.75;
 }
 
 /* ==========================================================================
@@ -203,12 +182,11 @@ div[id] {
   display: flex;
   align-items: baseline;
   gap: 1rem;
-  transition: color 0.4s var(--anim-ease-out-expo), transform 0.4s var(--anim-ease-out-expo);
+  transition: color 0.35s var(--anim-ease-out-expo);
 }
 
 .accordion-item:hover .accordion-title {
   color: var(--color-accent-lime) !important;
-  transform: translateX(4px);
 }
 
 .accordion-item.is-active .accordion-title {
@@ -218,7 +196,7 @@ div[id] {
 .accordion-content {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 450ms var(--anim-ease-out-expo), opacity 400ms ease;
+  transition: grid-template-rows 350ms var(--anim-ease-out-expo), opacity 300ms ease;
   opacity: 0;
 }
 
@@ -233,14 +211,13 @@ div[id] {
 }
 
 .accordion-tag {
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
 }
 
 .accordion-tag:hover {
-  border-color: rgba(200, 255, 61, 0.4) !important;
+  border-color: rgba(200, 255, 61, 0.35) !important;
   color: var(--color-accent-lime) !important;
-  background-color: rgba(200, 255, 61, 0.05);
-  transform: translateY(-1px);
+  background-color: rgba(200, 255, 61, 0.04);
 }
 
 /* ==========================================================================
@@ -256,7 +233,6 @@ div[id] {
 
 .project-card {
   position: relative;
-  transition: transform 0.5s var(--anim-ease-out-expo);
 }
 
 .project-card-image-wrap {
@@ -265,8 +241,8 @@ div[id] {
   border-radius: 0.75rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background-color: var(--color-graphite);
-  transition: border-color 0.4s ease, box-shadow 0.5s ease;
-  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.4);
 }
 
 .project-card-image-wrap picture {
@@ -277,36 +253,36 @@ div[id] {
 }
 
 .project-card:hover .project-card-image-wrap {
-  border-color: rgba(200, 255, 61, 0.35);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 30px -5px rgba(200, 255, 61, 0.15);
+  border-color: rgba(200, 255, 61, 0.3);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.6), 0 0 20px -5px rgba(200, 255, 61, 0.12);
 }
 
+/* Subtle, minimal image reveal & hover zoom */
 .project-card-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.85s var(--anim-ease-out-expo), filter 0.5s ease;
+  transition: transform 0.65s var(--anim-ease-out-expo), opacity 0.65s ease;
   will-change: transform;
   transform: scale(1);
 }
 
 .project-card:hover .project-card-image {
-  transform: scale(1.03);
+  transform: scale(1.018);
 }
 
 .project-card-overlay {
-  transition: background-color 0.4s ease;
+  transition: background-color 0.35s ease;
   pointer-events: none;
 }
 
 .project-card:hover .project-card-overlay {
-  background-color: rgba(11, 11, 13, 0.2);
+  background-color: rgba(11, 11, 13, 0.15);
 }
 
 .project-badge-num {
-  will-change: transform;
-  transition: transform 0.3s ease-out;
+  user-select: none;
 }
 
 /* ==========================================================================
@@ -343,7 +319,7 @@ div[id] {
   white-space: nowrap;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
-  transition: all 0.3s var(--anim-ease-out-expo);
+  transition: all 0.25s var(--anim-ease-out-expo);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
 }
@@ -351,14 +327,14 @@ div[id] {
 .project-action-btn:hover {
   color: var(--color-accent-lime);
   background-color: rgba(200, 255, 61, 0.08);
-  border-color: rgba(200, 255, 61, 0.45);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), 0 0 16px rgba(200, 255, 61, 0.18);
+  border-color: rgba(200, 255, 61, 0.4);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3), 0 0 14px rgba(200, 255, 61, 0.15);
   transform: translateY(-1px);
 }
 
 .project-action-btn:active {
-  transform: scale(0.97);
-  background-color: rgba(200, 255, 61, 0.18);
+  transform: scale(0.98);
+  background-color: rgba(200, 255, 61, 0.15);
   border-color: var(--color-accent-lime);
   color: var(--color-accent-lime);
 }
@@ -368,7 +344,7 @@ div[id] {
   height: 13px;
   color: rgba(244, 241, 234, 0.7);
   flex-shrink: 0;
-  transition: transform 0.3s var(--anim-ease-out-expo), color 0.3s ease;
+  transition: transform 0.25s var(--anim-ease-out-expo), color 0.25s ease;
 }
 
 .project-action-btn:hover .action-icon,
@@ -424,13 +400,13 @@ div[id] {
   cursor: grab;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
-  padding-bottom: 1rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 0.75rem;
 }
 
 .side-quests-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 
 .side-quests-container.is-dragging {
@@ -445,15 +421,14 @@ div[id] {
   padding-left: clamp(1.5rem, 5vw, 2.5rem);
   padding-right: clamp(1.5rem, 5vw, 2.5rem);
   width: max-content;
-  transition: transform 0.3s ease;
 }
 
 .side-quest-card {
-  transition: transform 0.4s var(--anim-ease-out-expo), border-color 0.4s ease;
+  transition: transform 0.35s var(--anim-ease-out-expo), border-color 0.3s ease;
 }
 
 .side-quest-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
 }
 
 /* ==========================================================================
@@ -468,16 +443,16 @@ div[id] {
 }
 
 .journey-node {
-  transition: transform 0.4s var(--anim-ease-spring), box-shadow 0.4s ease;
+  transition: transform 0.3s var(--anim-ease-out-expo), box-shadow 0.3s ease;
 }
 
 .journey-item:hover .journey-node {
-  transform: scale(1.3);
-  box-shadow: 0 0 12px var(--color-accent-lime);
+  transform: scale(1.15);
+  box-shadow: 0 0 10px var(--color-accent-lime);
 }
 
 /* ==========================================================================
-   Process Section Step Highlights
+   Process Section Step Highlights (Clean, subtle progress fill)
    ========================================================================== */
 .process-step-btn {
   position: relative;
@@ -488,46 +463,44 @@ div[id] {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .process-step-btn .process-arrow {
-  transition: transform 0.35s var(--anim-ease-out-expo), color 0.3s ease;
+  transition: transform 0.25s var(--anim-ease-out-expo), color 0.25s ease;
 }
 
 .process-step-btn:hover .process-arrow {
-  transform: translateX(8px);
+  transform: translateX(4px);
   color: var(--color-accent-lime) !important;
 }
 
 .process-step-btn .process-name {
-  transition: color 0.3s ease, transform 0.35s var(--anim-ease-out-expo);
+  transition: color 0.25s ease;
 }
 
 .process-step-btn:hover .process-name {
   color: var(--color-cream) !important;
-  transform: translateX(4px);
 }
 
 .process-progress-bar {
-  transition: width 0.5s var(--anim-ease-out-expo);
+  transition: width 0.4s var(--anim-ease-out-expo);
 }
 
 .process-step-btn:hover .process-progress-bar {
   width: 100% !important;
   background-color: var(--color-accent-lime) !important;
-  box-shadow: 0 0 8px rgba(200, 255, 61, 0.4);
 }
 
 /* ==========================================================================
-   Toolbox Skill Badges
+   Toolbox Skill Badges (Subtle hover shift)
    ========================================================================== */
 .skill-row {
-  transition: transform 0.3s var(--anim-ease-out-expo), border-color 0.3s ease;
+  transition: transform 0.25s var(--anim-ease-out-expo), border-color 0.25s ease;
 }
 
 .skill-row:hover {
-  transform: translateX(6px);
+  transform: translateX(3px);
   border-color: rgba(200, 255, 61, 0.25) !important;
 }
 
@@ -539,14 +512,14 @@ div[id] {
    About Tags Micro-animation
    ========================================================================== */
 .about-tag {
-  transition: all 0.3s var(--anim-ease-out-expo);
+  transition: all 0.25s var(--anim-ease-out-expo);
 }
 
 .about-tag:hover {
   color: var(--color-accent-lime) !important;
-  border-color: rgba(200, 255, 61, 0.4) !important;
-  background-color: rgba(200, 255, 61, 0.06);
-  transform: translateY(-2px) scale(1.04);
+  border-color: rgba(200, 255, 61, 0.35) !important;
+  background-color: rgba(200, 255, 61, 0.05);
+  transform: translateY(-1px);
 }
 
 /* ==========================================================================
@@ -554,20 +527,19 @@ div[id] {
    ========================================================================== */
 .contact-row {
   position: relative;
-  transition: border-color 0.3s ease, padding-left 0.3s var(--anim-ease-out-expo);
+  transition: border-color 0.25s ease;
 }
 
 .contact-row:hover {
   border-color: rgba(200, 255, 61, 0.25) !important;
-  padding-left: 0.5rem;
 }
 
 .contact-row .contact-arrow {
-  transition: transform 0.3s var(--anim-ease-out-expo), color 0.3s ease;
+  transition: transform 0.25s var(--anim-ease-out-expo), color 0.25s ease;
 }
 
 .contact-row:hover .contact-arrow {
-  transform: translate(6px, -2px);
+  transform: translate(3px, -1px);
   color: var(--color-accent-lime) !important;
 }
 
@@ -575,7 +547,7 @@ div[id] {
    Navbar & Active Nav Indicator
    ========================================================================== */
 nav {
-  transition: background-color 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 nav.is-scrolled {
@@ -587,7 +559,7 @@ nav.is-scrolled {
 .nav-link {
   position: relative;
   padding: 0.25rem 0;
-  transition: color 0.3s ease;
+  transition: color 0.25s ease;
 }
 
 .nav-link-indicator {
@@ -599,8 +571,7 @@ nav.is-scrolled {
   background-color: var(--color-accent-lime);
   transform: scaleX(0);
   transform-origin: 0% 50%;
-  transition: transform 0.35s var(--anim-ease-out-expo);
-  box-shadow: 0 0 6px rgba(200, 255, 61, 0.5);
+  transition: transform 0.3s var(--anim-ease-out-expo);
 }
 
 .nav-link.is-active {
@@ -628,8 +599,8 @@ nav.is-scrolled {
   gap: 2rem;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-20px);
-  transition: opacity 0.4s var(--anim-ease-out-expo), transform 0.4s var(--anim-ease-out-expo);
+  transform: translateY(-12px);
+  transition: opacity 0.3s var(--anim-ease-out-expo), transform 0.3s var(--anim-ease-out-expo);
 }
 
 #mobile-nav-menu.is-open {
@@ -643,13 +614,12 @@ nav.is-scrolled {
   font-size: 1.5rem;
   letter-spacing: 0.2em;
   color: rgba(244, 241, 234, 0.7);
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: color 0.25s ease;
 }
 
 .mobile-nav-link:hover,
 .mobile-nav-link.is-active {
   color: var(--color-accent-lime);
-  transform: translateX(6px);
 }
 
 /* ==========================================================================
@@ -665,7 +635,7 @@ nav.is-scrolled {
   padding: 1.5rem;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.3s ease;
 }
 
 #project-modal.is-open {
@@ -691,9 +661,9 @@ nav.is-scrolled {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 40px rgba(200, 255, 61, 0.08);
-  transform: scale(0.95) translateY(15px);
-  transition: transform 0.4s var(--anim-ease-out-expo);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(200, 255, 61, 0.06);
+  transform: scale(0.97) translateY(10px);
+  transition: transform 0.35s var(--anim-ease-out-expo);
 }
 
 #project-modal.is-open .project-modal-dialog {
@@ -721,7 +691,6 @@ nav.is-scrolled {
   background: rgba(200, 255, 61, 0.15);
   border-color: var(--color-accent-lime);
   color: var(--color-accent-lime);
-  transform: rotate(90deg);
 }
 
 /* ==========================================================================
@@ -764,7 +733,7 @@ nav.is-scrolled {
 
   #mobile-nav-menu,
   #project-modal .project-modal-dialog {
-    transition: opacity 0.15s ease !important;
+    transition: opacity 0.1s ease !important;
     transform: none !important;
   }
 }

@@ -1,10 +1,10 @@
 /**
- * Sri Venu Puduvayila — Creative Developer Portfolio Animations Engine
+ * Sri Venu Puduvayila — Minimal & Smooth Portfolio Animation Engine
+ * Philosophy: MINIMAL + SMOOTH + PREMIUM + PROFESSIONAL
  * Features:
- * - Smooth momentum inertia scroll lerp on desktop (native on mobile)
- * - IntersectionObserver-based scroll-triggered reveals with cinematic easing
- * - GPU-accelerated scroll progress bar
- * - Multi-layer gentle parallax for background grid & floating typography
+ * - Native buttery-smooth desktop and mobile scroll physics (zero wheel hijacking)
+ * - IntersectionObserver-based subtle scroll-triggered reveals
+ * - GPU-accelerated lightweight scroll progress bar
  * - Dynamic scroll spy & active navigation tracking
  * - Interactive accordion for "I DESIGN / I BUILD / I EXPERIMENT"
  * - Interactive draggable / swipeable Side Quests track
@@ -33,90 +33,17 @@
   }
 
   /* ==========================================================================
-     2. Smooth Inertia Momentum Scroll (Desktop Only)
+     2. Native Smooth Scroll Helper for Anchors
      ========================================================================== */
-  let isTouchDevice = false;
-  try {
-    isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-  } catch (e) {
-    isTouchDevice = false;
+  function smoothScrollTo(targetY) {
+    const nav = document.querySelector('nav');
+    const navHeight = nav ? nav.offsetHeight : 80;
+    const finalPos = Math.max(0, targetY - navHeight);
+    window.scrollTo({
+      top: finalPos,
+      behavior: 'smooth'
+    });
   }
-
-  // Smooth scroll controller
-  class MomentumScroller {
-    constructor() {
-      this.targetY = window.scrollY;
-      this.currentY = window.scrollY;
-      this.ease = 0.09;
-      this.isScrolling = false;
-      this.rafId = null;
-
-      // Only enable inertia scroll on desktop without reduced motion
-      if (!isTouchDevice && !prefersReducedMotion && window.innerWidth >= 1024) {
-        this.init();
-      }
-    }
-
-    init() {
-      // Sync on external scroll (e.g. scrollbar drag or anchor jump)
-      window.addEventListener('scroll', () => {
-        if (!this.isScrolling) {
-          this.targetY = window.scrollY;
-          this.currentY = window.scrollY;
-        }
-      }, { passive: true });
-
-      // Intercept wheel events
-      window.addEventListener('wheel', (e) => {
-        // Allow modal scrolling
-        if (e.target.closest('#project-modal') || e.target.closest('.side-quests-container')) {
-          return;
-        }
-
-        e.preventDefault();
-        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-        this.targetY += e.deltaY * 0.9;
-        this.targetY = Math.max(0, Math.min(this.targetY, maxScroll));
-
-        if (!this.isScrolling) {
-          this.isScrolling = true;
-          this.loop();
-        }
-      }, { passive: false });
-    }
-
-    loop() {
-      const diff = this.targetY - this.currentY;
-      this.currentY += diff * this.ease;
-
-      window.scrollTo(0, Math.round(this.currentY));
-
-      if (Math.abs(diff) > 0.5) {
-        this.rafId = requestAnimationFrame(() => this.loop());
-      } else {
-        this.currentY = this.targetY;
-        this.isScrolling = false;
-      }
-    }
-
-    scrollTo(targetY) {
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      this.targetY = Math.max(0, Math.min(targetY, maxScroll));
-      if (!isTouchDevice && !prefersReducedMotion && window.innerWidth >= 1024) {
-        if (!this.isScrolling) {
-          this.isScrolling = true;
-          this.loop();
-        }
-      } else {
-        window.scrollTo({
-          top: this.targetY,
-          behavior: 'smooth'
-        });
-      }
-    }
-  }
-
-  const scroller = new MomentumScroller();
 
   /* ==========================================================================
      3. Scroll-Triggered Reveal Animations
@@ -138,14 +65,14 @@
       });
     }, {
       root: null,
-      rootMargin: '-6% 0px -4% 0px',
-      threshold: 0.08
+      rootMargin: '-4% 0px -4% 0px',
+      threshold: 0.05
     });
 
     revealElements.forEach((el) => {
-      // Check if already well within viewport on initial load
+      // If already within viewport on page load, reveal immediately without delay
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.9 && rect.bottom > 0) {
+      if (rect.top < window.innerHeight * 0.88 && rect.bottom > 0) {
         el.classList.add('is-revealed');
       } else {
         revealObserver.observe(el);
@@ -154,50 +81,7 @@
   }
 
   /* ==========================================================================
-     4. Gentle Parallax on Background & Decorative Elements
-     ========================================================================== */
-  const heroGrid = document.querySelector('.hero-bg-grid');
-  const parallaxNumbers = document.querySelectorAll('.project-badge-num');
-
-  function updateParallax() {
-    const scrollY = window.scrollY || window.pageYOffset || 0;
-
-    // Subtle hero background grid drift
-    if (heroGrid && scrollY < window.innerHeight * 1.5) {
-      heroGrid.style.transform = `translate3d(0, ${scrollY * 0.12}px, 0)`;
-    }
-
-    // Floating project numerals depth
-    parallaxNumbers.forEach((numEl) => {
-      const rect = numEl.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        const offset = (rect.top - window.innerHeight / 2) * 0.08;
-        numEl.style.transform = `translate3d(0, ${offset}px, 0)`;
-      }
-    });
-  }
-
-  /* ==========================================================================
-     5. Unified RequestAnimationFrame Scroll Loop
-     ========================================================================== */
-  let ticking = false;
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        updateProgressBar();
-        if (!prefersReducedMotion) {
-          updateParallax();
-        }
-        updateActiveNav();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
-
-  /* ==========================================================================
-     6. Navigation & Scroll Spy
+     4. Navigation & Scroll Spy
      ========================================================================== */
   const nav = document.querySelector('nav');
   const navLinks = document.querySelectorAll('[data-nav]');
@@ -209,7 +93,7 @@
 
     // Navbar background blur enhancement on scroll
     if (nav) {
-      if (scrollY > 50) {
+      if (scrollY > 40) {
         nav.classList.add('is-scrolled');
       } else {
         nav.classList.remove('is-scrolled');
@@ -222,24 +106,25 @@
       const sectionEl = document.getElementById(sections[i]);
       if (sectionEl) {
         const rect = sectionEl.getBoundingClientRect();
-        if (rect.top <= window.innerHeight * 0.4) {
+        if (rect.top <= window.innerHeight * 0.45) {
           currentSection = sections[i];
           break;
         }
       }
     }
 
-    navLinks.forEach((btn) => {
-      const target = btn.getAttribute('data-nav');
+    navLinks.forEach((link) => {
+      const target = link.getAttribute('data-nav');
       if (target === currentSection) {
-        btn.classList.add('is-active');
+        link.classList.add('is-active');
       } else {
-        btn.classList.remove('is-active');
+        link.classList.remove('is-active');
       }
     });
 
     mobileNavLinks.forEach((link) => {
-      const target = link.getAttribute('data-nav');
+      const href = link.getAttribute('href') || '';
+      const target = href.replace('#', '');
       if (target === currentSection) {
         link.classList.add('is-active');
       } else {
@@ -248,66 +133,90 @@
     });
   }
 
-  // Smooth scroll handler for nav buttons and links
-  function handleNavClick(e) {
-    const btn = e.currentTarget;
-    const targetId = btn.getAttribute('data-nav');
-    if (!targetId) return;
-
-    e.preventDefault();
-
-    if (targetId === 'top') {
-      scroller.scrollTo(0);
-    } else {
+  // Smooth scroll for nav anchor clicks
+  navLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('data-nav');
       const targetEl = document.getElementById(targetId);
       if (targetEl) {
-        const navHeight = nav ? nav.offsetHeight : 80;
-        const targetPos = targetEl.getBoundingClientRect().top + window.pageYOffset - (navHeight + 20);
-        scroller.scrollTo(targetPos);
+        const pos = targetEl.getBoundingClientRect().top + window.pageYOffset;
+        smoothScrollTo(pos);
       }
-    }
-
-    // Close mobile menu if open
-    closeMobileMenu();
-  }
-
-  navLinks.forEach((btn) => btn.addEventListener('click', handleNavClick));
-  mobileNavLinks.forEach((link) => link.addEventListener('click', handleNavClick));
-
-  // SV Logo button click -> scroll to top
-  const logoButtons = document.querySelectorAll('button[data-nav="top"], button[data-logo]');
-  logoButtons.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      scroller.scrollTo(0);
     });
   });
 
-  // "Explore Work" button in hero -> scroll to work
-  const exploreWorkBtns = document.querySelectorAll('button[data-explore="work"]');
+  // Mobile nav anchor clicks
+  mobileNavLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href') || '';
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        closeMobileMenu();
+        const targetId = href.substring(1);
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          setTimeout(() => {
+            const pos = targetEl.getBoundingClientRect().top + window.pageYOffset;
+            smoothScrollTo(pos);
+          }, 250);
+        }
+      }
+    });
+  });
+
+  // Logo click -> smooth scroll to top
+  const logo = document.querySelector('[data-logo]');
+  if (logo) {
+    logo.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  // "Explore Selected Work" button in hero -> smooth scroll to #work
+  const exploreWorkBtns = document.querySelectorAll('[data-explore="work"]');
   exploreWorkBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const workSection = document.getElementById('work');
       if (workSection) {
-        const navHeight = nav ? nav.offsetHeight : 80;
-        const targetPos = workSection.getBoundingClientRect().top + window.pageYOffset - (navHeight + 10);
-        scroller.scrollTo(targetPos);
+        const pos = workSection.getBoundingClientRect().top + window.pageYOffset;
+        smoothScrollTo(pos);
       }
     });
   });
 
-  // Hero vertical "SCROLL" button click -> scroll down
+  // Hero vertical "SCROLL" button click -> scroll down smoothly
   const heroScrollBtn = document.querySelector('.hero-scroll-btn');
   if (heroScrollBtn) {
     heroScrollBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      scroller.scrollTo(window.innerHeight * 0.9);
+      smoothScrollTo(window.innerHeight * 0.85);
     });
   }
 
   /* ==========================================================================
-     7. Mobile Navigation Menu Toggle
+     5. Lightweight Scroll Listener Loop
+     ========================================================================== */
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateProgressBar();
+        updateActiveNav();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  /* ==========================================================================
+     6. Mobile Navigation Menu Toggle
      ========================================================================== */
   const mobileMenuToggle = document.querySelector('button[aria-label="Toggle menu"]');
   const mobileMenu = document.getElementById('mobile-nav-menu');
@@ -361,7 +270,7 @@
   }
 
   /* ==========================================================================
-     8. Interactive Accordion: "I DESIGN / I BUILD / I EXPERIMENT"
+     7. Interactive Accordion: "I DESIGN / I BUILD / I EXPERIMENT"
      ========================================================================== */
   const accordionItems = document.querySelectorAll('.accordion-item');
 
@@ -386,13 +295,14 @@
   });
 
   /* ==========================================================================
-     9. Interactive Draggable Side Quests Carousel
+     8. Drag-to-Scroll on Side Quests / Experiments Track
      ========================================================================== */
   const sideQuestsContainer = document.querySelector('.side-quests-container');
+
   if (sideQuestsContainer) {
     let isDown = false;
-    let startX = 0;
-    let scrollLeft = 0;
+    let startX;
+    let scrollLeft;
 
     sideQuestsContainer.addEventListener('mousedown', (e) => {
       isDown = true;
@@ -401,24 +311,27 @@
       scrollLeft = sideQuestsContainer.scrollLeft;
     });
 
-    window.addEventListener('mouseup', () => {
-      if (isDown) {
-        isDown = false;
-        sideQuestsContainer.classList.remove('is-dragging');
-      }
+    sideQuestsContainer.addEventListener('mouseleave', () => {
+      isDown = false;
+      sideQuestsContainer.classList.remove('is-dragging');
+    });
+
+    sideQuestsContainer.addEventListener('mouseup', () => {
+      isDown = false;
+      sideQuestsContainer.classList.remove('is-dragging');
     });
 
     sideQuestsContainer.addEventListener('mousemove', (e) => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - sideQuestsContainer.offsetLeft;
-      const walk = (x - startX) * 1.5; // Drag speed multiplier
+      const walk = (x - startX) * 1.3;
       sideQuestsContainer.scrollLeft = scrollLeft - walk;
     });
   }
 
   /* ==========================================================================
-     10. Project Details Exploration Modal
+     9. Project Details Exploration Modal
      ========================================================================== */
   const projectData = {
     'maynu-clinics': {
@@ -529,15 +442,20 @@
     document.body.style.overflow = '';
   }
 
-  if (modalBackdrop) modalBackdrop.addEventListener('click', closeProjectModal);
-  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeProjectModal);
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener('click', closeProjectModal);
+  }
+
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener('click', closeProjectModal);
+  }
 
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (modal && modal.classList.contains('is-open')) {
         closeProjectModal();
       }
-      if (mobileMenuOpen) {
+      if (mobileMenu && mobileMenu.classList.contains('is-open')) {
         closeMobileMenu();
       }
     }
@@ -565,11 +483,11 @@
   });
 
   /* ==========================================================================
-     11. Initialize on DOM Ready
+     10. Initialization on DOM Ready
      ========================================================================== */
   function init() {
-    updateProgressBar();
     initScrollReveals();
+    updateProgressBar();
     updateActiveNav();
   }
 
@@ -578,5 +496,4 @@
   } else {
     init();
   }
-
 })();
