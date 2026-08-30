@@ -310,77 +310,100 @@
   });
 
   /* ==========================================================================
-     8. Drag-to-Scroll on Side Quests / Experiments Track
+     8. Horizontal Carousel: Drag-to-Scroll & Inertia (LANDING PAGES)
      ========================================================================== */
-  const sideQuestsContainer = document.querySelector('.side-quests-container');
+  const landingCarousel = document.querySelector('.landing-carousel-container');
 
-  if (sideQuestsContainer) {
+  if (landingCarousel) {
     let isDown = false;
-    let startX;
-    let scrollLeft;
+    let startX = 0;
+    let scrollLeft = 0;
+    let isDragging = false;
+    let velX = 0;
+    let momentumID = null;
+    let lastX = 0;
+    let lastTime = 0;
 
-    sideQuestsContainer.addEventListener('mousedown', (e) => {
+    // Prevent dragging from accidentally triggering card link navigation
+    landingCarousel.addEventListener('click', (e) => {
+      if (isDragging) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
+
+    landingCarousel.addEventListener('mousedown', (e) => {
+      if (e.button !== 0) return; // Only main button
       isDown = true;
-      sideQuestsContainer.classList.add('is-dragging');
-      startX = e.pageX - sideQuestsContainer.offsetLeft;
-      scrollLeft = sideQuestsContainer.scrollLeft;
+      isDragging = false;
+      landingCarousel.classList.add('is-dragging');
+      landingCarousel.style.scrollSnapType = 'none';
+      landingCarousel.style.scrollBehavior = 'auto';
+      cancelAnimationFrame(momentumID);
+      startX = e.pageX - landingCarousel.offsetLeft;
+      scrollLeft = landingCarousel.scrollLeft;
+      lastX = e.pageX;
+      lastTime = performance.now();
+      velX = 0;
     });
 
-    sideQuestsContainer.addEventListener('mouseleave', () => {
-      isDown = false;
-      sideQuestsContainer.classList.remove('is-dragging');
-    });
-
-    sideQuestsContainer.addEventListener('mouseup', () => {
-      isDown = false;
-      sideQuestsContainer.classList.remove('is-dragging');
-    });
-
-    sideQuestsContainer.addEventListener('mousemove', (e) => {
+    window.addEventListener('mousemove', (e) => {
       if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - sideQuestsContainer.offsetLeft;
-      const walk = (x - startX) * 1.3;
-      sideQuestsContainer.scrollLeft = scrollLeft - walk;
-    });
-  }
+      const x = e.pageX - landingCarousel.offsetLeft;
+      const walk = x - startX;
+      if (Math.abs(walk) > 5) {
+        isDragging = true;
+      }
+      landingCarousel.scrollLeft = scrollLeft - walk;
 
-  /* ==========================================================================
-     8.1 Landing Pages: VIEW MORE / SHOW LESS Toggle
-     ========================================================================== */
-  const toggleLandingBtn = document.getElementById('toggle-landing-pages-btn');
-  const landingExtraWrap = document.getElementById('landing-pages-extra');
-
-  if (toggleLandingBtn && landingExtraWrap) {
-    let isExpanded = false;
-
-    toggleLandingBtn.addEventListener('click', () => {
-      isExpanded = !isExpanded;
-      landingExtraWrap.classList.toggle('is-expanded', isExpanded);
-      toggleLandingBtn.classList.toggle('is-active', isExpanded);
-      toggleLandingBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
-      landingExtraWrap.setAttribute('aria-hidden', isExpanded ? 'false' : 'true');
-
-      const btnText = toggleLandingBtn.querySelector('.btn-text');
-      const btnIcon = toggleLandingBtn.querySelector('.btn-icon');
-
-      if (isExpanded) {
-        if (btnText) btnText.textContent = 'SHOW LESS';
-        if (btnIcon) btnIcon.textContent = '↑';
-      } else {
-        if (btnText) btnText.textContent = 'VIEW MORE';
-        if (btnIcon) btnIcon.textContent = '↓';
-
-        // Smoothly scroll back if the user is scrolled past the top of the landing pages section
-        const landingSec = document.getElementById('landing-pages');
-        if (landingSec) {
-          const rect = landingSec.getBoundingClientRect();
-          if (rect.top < -80) {
-            landingSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }
+      const now = performance.now();
+      const dt = now - lastTime;
+      if (dt > 10) {
+        velX = (e.pageX - lastX) / dt;
+        lastX = e.pageX;
+        lastTime = now;
       }
     });
+
+    const finishDrag = () => {
+      if (!isDown) return;
+      isDown = false;
+      landingCarousel.classList.remove('is-dragging');
+
+      // Smooth inertia momentum
+      if (Math.abs(velX) > 0.15) {
+        let currentVel = velX * 16;
+        const applyMomentum = () => {
+          if (Math.abs(currentVel) > 0.5) {
+            landingCarousel.scrollLeft -= currentVel;
+            currentVel *= 0.92;
+            momentumID = requestAnimationFrame(applyMomentum);
+          } else {
+            landingCarousel.style.scrollSnapType = 'x mandatory';
+            landingCarousel.style.scrollBehavior = 'smooth';
+            setTimeout(() => { isDragging = false; }, 60);
+          }
+        };
+        momentumID = requestAnimationFrame(applyMomentum);
+      } else {
+        landingCarousel.style.scrollSnapType = 'x mandatory';
+        landingCarousel.style.scrollBehavior = 'smooth';
+        setTimeout(() => { isDragging = false; }, 60);
+      }
+    };
+
+    window.addEventListener('mouseup', finishDrag);
+
+    // Mouse wheel horizontal scroll support
+    landingCarousel.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        landingCarousel.scrollBy({
+          left: e.deltaY * 1.5,
+          behavior: 'smooth'
+        });
+      }
+    }, { passive: false });
   }
 
   /* ==========================================================================
