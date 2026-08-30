@@ -182,15 +182,21 @@ div[id] {
   display: flex;
   align-items: baseline;
   gap: 1rem;
-  transition: color 0.35s var(--anim-ease-out-expo);
 }
 
-.accordion-item:hover .accordion-title {
+.accordion-heading {
+  color: rgba(244, 241, 234, 0.55);
+  transition: color 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+}
+
+.accordion-item:hover .accordion-heading,
+.accordion-item.is-active .accordion-heading {
   color: var(--color-accent-lime) !important;
 }
 
-.accordion-item.is-active .accordion-title {
-  color: var(--color-accent-lime) !important;
+.accordion-item:hover .accordion-heading {
+  transform: translateX(4px);
 }
 
 .accordion-content {
