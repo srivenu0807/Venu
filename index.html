@@ -824,13 +824,21 @@
     </div>
     <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-start">
       <div class="md:col-span-5" data-reveal="fade-up">
-        <div class="relative hero-portrait-wrap">
-          <div class="relative aspect-[3/4] bg-graphite overflow-hidden rounded-lg">
-            <img alt="Sri Venu Puduvayila — candid" class="w-full h-full object-cover" src="./images/about-portrait.svg">
-            <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-dark to-transparent"></div>
+        <div class="relative about-portrait-wrap">
+          <div class="relative aspect-[3/4] about-portrait-card">
+            <picture>
+              <source srcset="./images/about-portrait.webp" type="image/webp">
+              <img alt="Sri Venu Puduvayila — Web Designer & Developer" class="about-portrait-img select-none" src="./images/about-portrait.jpg" width="681" height="1024" loading="lazy">
+            </picture>
           </div>
-          <div class="absolute -bottom-6 -right-4 md:-right-8 bg-dark border border-white/10 px-5 py-3 rounded">
-            <span class="text-[10px] tracking-[0.3em] text-lime/60 font-mono">DESIGNER + DEVELOPER</span>
+          <!-- Architectural corner accents -->
+          <div class="absolute -top-2 -right-2 w-8 h-8 border-t-[1.5px] border-r-[1.5px] border-lime/25 z-10 pointer-events-none"></div>
+          <div class="absolute -bottom-2 -left-2 w-8 h-8 border-b-[1.5px] border-l-[1.5px] border-lime/25 z-10 pointer-events-none"></div>
+
+          <!-- Minimal status badge outside the photo -->
+          <div class="absolute -bottom-4 -right-2 md:-right-6 bg-dark/95 border border-white/10 rounded-full px-4 py-2 flex items-center gap-2 shadow-2xl backdrop-blur-md z-20 pointer-events-none">
+            <span class="w-1.5 h-1.5 rounded-full bg-lime"></span>
+            <span class="text-[10px] tracking-[0.2em] text-cream/70 font-mono uppercase">Designer × Developer</span>
           </div>
         </div>
       </div>
