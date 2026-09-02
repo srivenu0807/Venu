@@ -1,7 +1,7 @@
 /* ==========================================================================
-   Sri Venu Puduvayila — Creative Developer Portfolio Animations & Theme System
-   Theme Identity: MIDNIGHT NAVY + ELECTRIC BLUE + SUBTLE LIGHTNING
-   Design Philosophy: MINIMAL + SMOOTH + PREMIUM + PROFESSIONAL
+   Sri Venu Puduvayila — Light Premium Thor Lightning Atmosphere & Design System
+   Theme Identity: SOFT LIGHT BLUE + PURE WHITE + THOR ELECTRIC LIGHTNING
+   Design Philosophy: LIGHT + MODERN + FUTURISTIC + PREMIUM + HIGH CONTRAST
    ========================================================================== */
 
 :root {
@@ -12,50 +12,68 @@
   --anim-translate-reveal-mobile: 16px;
 
   /* ========================================================================
-     Official Electric-Blue & Midnight Navy Visual Palette
+     Official Light Thor Lightning & Electric Blue Palette
      ======================================================================== */
+  --color-primary-light-blue: #D9F1FF;
+  --color-sky-blue: #BDE7FF;
+  --color-soft-ice-blue: #EAF8FF;
+  --color-pure-white: #FFFFFF;
   --color-electric-primary: #168BFF;
-  --color-electric-bright: #3DA5FF;
-  --color-deep-blue: #06152E;
-  --color-dark-navy: #081B35;
-  --color-midnight-navy: #0B2342;
-  --color-dark-surface: #0D1F38;
-  --color-border-blue: #173A63;
-  --color-main-text: #F5F7FA;
-  --color-secondary-text: #9BAEC5;
+  --color-bright-lightning: #55B7FF;
+  --color-deep-accent-blue: #0878E8;
 
-  /* Full Compatibility Mappings (Replaces all lime/green & pure black tokens) */
+  /* Typography Colors (High-Contrast for Light Theme) */
+  --color-heading-navy: #071A2F;
+  --color-body-text: #41566D;
+  --color-secondary-text: #6F8295;
+
+  /* Glassmorphic Surfaces & Borders */
+  --color-glass-surface: rgba(255, 255, 255, 0.76);
+  --color-glass-border: rgba(22, 139, 255, 0.18);
+  --color-glass-border-hover: #168BFF;
+
+  /* Compatibility Tokens */
   --color-accent-lime: #168BFF;
   --color-accent-coral: #ff7657;
-  --color-cream: #F5F7FA;
-  --color-dark: #081B35;
-  --color-graphite: #0D1F38;
-
-  /* Living Electric-Blue Atmospheric Background Tokens */
-  --bg-deep-black: #06152E;
-  --bg-electric-deep: #081B35;
-  --bg-electric-cyan: #3DA5FF;
-  --bg-electric-blue: #168BFF;
-  --bg-electric-sapphire: #0B2342;
-  --bg-lightning-glow: rgba(22, 139, 255, 0.2);
-  --bg-lightning-glow-soft: rgba(10, 90, 180, 0.12);
+  --color-cream: #071A2F;
+  --color-dark: #FFFFFF;
+  --color-graphite: #EAF8FF;
 }
 
 /* ==========================================================================
-   Global Text & Surface Color Overrides (Midnight Navy & Electric Blue)
+   Global Document & Typography Base (Light Mode)
    ========================================================================== */
 html, body {
-  color: var(--color-main-text);
-  background-color: var(--color-deep-blue);
+  color: var(--color-body-text);
+  background-color: #EAF8FF;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Utility overrides for Tailwind lime classes -> Electric Blue */
+/* Headings & Title Overrides */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-heading-navy);
+}
+
+/* Utility overrides for text colors */
+.text-cream { color: #071A2F !important; }
+.text-cream\/90 { color: #071A2F !important; }
+.text-cream\/80 { color: rgba(7, 26, 47, 0.88) !important; }
+.text-cream\/70 { color: #41566D !important; }
+.text-cream\/60 { color: #41566D !important; }
+.text-cream\/50 { color: #41566D !important; }
+.text-cream\/40 { color: #6F8295 !important; }
+.text-cream\/30 { color: #6F8295 !important; }
+.text-cream\/25 { color: #6F8295 !important; }
+.text-cream\/20 { color: rgba(111, 130, 149, 0.75) !important; }
+.text-cream\/10 { color: rgba(111, 130, 149, 0.45) !important; }
+
+/* Electric Blue Accents */
 .text-lime { color: #168BFF !important; }
-.text-lime\/70 { color: rgba(22, 139, 255, 0.7) !important; }
-.text-lime\/60 { color: rgba(22, 139, 255, 0.6) !important; }
-.text-lime\/50 { color: rgba(22, 139, 255, 0.5) !important; }
-.text-lime\/40 { color: rgba(22, 139, 255, 0.4) !important; }
-.text-lime\/30 { color: rgba(22, 139, 255, 0.3) !important; }
+.text-lime\/70 { color: rgba(22, 139, 255, 0.75) !important; }
+.text-lime\/60 { color: rgba(22, 139, 255, 0.65) !important; }
+.text-lime\/50 { color: rgba(22, 139, 255, 0.55) !important; }
+.text-lime\/40 { color: rgba(22, 139, 255, 0.45) !important; }
+.text-lime\/30 { color: rgba(22, 139, 255, 0.35) !important; }
 
 .bg-lime { background-color: #168BFF !important; }
 .bg-lime\/40 { background-color: rgba(22, 139, 255, 0.4) !important; }
@@ -75,47 +93,53 @@ html, body {
 .group-hover\:text-lime:hover,
 a:hover .text-lime,
 button:hover .text-lime {
-  color: #3DA5FF !important;
+  color: #0878E8 !important;
 }
 
 .group:hover .group-hover\:bg-lime,
 .group-hover\:bg-lime:hover {
-  background-color: #3DA5FF !important;
+  background-color: #0878E8 !important;
 }
 
 .hover\:border-lime\/20:hover {
   border-color: rgba(22, 139, 255, 0.35) !important;
 }
 
-/* Base text color overrides */
-.text-cream { color: #F5F7FA !important; }
-.text-cream\/90 { color: rgba(245, 247, 250, 0.92) !important; }
-.text-cream\/80 { color: rgba(245, 247, 250, 0.82) !important; }
-.text-cream\/70 { color: #9BAEC5 !important; }
-.text-cream\/60 { color: #9BAEC5 !important; }
-.text-cream\/50 { color: #9BAEC5 !important; }
-.text-cream\/40 { color: rgba(155, 174, 197, 0.75) !important; }
-.text-cream\/30 { color: rgba(155, 174, 197, 0.55) !important; }
-.text-cream\/20 { color: rgba(155, 174, 197, 0.35) !important; }
+/* Base surface overrides */
+.bg-dark { background-color: transparent !important; }
+.bg-dark\/80 { background-color: rgba(255, 255, 255, 0.85) !important; }
+.bg-dark\/95 { background-color: rgba(255, 255, 255, 0.96) !important; }
+.bg-graphite { background-color: rgba(255, 255, 255, 0.82) !important; }
+.bg-cream { background-color: #071A2F !important; }
 
-/* Surface background overrides (Pure Black -> Sophisticated Dark Navy) */
-.bg-dark { background-color: #081B35 !important; }
-.bg-dark\/80 { background-color: rgba(8, 27, 53, 0.85) !important; }
-.bg-dark\/95 { background-color: rgba(8, 27, 53, 0.96) !important; }
-.bg-graphite { background-color: #0D1F38 !important; }
+.text-dark { color: #071A2F !important; }
+.hero-cta-primary .text-dark,
+.project-card .text-dark,
+button .text-dark,
+[style*="background: #168BFF"] .text-dark,
+[style*="background: rgb(22, 139, 255)"] .text-dark {
+  color: #FFFFFF !important;
+}
 
 /* Border overrides */
-.border-white\/5 { border-color: rgba(23, 58, 99, 0.5) !important; }
-.border-white\/10 { border-color: rgba(23, 58, 99, 0.75) !important; }
-.border-white\/15 { border-color: #173A63 !important; }
-.border-cream\/20 { border-color: rgba(23, 58, 99, 0.7) !important; }
+.border-white\/5 { border-color: rgba(22, 139, 255, 0.12) !important; }
+.border-white\/10 { border-color: rgba(22, 139, 255, 0.18) !important; }
+.border-white\/15 { border-color: rgba(22, 139, 255, 0.22) !important; }
+.border-cream\/20 { border-color: rgba(22, 139, 255, 0.18) !important; }
+
+/* Invert Hero Grid for clean subtle appearance on light background */
+.hero-bg-grid {
+  opacity: 0.05 !important;
+  filter: invert(1);
+}
 
 /* ==========================================================================
-   Living Cinematic Electric-Blue & Midnight Navy Atmosphere System
-   - Layered Background:
-     radial-gradient(circle at 70% 20%, rgba(22, 139, 255, 0.16), transparent 35%),
-     radial-gradient(circle at 20% 80%, rgba(10, 90, 180, 0.12), transparent 40%),
-     linear-gradient(135deg, #06152E 0%, #081B35 45%, #050D1C 100%);
+   Light Thor Lightning Atmosphere Background System
+   - Soft Light Blue + White Gradient Layer:
+     radial-gradient(circle at 75% 15%, rgba(22, 139, 255, 0.20), transparent 32%),
+     radial-gradient(circle at 20% 65%, rgba(100, 190, 255, 0.18), transparent 38%),
+     radial-gradient(circle at 80% 85%, rgba(255, 255, 255, 0.90), transparent 45%),
+     linear-gradient(135deg, #FFFFFF 0%, #EAF8FF 30%, #D9F1FF 65%, #BDE7FF 100%);
    ========================================================================== */
 .portfolio-bg-atmosphere {
   position: fixed;
@@ -125,11 +149,12 @@ button:hover .text-lime {
   pointer-events: none;
   z-index: -2;
   overflow: hidden;
-  background-color: var(--color-deep-blue);
+  background-color: #EAF8FF;
   background:
-    radial-gradient(circle at 70% 20%, rgba(22, 139, 255, 0.16), transparent 35%),
-    radial-gradient(circle at 20% 80%, rgba(10, 90, 180, 0.12), transparent 40%),
-    linear-gradient(135deg, #06152E 0%, #081B35 45%, #050D1C 100%);
+    radial-gradient(circle at 75% 15%, rgba(22, 139, 255, 0.20), transparent 32%),
+    radial-gradient(circle at 20% 65%, rgba(100, 190, 255, 0.18), transparent 38%),
+    radial-gradient(circle at 80% 85%, rgba(255, 255, 255, 0.90), transparent 45%),
+    linear-gradient(135deg, #FFFFFF 0%, #EAF8FF 30%, #D9F1FF 65%, #BDE7FF 100%);
   will-change: transform;
 }
 
@@ -141,111 +166,103 @@ button:hover .text-lime {
   pointer-events: none;
 }
 
-/* Layer 1: Base Lightning Asset with Low-Opacity Navy Integration */
+/* Layer 1: Thor Celestial Lightning Artwork (Light Blend) */
 .lightning-base {
-  background-image: url('../images/lightning-bg.jpg');
+  background-image: url('../images/thor-lightning-bg.jpg');
   background-size: cover;
-  background-position: center 28%;
+  background-position: center 25%;
   background-repeat: no-repeat;
-  opacity: 0.38;
-  filter: contrast(1.18) saturate(1.25) brightness(0.96);
+  opacity: 0.42;
+  mix-blend-mode: multiply;
+  filter: contrast(1.1) saturate(1.15) brightness(1.02);
   transform: scale(1.02);
   animation: lightningBaseBreathe 24s ease-in-out infinite alternate;
-  will-change: transform, opacity, filter;
-  transition: opacity 0.25s ease-out, filter 0.25s ease-out;
+  will-change: transform, opacity;
+  transition: opacity 0.3s ease-out;
 }
 
 .lightning-base.is-surging {
-  opacity: 0.65;
-  filter: contrast(1.25) saturate(1.35) brightness(1.15);
-  transition: opacity 0.08s ease-in, filter 0.08s ease-in;
+  opacity: 0.72;
+  filter: contrast(1.18) saturate(1.28) brightness(1.06);
+  transition: opacity 0.08s ease-in;
 }
 
 .lightning-base.is-dimmed {
-  opacity: 0.28;
-  filter: contrast(1.1) saturate(1.1) brightness(0.85);
-  transition: opacity 0.45s ease-out, filter 0.45s ease-out;
+  opacity: 0.32;
+  transition: opacity 0.45s ease-out;
 }
 
-/* Layer 2: Atmospheric Navy Cloud Drift */
+/* Layer 2: Ethereal Light Cloud & Mist Movement */
 .lightning-clouds {
   background-image:
-    radial-gradient(ellipse 75% 55% at 45% 25%, rgba(11, 35, 66, 0.52) 0%, rgba(8, 27, 53, 0.78) 58%, #06152E 100%),
-    radial-gradient(ellipse 90% 70% at 80% 55%, rgba(13, 31, 56, 0.35) 0%, transparent 68%),
-    radial-gradient(ellipse 60% 45% at 20% 70%, rgba(6, 21, 46, 0.3) 0%, transparent 65%);
+    radial-gradient(ellipse 80% 60% at 45% 20%, rgba(255, 255, 255, 0.85) 0%, rgba(234, 248, 255, 0.6) 45%, transparent 75%),
+    radial-gradient(ellipse 70% 50% at 80% 65%, rgba(217, 241, 255, 0.5) 0%, transparent 68%),
+    radial-gradient(ellipse 65% 55% at 20% 80%, rgba(189, 231, 255, 0.4) 0%, transparent 70%);
   mix-blend-mode: soft-light;
-  opacity: 0.85;
+  opacity: 0.9;
   animation: cloudDriftSlow 48s ease-in-out infinite alternate;
   will-change: transform;
 }
 
-/* Layer 3: Breathing Electric-Blue Radial Glow */
+/* Layer 3: Breathing Electric Blue-White Ambient Glow */
 .lightning-glow {
   background-image:
-    radial-gradient(circle 420px at 32% 38%, rgba(22, 139, 255, 0.22) 0%, rgba(11, 35, 66, 0.08) 48%, transparent 75%),
-    radial-gradient(circle 320px at 68% 26%, rgba(61, 165, 255, 0.16) 0%, rgba(8, 27, 53, 0.05) 52%, transparent 80%),
-    radial-gradient(ellipse 85% 60% at 50% 12%, rgba(22, 139, 255, 0.12) 0%, transparent 65%);
+    radial-gradient(circle 450px at 35% 35%, rgba(85, 183, 255, 0.22) 0%, rgba(22, 139, 255, 0.08) 50%, transparent 80%),
+    radial-gradient(circle 350px at 70% 25%, rgba(22, 139, 255, 0.16) 0%, transparent 75%),
+    radial-gradient(ellipse 85% 60% at 50% 12%, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
   mix-blend-mode: screen;
-  opacity: 0.55;
+  opacity: 0.65;
   animation: lightningGlowPulse 10s ease-in-out infinite alternate;
   will-change: opacity, transform;
   transition: opacity 0.3s ease-out;
 }
 
 .lightning-glow.is-surging {
-  opacity: 0.88;
+  opacity: 0.95;
   transition: opacity 0.08s ease-in;
 }
 
-/* Layer 4 & 5: Localized Lightning Branch Shimmers */
+/* Layer 4 & 5: Localized Lightning Branch Energy */
 .lightning-branch {
-  mix-blend-mode: screen;
+  mix-blend-mode: multiply;
   opacity: 0;
   transition: opacity 0.4s ease-out;
   will-change: opacity;
 }
 
 .lightning-branch-1 {
-  background: radial-gradient(ellipse 42% 36% at 30% 36%, rgba(61, 165, 255, 0.32) 0%, rgba(22, 139, 255, 0.12) 40%, transparent 72%);
+  background: radial-gradient(ellipse 42% 36% at 32% 32%, rgba(22, 139, 255, 0.25) 0%, rgba(85, 183, 255, 0.1) 40%, transparent 72%);
 }
 
 .lightning-branch-2 {
-  background: radial-gradient(ellipse 36% 32% at 52% 26%, rgba(186, 230, 253, 0.38) 0%, rgba(61, 165, 255, 0.16) 42%, transparent 70%);
+  background: radial-gradient(ellipse 36% 32% at 55% 24%, rgba(8, 120, 232, 0.22) 0%, rgba(22, 139, 255, 0.08) 42%, transparent 70%);
 }
 
 .lightning-branch.is-active {
-  opacity: 0.9;
+  opacity: 0.85;
   transition: opacity 0.06s ease-in;
 }
 
-/* Layer 6: High-Performance Canvas for Micro-Electrical Energy */
+/* Layer 6: Dynamic Canvas for Micro-Electrical Energy Streaks */
 .lightning-canvas {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  mix-blend-mode: screen;
-  opacity: 0.72;
   pointer-events: none;
+  opacity: 0.85;
 }
 
-/* Layer 7: Deep Navy Vignette & Typography Contrast Protection */
+/* Layer 7: Light Vignette & Contrast Support */
 .lightning-vignette {
   background:
-    linear-gradient(180deg, rgba(6, 21, 46, 0.95) 0%, rgba(8, 27, 53, 0.45) 14%, transparent 32%),
-    linear-gradient(0deg, rgba(5, 13, 28, 0.98) 0%, rgba(6, 21, 46, 0.55) 16%, transparent 38%),
-    linear-gradient(90deg, rgba(6, 21, 46, 0.9) 0%, rgba(6, 21, 46, 0.65) 26%, rgba(8, 27, 53, 0.25) 54%, transparent 82%),
-    radial-gradient(ellipse 88% 76% at 50% 50%, transparent 36%, rgba(6, 21, 46, 0.68) 78%, rgba(5, 13, 28, 0.94) 100%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.2) 12%, transparent 28%),
+    linear-gradient(0deg, rgba(217, 241, 255, 0.9) 0%, rgba(234, 248, 255, 0.4) 15%, transparent 35%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 25%, transparent 65%);
   mix-blend-mode: normal;
 }
 
-/* Layer 8: Subtle Navy Scrim */
-.lightning-scrim {
-  background-color: rgba(8, 27, 53, 0.28);
-  mix-blend-mode: multiply;
-}
-
-/* Editorial Micro-Grain Noise Overlay (barely visible, prevents color banding) */
+/* Editorial Micro-Grain Noise Overlay (very subtle) */
 .portfolio-bg-noise {
   position: fixed;
   inset: 0;
@@ -253,54 +270,51 @@ button:hover .text-lime {
   height: 100%;
   pointer-events: none;
   z-index: -1;
-  opacity: 0.024;
-  mix-blend-mode: overlay;
+  opacity: 0.018;
+  mix-blend-mode: multiply;
   background-repeat: repeat;
   background-size: 180px 180px;
   background-image: url("data:image/svg+xml,%3Csvg%20viewBox%3D%270%200%20200%20200%27%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%3E%3Cfilter%20id%3D%27noiseFilter%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.8%27%20numOctaves%3D%273%27%20stitchTiles%3D%27stitch%27/%3E%3C/filter%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20filter%3D%27url%28%23noiseFilter%29%27%20opacity%3D%271%27/%3E%3C/svg%3E");
 }
 
-/* Base root container transparency to let atmospheric canvas shine through */
-#root > .bg-dark {
-  background-color: transparent !important;
-}
-
-/* Section-level ambient transitions harmonized with electric-blue & deep navy */
+/* ==========================================================================
+   Section Ambient Variations (Visual Depth along Page Scroll)
+   ========================================================================== */
 section#work {
-  background: radial-gradient(ellipse 65% 55% at 90% 35%, rgba(22, 139, 255, 0.05) 0%, rgba(11, 35, 66, 0.12) 42%, transparent 75%);
+  background: radial-gradient(ellipse 65% 55% at 90% 35%, rgba(22, 139, 255, 0.08) 0%, rgba(189, 231, 255, 0.25) 45%, transparent 75%);
 }
 
 section#journey {
-  background: radial-gradient(ellipse 60% 50% at 88% 50%, rgba(10, 90, 180, 0.04) 0%, rgba(8, 27, 53, 0.1) 42%, transparent 70%);
+  background: radial-gradient(ellipse 60% 50% at 88% 50%, rgba(85, 183, 255, 0.07) 0%, rgba(234, 248, 255, 0.4) 45%, transparent 70%);
 }
 
 section#process {
-  background: radial-gradient(ellipse 60% 60% at 92% 45%, rgba(22, 139, 255, 0.05) 0%, rgba(11, 35, 66, 0.12) 42%, transparent 70%);
+  background: radial-gradient(ellipse 60% 60% at 92% 45%, rgba(22, 139, 255, 0.1) 0%, rgba(189, 231, 255, 0.3) 45%, transparent 70%);
 }
 
 section#contact {
-  background: radial-gradient(ellipse 70% 65% at 90% 75%, rgba(22, 139, 255, 0.06) 0%, rgba(11, 35, 66, 0.15) 45%, transparent 75%);
+  background: radial-gradient(ellipse 70% 65% at 90% 75%, rgba(22, 139, 255, 0.08) 0%, rgba(217, 241, 255, 0.35) 45%, transparent 75%);
 }
 
 /* ==========================================================================
-   Atmospheric Lightning Keyframe Animations
+   Atmospheric Keyframe Animations
    ========================================================================== */
 @keyframes lightningBaseBreathe {
   0% {
     transform: scale(1.02) translate3d(0, 0, 0);
-    opacity: 0.36;
+    opacity: 0.4;
   }
   35% {
     transform: scale(1.035) translate3d(-2px, -1px, 0);
-    opacity: 0.42;
+    opacity: 0.48;
   }
   70% {
     transform: scale(1.045) translate3d(2px, -2px, 0);
-    opacity: 0.38;
+    opacity: 0.44;
   }
   100% {
     transform: scale(1.02) translate3d(0, 1px, 0);
-    opacity: 0.34;
+    opacity: 0.38;
   }
 }
 
@@ -318,67 +332,20 @@ section#contact {
 
 @keyframes lightningGlowPulse {
   0% {
-    opacity: 0.45;
+    opacity: 0.55;
     transform: scale(0.98);
   }
   30% {
-    opacity: 0.65;
+    opacity: 0.78;
     transform: scale(1.03);
   }
   65% {
-    opacity: 0.5;
+    opacity: 0.6;
     transform: scale(1.0);
   }
   100% {
-    opacity: 0.58;
+    opacity: 0.7;
     transform: scale(1.02);
-  }
-}
-
-/* Tablet Responsive Optimization */
-@media (max-width: 1024px) {
-  .lightning-base {
-    background-position: 60% 25%;
-    opacity: 0.36;
-  }
-
-  .lightning-vignette {
-    background:
-      linear-gradient(180deg, rgba(6, 21, 46, 0.95) 0%, rgba(8, 27, 53, 0.48) 12%, transparent 28%),
-      linear-gradient(0deg, rgba(5, 13, 28, 0.98) 0%, rgba(6, 21, 46, 0.6) 14%, transparent 32%),
-      linear-gradient(90deg, rgba(6, 21, 46, 0.92) 0%, rgba(6, 21, 46, 0.72) 32%, rgba(8, 27, 53, 0.32) 60%, transparent 85%),
-      radial-gradient(ellipse 90% 80% at 50% 50%, transparent 30%, rgba(6, 21, 46, 0.75) 75%, rgba(5, 13, 28, 0.96) 100%);
-  }
-}
-
-/* Mobile Responsive Optimization */
-@media (max-width: 768px) {
-  .lightning-base {
-    background-position: 55% 18%;
-    background-size: cover;
-    opacity: 0.34;
-    transform: scale(1.05);
-  }
-
-  .lightning-clouds {
-    opacity: 0.9;
-  }
-
-  .lightning-vignette {
-    background:
-      linear-gradient(180deg, rgba(6, 21, 46, 0.96) 0%, rgba(8, 27, 53, 0.6) 10%, transparent 25%),
-      linear-gradient(0deg, rgba(5, 13, 28, 0.98) 0%, rgba(6, 21, 46, 0.7) 14%, transparent 30%),
-      linear-gradient(90deg, rgba(6, 21, 46, 0.95) 0%, rgba(6, 21, 46, 0.82) 40%, rgba(8, 27, 53, 0.48) 75%, rgba(6, 21, 46, 0.28) 100%),
-      radial-gradient(ellipse 95% 85% at 50% 50%, transparent 20%, rgba(6, 21, 46, 0.84) 70%, rgba(5, 13, 28, 0.98) 100%);
-  }
-
-  .lightning-scrim {
-    background-color: rgba(6, 21, 46, 0.42);
-  }
-
-  .portfolio-bg-noise {
-    opacity: 0.02;
-    background-size: 140px 140px;
   }
 }
 
@@ -395,7 +362,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Section scroll margins to account for fixed navbar */
 section[id],
 article[id],
 div[id] {
@@ -403,25 +369,25 @@ div[id] {
 }
 
 /* ==========================================================================
-   Micro-Scroll Progress Bar (Top Edge) - Electric Blue Gradient
+   Micro-Scroll Progress Bar (Top Edge)
    ========================================================================== */
 #scroll-progress-bar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 2.5px;
-  background: linear-gradient(90deg, #168BFF 0%, #3DA5FF 100%);
+  height: 3px;
+  background: linear-gradient(90deg, #168BFF 0%, #55B7FF 100%);
   transform-origin: 0% 50%;
   transform: scaleX(0);
   z-index: 1000;
   pointer-events: none;
-  box-shadow: 0 0 10px rgba(61, 165, 255, 0.6);
+  box-shadow: 0 0 10px rgba(22, 139, 255, 0.6);
   will-change: transform;
 }
 
 /* ==========================================================================
-   Minimal Scroll-Triggered Reveal Classes (GPU Accelerated)
+   Scroll-Triggered Reveal Classes (GPU Accelerated)
    ========================================================================== */
 [data-reveal] {
   opacity: 0;
@@ -463,7 +429,6 @@ div[id] {
 [data-stagger].is-revealed > *:nth-child(7) { transition-delay: 410ms; opacity: 1; transform: translateY(0); }
 [data-stagger].is-revealed > *:nth-child(8) { transition-delay: 470ms; opacity: 1; transform: translateY(0); }
 
-/* Shorter reveal distance on mobile */
 @media (max-width: 768px) {
   [data-reveal] {
     transform: translateY(var(--anim-translate-reveal-mobile));
@@ -485,11 +450,11 @@ div[id] {
 
 @keyframes heroScrollGlow {
   0%, 100% {
-    opacity: 0.3;
+    opacity: 0.35;
     transform: scaleY(0.8);
   }
   50% {
-    opacity: 0.9;
+    opacity: 1;
     transform: scaleY(1.1);
   }
 }
@@ -513,7 +478,7 @@ div[id] {
 .accordion-item {
   position: relative;
   transition: border-color 0.3s ease;
-  border-bottom: 1px solid rgba(23, 58, 99, 0.7);
+  border-bottom: 1px solid rgba(22, 139, 255, 0.2);
 }
 
 .accordion-header {
@@ -523,12 +488,12 @@ div[id] {
 }
 
 .accordion-header:hover .accordion-title {
-  color: var(--color-electric-bright) !important;
+  color: var(--color-deep-accent-blue) !important;
 }
 
 .accordion-header:hover .accordion-icon {
   transform: rotate(45deg);
-  color: var(--color-electric-bright) !important;
+  color: var(--color-deep-accent-blue) !important;
 }
 
 .accordion-item.is-active .accordion-icon {
@@ -554,21 +519,23 @@ div[id] {
 }
 
 .accordion-tag {
-  background-color: rgba(13, 31, 56, 0.8) !important;
-  border: 1px solid #173A63 !important;
-  color: #9BAEC5 !important;
+  background: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(22, 139, 255, 0.2) !important;
+  color: var(--color-body-text) !important;
   transition: all 0.2s ease;
 }
 
 .accordion-tag:hover {
   border-color: #168BFF !important;
-  color: #3DA5FF !important;
-  background-color: rgba(22, 139, 255, 0.12) !important;
+  color: #0878E8 !important;
+  background-color: #EAF8FF !important;
   box-shadow: 0 0 15px rgba(22, 139, 255, 0.15);
 }
 
 /* ==========================================================================
-   Selected Work Project Cards (Dark Surface #0D1F38 & Border Blue #173A63)
+   Selected Work Project Cards (Modern Light Glassmorphism)
    ========================================================================== */
 .aspect-\[3\/2\] {
   aspect-ratio: 3 / 2;
@@ -585,11 +552,13 @@ div[id] {
 .project-card-image-wrap {
   position: relative;
   overflow: hidden;
-  border-radius: 0.75rem;
-  border: 1px solid #173A63;
-  background-color: var(--color-dark-surface);
-  transition: border-color 0.35s ease, box-shadow 0.35s ease;
-  box-shadow: 0 8px 24px -12px rgba(6, 21, 46, 0.6);
+  border-radius: 0.85rem;
+  border: 1px solid rgba(22, 139, 255, 0.18);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+  box-shadow: 0 10px 30px -10px rgba(8, 120, 232, 0.1), 0 4px 16px rgba(7, 26, 47, 0.04);
 }
 
 .project-card-image-wrap picture {
@@ -601,7 +570,7 @@ div[id] {
 
 .project-card:hover .project-card-image-wrap {
   border-color: #168BFF;
-  box-shadow: 0 16px 36px -12px rgba(6, 21, 46, 0.8), 0 0 30px rgba(22, 139, 255, 0.12);
+  box-shadow: 0 18px 45px -10px rgba(22, 139, 255, 0.22), 0 0 25px rgba(85, 183, 255, 0.15);
 }
 
 .project-card-image {
@@ -615,7 +584,7 @@ div[id] {
 }
 
 .project-card:hover .project-card-image {
-  transform: scale(1.018);
+  transform: scale(1.02);
 }
 
 .project-card-overlay {
@@ -624,7 +593,7 @@ div[id] {
 }
 
 .project-card:hover .project-card-overlay {
-  background-color: rgba(6, 21, 46, 0.2);
+  background-color: rgba(234, 248, 255, 0.2);
 }
 
 .project-badge-num {
@@ -633,7 +602,7 @@ div[id] {
 }
 
 /* ==========================================================================
-   Project Action Buttons & Interactive Links (Electric Blue Normal & Hover)
+   Project Action Buttons & Interactive Links
    ========================================================================== */
 .project-actions-wrap {
   display: flex;
@@ -649,17 +618,19 @@ div[id] {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.55rem 1.05rem;
+  padding: 0.55rem 1.15rem;
   border-radius: 9999px;
   font-family: "JetBrains Mono", monospace;
   font-size: 11px;
   line-height: 1;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-weight: 500;
-  color: var(--color-main-text);
-  background-color: rgba(13, 31, 56, 0.75);
-  border: 1px solid #173A63;
+  font-weight: 600;
+  color: var(--color-heading-navy);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(22, 139, 255, 0.22);
   min-height: 40px;
   text-decoration: none;
   cursor: pointer;
@@ -667,23 +638,23 @@ div[id] {
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   transition: all 0.25s var(--anim-ease-out-expo);
-  box-shadow: 0 2px 8px rgba(6, 21, 46, 0.4);
+  box-shadow: 0 2px 10px rgba(8, 120, 232, 0.08);
   box-sizing: border-box;
 }
 
 .project-action-btn:hover {
-  color: #3DA5FF;
-  background-color: rgba(22, 139, 255, 0.15);
+  color: #0878E8;
+  background-color: #EAF8FF;
   border-color: #168BFF;
-  box-shadow: 0 4px 14px rgba(6, 21, 46, 0.5), 0 0 20px rgba(22, 139, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(22, 139, 255, 0.18), 0 0 15px rgba(85, 183, 255, 0.2);
   transform: translateY(-1px);
 }
 
 .project-action-btn:active {
   transform: scale(0.98);
-  background-color: rgba(22, 139, 255, 0.25);
-  border-color: #3DA5FF;
-  color: #3DA5FF;
+  background-color: #D9F1FF;
+  border-color: #0878E8;
+  color: #0878E8;
 }
 
 .project-action-btn .action-icon {
@@ -696,11 +667,10 @@ div[id] {
 
 .project-action-btn:hover .action-icon,
 .project-action-btn:active .action-icon {
-  color: #3DA5FF;
+  color: #0878E8;
   transform: translate(2px, -2px);
 }
 
-/* Responsive Action Buttons */
 @media (max-width: 640px) {
   .project-actions-wrap {
     flex-direction: column;
@@ -736,7 +706,7 @@ div[id] {
 }
 
 /* ==========================================================================
-   Horizontal Scrolling Landing Pages Showcase (Dark Surface #0D1F38)
+   Horizontal Scrolling Landing Pages Showcase (Light Glass Cards)
    ========================================================================== */
 .landing-carousel-container {
   position: relative;
@@ -804,13 +774,16 @@ div[id] {
 
 .landing-card-inner {
   height: 210px;
-  background-color: #0D1F38;
-  border: 1px solid #173A63;
-  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(22, 139, 255, 0.18);
+  border-radius: 0.85rem;
   padding: 1.75rem 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 0 10px 30px -10px rgba(8, 120, 232, 0.08), 0 4px 12px rgba(7, 26, 47, 0.03);
   transition: transform 0.35s var(--anim-ease-out-expo), border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.35s ease;
 }
 
@@ -824,8 +797,8 @@ div[id] {
 .landing-card:hover .landing-card-inner {
   transform: translateY(-4px);
   border-color: #168BFF;
-  background-color: #0F2544;
-  box-shadow: 0 12px 30px rgba(6, 21, 46, 0.6), 0 0 30px rgba(22, 139, 255, 0.12);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 16px 36px -10px rgba(22, 139, 255, 0.2), 0 0 25px rgba(85, 183, 255, 0.15);
 }
 
 .landing-card-cat {
@@ -839,23 +812,23 @@ div[id] {
 }
 
 .landing-card:hover .landing-card-cat {
-  color: #3DA5FF;
+  color: #0878E8;
 }
 
 .landing-card-arrow {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.85rem;
-  color: rgba(155, 174, 197, 0.4);
+  color: rgba(111, 130, 149, 0.5);
   transition: transform 0.3s var(--anim-ease-out-expo), color 0.3s ease;
 }
 
 .landing-card:hover .landing-card-arrow {
-  color: #3DA5FF;
+  color: #0878E8;
   transform: translate(2px, -2px);
 }
 
 .landing-card-title {
-  color: var(--color-main-text);
+  color: var(--color-heading-navy);
   font-size: 1.35rem;
   font-weight: 900;
   letter-spacing: -0.02em;
@@ -870,7 +843,7 @@ div[id] {
 }
 
 .landing-card:hover .landing-card-title {
-  color: #3DA5FF;
+  color: #0878E8;
 }
 
 .landing-card-client {
@@ -884,7 +857,7 @@ div[id] {
 }
 
 .landing-card:hover .landing-card-client {
-  color: #F5F7FA;
+  color: var(--color-heading-navy);
 }
 
 /* ==========================================================================
@@ -892,17 +865,19 @@ div[id] {
    ========================================================================== */
 .hero-portrait-card {
   position: relative;
-  border-radius: 1rem;
+  border-radius: 1.25rem;
   overflow: hidden;
-  background-color: #0D1F38;
-  border: 1px solid #173A63;
-  box-shadow: 0 25px 60px rgba(6, 21, 46, 0.7), 0 0 30px rgba(22, 139, 255, 0.08);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(22, 139, 255, 0.2);
+  box-shadow: 0 20px 50px -10px rgba(8, 120, 232, 0.12), 0 0 35px rgba(85, 183, 255, 0.1);
   transition: transform 0.5s var(--anim-ease-out-expo), border-color 0.4s ease, box-shadow 0.5s ease;
 }
 
 .hero-portrait-card:hover {
   border-color: #168BFF;
-  box-shadow: 0 30px 70px rgba(6, 21, 46, 0.8), 0 0 45px rgba(22, 139, 255, 0.15);
+  box-shadow: 0 25px 60px -10px rgba(22, 139, 255, 0.22), 0 0 45px rgba(85, 183, 255, 0.18);
 }
 
 .hero-portrait-img {
@@ -979,45 +954,47 @@ div[id] {
   }
 }
 
-/* Primary Button: Electric Blue Accent */
+/* Primary Button: Electric Blue with White Text */
 .hero-cta-primary {
   background: #168BFF;
   border: 1px solid #168BFF;
-  color: #F5F7FA;
-  box-shadow: 0 4px 20px rgba(6, 21, 46, 0.4), 0 0 20px rgba(22, 139, 255, 0.25);
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 20px rgba(22, 139, 255, 0.25), 0 0 20px rgba(85, 183, 255, 0.2);
 }
 
 .hero-cta-primary:hover {
-  background: #3DA5FF;
-  border-color: #3DA5FF;
-  color: #FFFFFF;
-  box-shadow: 0 0 30px rgba(61, 165, 255, 0.4), 0 8px 24px rgba(6, 21, 46, 0.5);
+  background: #0878E8;
+  border-color: #0878E8;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 30px rgba(22, 139, 255, 0.4), 0 8px 24px rgba(8, 120, 232, 0.3);
   transform: translateY(-2px);
 }
 
 .hero-cta-primary .hero-cta-icon {
   font-size: 0.85rem;
   transition: transform 0.3s var(--anim-ease-out-expo);
-  color: #F5F7FA;
+  color: #FFFFFF !important;
 }
 
 .hero-cta-primary:hover .hero-cta-icon {
   transform: translateY(2px);
 }
 
-/* Secondary Button: Dark Surface Pill */
+/* Secondary Button: Soft Glass Pill */
 .hero-cta-secondary {
-  background: rgba(13, 31, 56, 0.75);
-  border: 1px solid #173A63;
-  color: var(--color-main-text);
-  box-shadow: 0 4px 20px rgba(6, 21, 46, 0.3);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(22, 139, 255, 0.25);
+  color: var(--color-heading-navy);
+  box-shadow: 0 4px 20px rgba(8, 120, 232, 0.06);
 }
 
 .hero-cta-secondary:hover {
-  background: rgba(22, 139, 255, 0.15);
+  background: #EAF8FF;
   border-color: #168BFF;
-  color: #3DA5FF;
-  box-shadow: 0 0 25px rgba(22, 139, 255, 0.2), 0 8px 24px rgba(6, 21, 46, 0.5);
+  color: #0878E8;
+  box-shadow: 0 0 25px rgba(22, 139, 255, 0.18), 0 8px 24px rgba(8, 120, 232, 0.12);
   transform: translateY(-2px);
 }
 
@@ -1028,7 +1005,7 @@ div[id] {
 }
 
 .hero-cta-secondary:hover .hero-cta-icon {
-  color: #3DA5FF;
+  color: #0878E8;
   transform: translate(2px, -2px);
 }
 
@@ -1039,18 +1016,19 @@ div[id] {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 1px;
-  background: linear-gradient(180deg, rgba(22, 139, 255, 0.5) 0%, rgba(23, 58, 99, 0.3) 50%, rgba(61, 165, 255, 0.4) 100%);
+  width: 1.5px;
+  background: linear-gradient(180deg, rgba(22, 139, 255, 0.6) 0%, rgba(189, 231, 255, 0.4) 50%, rgba(85, 183, 255, 0.5) 100%);
 }
 
 .journey-node {
   background-color: #168BFF !important;
+  box-shadow: 0 0 8px rgba(22, 139, 255, 0.5);
   transition: transform 0.3s var(--anim-ease-out-expo), box-shadow 0.3s ease;
 }
 
 .journey-item:hover .journey-node {
-  transform: scale(1.15);
-  box-shadow: 0 0 12px var(--color-electric-primary);
+  transform: scale(1.2);
+  box-shadow: 0 0 16px var(--color-electric-primary);
 }
 
 /* ==========================================================================
@@ -1058,7 +1036,7 @@ div[id] {
    ========================================================================== */
 .process-card {
   position: relative;
-  border-bottom: 1px solid rgba(23, 58, 99, 0.6);
+  border-bottom: 1px solid rgba(22, 139, 255, 0.18);
   transition: border-color 0.25s ease;
   user-select: none;
 }
@@ -1072,13 +1050,13 @@ div[id] {
 }
 
 .process-card-arrow {
-  color: rgba(155, 174, 197, 0.4);
+  color: rgba(111, 130, 149, 0.5);
   display: inline-block;
   transition: transform 0.25s var(--anim-ease-out-expo), color 0.25s ease;
 }
 
 .process-card-title {
-  color: var(--color-secondary-text);
+  color: var(--color-heading-navy);
   transition: color 0.25s ease;
 }
 
@@ -1095,7 +1073,7 @@ div[id] {
 .process-card-desc-text {
   opacity: 0;
   transform: translateY(-6px);
-  color: var(--color-secondary-text);
+  color: var(--color-body-text);
   transition: opacity 220ms ease, transform 280ms var(--anim-ease-out-expo);
 }
 
@@ -1106,18 +1084,18 @@ div[id] {
 
 .process-card:hover .process-card-num,
 .process-card.is-active .process-card-num {
-  color: #3DA5FF;
+  color: #0878E8;
 }
 
 .process-card:hover .process-card-arrow,
 .process-card.is-active .process-card-arrow {
-  color: #3DA5FF;
+  color: #0878E8;
   transform: translateX(4px);
 }
 
 .process-card:hover .process-card-title,
 .process-card.is-active .process-card-title {
-  color: #F5F7FA;
+  color: #0878E8;
 }
 
 .process-card:hover .process-card-desc-wrap,
@@ -1144,7 +1122,7 @@ div[id] {
 }
 
 .skill-row:hover span {
-  color: var(--color-main-text) !important;
+  color: var(--color-heading-navy) !important;
 }
 
 /* ==========================================================================
@@ -1166,17 +1144,19 @@ div[id] {
 
 .about-portrait-card {
   position: relative;
-  border-radius: 1rem;
+  border-radius: 1.25rem;
   overflow: hidden;
-  background-color: #0D1F38;
-  border: 1px solid #173A63;
-  box-shadow: 0 20px 50px rgba(6, 21, 46, 0.6), 0 0 30px rgba(22, 139, 255, 0.08);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(22, 139, 255, 0.2);
+  box-shadow: 0 20px 50px -10px rgba(8, 120, 232, 0.12), 0 0 35px rgba(85, 183, 255, 0.1);
   transition: border-color 0.4s ease, box-shadow 0.5s ease, transform 0.5s var(--anim-ease-out-expo);
 }
 
 .about-portrait-card:hover {
   border-color: #168BFF;
-  box-shadow: 0 25px 60px rgba(6, 21, 46, 0.8), 0 0 35px rgba(22, 139, 255, 0.15);
+  box-shadow: 0 25px 60px -10px rgba(22, 139, 255, 0.22), 0 0 45px rgba(85, 183, 255, 0.18);
   transform: translateY(-4px);
 }
 
@@ -1197,16 +1177,18 @@ div[id] {
    About Tags Micro-animation
    ========================================================================== */
 .about-tag {
-  background-color: rgba(13, 31, 56, 0.8) !important;
-  border: 1px solid #173A63 !important;
-  color: #9BAEC5 !important;
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(22, 139, 255, 0.2) !important;
+  color: var(--color-body-text) !important;
   transition: all 0.25s var(--anim-ease-out-expo);
 }
 
 .about-tag:hover {
-  color: #3DA5FF !important;
+  color: #0878E8 !important;
   border-color: #168BFF !important;
-  background-color: rgba(22, 139, 255, 0.12) !important;
+  background-color: #EAF8FF !important;
   transform: translateY(-1px);
   box-shadow: 0 0 15px rgba(22, 139, 255, 0.15);
 }
@@ -1216,7 +1198,7 @@ div[id] {
    ========================================================================== */
 .contact-row {
   position: relative;
-  border-color: rgba(23, 58, 99, 0.6) !important;
+  border-color: rgba(22, 139, 255, 0.18) !important;
   transition: border-color 0.25s ease;
 }
 
@@ -1230,30 +1212,38 @@ div[id] {
 
 .contact-row:hover .contact-arrow {
   transform: translate(3px, -1px);
-  color: #3DA5FF !important;
+  color: #0878E8 !important;
 }
 
 /* ==========================================================================
-   Navbar & Active Nav Indicator (Dark Navy Surface & Electric Blue Active)
+   Navbar & Active Nav Indicator (Light Glassmorphic Navigation)
    ========================================================================== */
 nav {
-  background-color: rgba(8, 27, 53, 0.85) !important;
-  border-bottom: 1px solid rgba(23, 58, 99, 0.6) !important;
+  background-color: rgba(255, 255, 255, 0.84) !important;
+  border-bottom: 1px solid rgba(22, 139, 255, 0.15) !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 nav.is-scrolled {
-  background-color: rgba(6, 21, 46, 0.94) !important;
-  border-bottom-color: rgba(23, 58, 99, 0.9) !important;
-  box-shadow: 0 4px 24px rgba(5, 13, 28, 0.6);
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-bottom-color: rgba(22, 139, 255, 0.25) !important;
+  box-shadow: 0 4px 24px rgba(7, 26, 47, 0.06);
 }
 
 .nav-link {
   position: relative;
   padding: 0.25rem 0;
   transition: color 0.25s ease;
+}
+
+.nav-link span {
+  color: var(--color-body-text) !important;
+}
+
+.nav-link:hover span {
+  color: var(--color-heading-navy) !important;
 }
 
 .nav-link-indicator {
@@ -1269,8 +1259,9 @@ nav.is-scrolled {
   transition: transform 0.3s var(--anim-ease-out-expo);
 }
 
-.nav-link.is-active {
-  color: #3DA5FF !important;
+.nav-link.is-active span {
+  color: #168BFF !important;
+  font-weight: 700;
 }
 
 .nav-link.is-active .nav-link-indicator {
@@ -1283,7 +1274,7 @@ nav.is-scrolled {
 #mobile-nav-menu {
   position: fixed;
   inset: 0;
-  background: rgba(6, 21, 46, 0.97);
+  background: rgba(234, 248, 255, 0.97);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   z-index: 49;
@@ -1308,17 +1299,17 @@ nav.is-scrolled {
   font-family: "JetBrains Mono", monospace;
   font-size: 1.5rem;
   letter-spacing: 0.2em;
-  color: var(--color-secondary-text);
+  color: var(--color-body-text);
   transition: color 0.25s ease;
 }
 
 .mobile-nav-link:hover,
 .mobile-nav-link.is-active {
-  color: var(--color-electric-bright);
+  color: var(--color-electric-primary);
 }
 
 /* ==========================================================================
-   Project Details Modal (Dark Surface #0D1F38)
+   Project Details Modal (Light Glass Surface)
    ========================================================================== */
 #project-modal {
   position: fixed;
@@ -1341,9 +1332,9 @@ nav.is-scrolled {
 .project-modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(6, 21, 46, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(7, 26, 47, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .project-modal-dialog {
@@ -1352,11 +1343,13 @@ nav.is-scrolled {
   width: 100%;
   max-height: 85vh;
   overflow-y: auto;
-  background: #0D1F38;
-  border: 1px solid #173A63;
-  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(22, 139, 255, 0.25);
+  border-radius: 1.25rem;
   padding: 2rem;
-  box-shadow: 0 25px 60px -12px rgba(5, 13, 28, 0.8), 0 0 35px rgba(22, 139, 255, 0.15);
+  box-shadow: 0 25px 60px -12px rgba(7, 26, 47, 0.2), 0 0 35px rgba(22, 139, 255, 0.15);
   transform: scale(0.97) translateY(10px);
   transition: transform 0.35s var(--anim-ease-out-expo);
 }
@@ -1372,9 +1365,9 @@ nav.is-scrolled {
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 9999px;
-  background: rgba(13, 31, 56, 0.8);
-  border: 1px solid #173A63;
-  color: var(--color-main-text);
+  background: rgba(234, 248, 255, 0.9);
+  border: 1px solid rgba(22, 139, 255, 0.25);
+  color: var(--color-heading-navy);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1383,9 +1376,9 @@ nav.is-scrolled {
 }
 
 .modal-close-btn:hover {
-  background: rgba(22, 139, 255, 0.2);
+  background: #168BFF;
   border-color: #168BFF;
-  color: #3DA5FF;
+  color: #FFFFFF;
 }
 
 /* ==========================================================================

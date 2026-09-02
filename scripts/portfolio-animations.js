@@ -744,20 +744,20 @@
 
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(61, 165, 255, ${currentAlpha})`;
-          ctx.shadowBlur = 6;
-          ctx.shadowColor = 'rgba(22, 139, 255, 0.6)';
+          ctx.fillStyle = `rgba(22, 139, 255, ${currentAlpha * 0.5})`;
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = 'rgba(85, 183, 255, 0.6)';
           ctx.fill();
         }
 
-        // Render micro electric arc if active
+        // Render micro electric arc if active (crisp Thor lightning streak)
         if (activeArc) {
           ctx.save();
           const progress = activeArc.life / activeArc.maxLife;
-          ctx.strokeStyle = `rgba(186, 230, 253, ${activeArc.opacity * progress})`;
-          ctx.lineWidth = 1.2;
-          ctx.shadowBlur = 10;
-          ctx.shadowColor = 'rgba(22, 139, 255, 0.85)';
+          ctx.strokeStyle = `rgba(22, 139, 255, ${activeArc.opacity * progress})`;
+          ctx.lineWidth = 1.3;
+          ctx.shadowBlur = 12;
+          ctx.shadowColor = 'rgba(85, 183, 255, 0.95)';
           ctx.beginPath();
           ctx.moveTo(activeArc.startX, activeArc.startY);
           for (let i = 0; i < activeArc.segments.length; i++) {
