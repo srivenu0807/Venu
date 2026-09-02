@@ -572,12 +572,260 @@
   });
 
   /* ==========================================================================
-     10. Initialization on DOM Ready
+     10. Living Cinematic Electric-Blue Lightning Atmosphere Controller
+     - Natural unpredictable pulse & flicker intervals (3s - 8.5s)
+     - Multi-branch atmospheric illumination
+     - Ultra-lightweight 60fps HTML5 dynamic ionized particle & spark canvas
+     - Smooth micro-parallax scroll depth
+     - Auto-pausing on tab inactivity (Page Visibility API)
+     - Strict prefers-reduced-motion accessibility
+     ========================================================================== */
+  function initLightningAtmosphere() {
+    if (prefersReducedMotion) return;
+
+    const baseLayer = document.querySelector('.lightning-base');
+    const glowLayer = document.querySelector('.lightning-glow');
+    const branch1 = document.querySelector('.lightning-branch-1');
+    const branch2 = document.querySelector('.lightning-branch-2');
+    const cloudsLayer = document.querySelector('.lightning-clouds');
+    const canvas = document.getElementById('lightning-canvas');
+
+    let isTabActive = !document.hidden;
+    let surgeTimeoutId = null;
+
+    /* ------------------------------------------------------------------------
+       A. Natural Random Lightning Surges & Branch Flickers
+       ------------------------------------------------------------------------ */
+    function triggerRandomLightningSurge() {
+      if (!isTabActive || prefersReducedMotion) {
+        scheduleNextSurge();
+        return;
+      }
+
+      const patternType = Math.floor(Math.random() * 3); // 0: Double flicker, 1: Branch strike, 2: Ambient pulse
+
+      if (patternType === 0 && baseLayer && glowLayer) {
+        // Pattern 0: Realistic rapid double-surge
+        baseLayer.classList.add('is-surging');
+        glowLayer.classList.add('is-surging');
+
+        setTimeout(() => {
+          baseLayer.classList.remove('is-surging');
+          glowLayer.classList.remove('is-surging');
+
+          setTimeout(() => {
+            baseLayer.classList.add('is-surging');
+            if (branch1 && Math.random() > 0.5) branch1.classList.add('is-active');
+
+            setTimeout(() => {
+              baseLayer.classList.remove('is-surging');
+              if (branch1) branch1.classList.remove('is-active');
+            }, 120 + Math.random() * 80);
+          }, 60 + Math.random() * 50);
+        }, 80 + Math.random() * 40);
+
+      } else if (patternType === 1) {
+        // Pattern 1: Branch ionization illumination
+        const targetBranch = Math.random() > 0.5 ? branch1 : branch2;
+        if (targetBranch) {
+          targetBranch.classList.add('is-active');
+          if (glowLayer) glowLayer.classList.add('is-surging');
+
+          setTimeout(() => {
+            targetBranch.classList.remove('is-active');
+            if (glowLayer) glowLayer.classList.remove('is-surging');
+          }, 180 + Math.random() * 140);
+        }
+
+      } else {
+        // Pattern 2: Deep ambient cloud glow swell
+        if (glowLayer) {
+          glowLayer.classList.add('is-surging');
+          setTimeout(() => {
+            glowLayer.classList.remove('is-surging');
+          }, 350 + Math.random() * 200);
+        }
+      }
+
+      scheduleNextSurge();
+    }
+
+    function scheduleNextSurge() {
+      if (surgeTimeoutId) clearTimeout(surgeTimeoutId);
+      // Random unpredictable delay between 3200ms and 8500ms
+      const nextDelay = 3200 + Math.random() * 5300;
+      surgeTimeoutId = setTimeout(triggerRandomLightningSurge, nextDelay);
+    }
+
+    scheduleNextSurge();
+
+    /* ------------------------------------------------------------------------
+       B. Ultra-Lightweight Dynamic Electric Canvas
+       ------------------------------------------------------------------------ */
+    if (canvas && canvas.getContext) {
+      const ctx = canvas.getContext('2d');
+      let animFrameId = null;
+      let width = 0;
+      let height = 0;
+
+      function resizeCanvas() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas, { passive: true });
+
+      // Atmospheric ionized ambient particles (minimal count for 0% CPU footprint)
+      const particleCount = window.innerWidth < 768 ? 12 : 22;
+      const particles = [];
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height * 0.6,
+          radius: 0.8 + Math.random() * 1.6,
+          vx: (Math.random() - 0.5) * 0.18,
+          vy: (Math.random() - 0.5) * 0.15 - 0.05,
+          alpha: 0.1 + Math.random() * 0.35,
+          maxAlpha: 0.25 + Math.random() * 0.35,
+          pulseSpeed: 0.008 + Math.random() * 0.015,
+          phase: Math.random() * Math.PI * 2
+        });
+      }
+
+      // Micro electric arc burst state
+      let activeArc = null;
+
+      function spawnElectricArc() {
+        if (!isTabActive || Math.random() > 0.02) return;
+        const startX = width * (0.2 + Math.random() * 0.4);
+        const startY = height * (0.1 + Math.random() * 0.3);
+        const segments = [];
+        let curX = startX;
+        let curY = startY;
+        const length = 4 + Math.floor(Math.random() * 4);
+
+        for (let i = 0; i < length; i++) {
+          curX += (Math.random() - 0.4) * 35;
+          curY += 15 + Math.random() * 25;
+          segments.push({ x: curX, y: curY });
+        }
+
+        activeArc = {
+          startX,
+          startY,
+          segments,
+          life: 8,
+          maxLife: 8,
+          opacity: 0.65 + Math.random() * 0.25
+        };
+      }
+
+      function renderCanvas() {
+        if (!isTabActive) {
+          animFrameId = requestAnimationFrame(renderCanvas);
+          return;
+        }
+
+        ctx.clearRect(0, 0, width, height);
+
+        // Render ambient ionized particles
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          p.phase += p.pulseSpeed;
+
+          if (p.x < 0) p.x = width;
+          if (p.x > width) p.x = 0;
+          if (p.y < 0) p.y = height * 0.65;
+          if (p.y > height * 0.65) p.y = 0;
+
+          const currentAlpha = p.alpha * (0.6 + 0.4 * Math.sin(p.phase));
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(56, 189, 248, ${currentAlpha})`;
+          ctx.shadowBlur = 6;
+          ctx.shadowColor = 'rgba(0, 195, 255, 0.4)';
+          ctx.fill();
+        }
+
+        // Render micro electric arc if active
+        if (activeArc) {
+          ctx.save();
+          const progress = activeArc.life / activeArc.maxLife;
+          ctx.strokeStyle = `rgba(186, 230, 253, ${activeArc.opacity * progress})`;
+          ctx.lineWidth = 1.2;
+          ctx.shadowBlur = 10;
+          ctx.shadowColor = 'rgba(56, 189, 248, 0.8)';
+          ctx.beginPath();
+          ctx.moveTo(activeArc.startX, activeArc.startY);
+          for (let i = 0; i < activeArc.segments.length; i++) {
+            ctx.lineTo(activeArc.segments[i].x, activeArc.segments[i].y);
+          }
+          ctx.stroke();
+          ctx.restore();
+
+          activeArc.life--;
+          if (activeArc.life <= 0) {
+            activeArc = null;
+          }
+        } else {
+          spawnElectricArc();
+        }
+
+        animFrameId = requestAnimationFrame(renderCanvas);
+      }
+
+      animFrameId = requestAnimationFrame(renderCanvas);
+    }
+
+    /* ------------------------------------------------------------------------
+       C. Smooth Scroll Depth Micro-Parallax
+       ------------------------------------------------------------------------ */
+    let lastScrollY = window.scrollY || window.pageYOffset || 0;
+    let ticking = false;
+
+    function applyScrollDepth() {
+      const scrollY = window.scrollY || window.pageYOffset || 0;
+      if (cloudsLayer) {
+        cloudsLayer.style.transform = `translate3d(0, ${scrollY * 0.02}px, 0)`;
+      }
+      if (glowLayer) {
+        glowLayer.style.transform = `translate3d(0, ${scrollY * 0.012}px, 0)`;
+      }
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      lastScrollY = window.scrollY || window.pageYOffset || 0;
+      if (!ticking) {
+        window.requestAnimationFrame(applyScrollDepth);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    /* ------------------------------------------------------------------------
+       D. Page Visibility Lifecycle (Pause when tab inactive)
+       ------------------------------------------------------------------------ */
+    document.addEventListener('visibilitychange', () => {
+      isTabActive = !document.hidden;
+      if (isTabActive) {
+        scheduleNextSurge();
+      } else {
+        if (surgeTimeoutId) clearTimeout(surgeTimeoutId);
+      }
+    });
+  }
+
+  /* ==========================================================================
+     11. Initialization on DOM Ready
      ========================================================================== */
   function init() {
     initScrollReveals();
     updateProgressBar();
     updateActiveNav();
+    initLightningAtmosphere();
   }
 
   if (document.readyState === 'loading') {
