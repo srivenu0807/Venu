@@ -744,9 +744,9 @@
 
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(56, 189, 248, ${currentAlpha})`;
+          ctx.fillStyle = `rgba(61, 165, 255, ${currentAlpha})`;
           ctx.shadowBlur = 6;
-          ctx.shadowColor = 'rgba(0, 195, 255, 0.4)';
+          ctx.shadowColor = 'rgba(22, 139, 255, 0.6)';
           ctx.fill();
         }
 
@@ -757,7 +757,7 @@
           ctx.strokeStyle = `rgba(186, 230, 253, ${activeArc.opacity * progress})`;
           ctx.lineWidth = 1.2;
           ctx.shadowBlur = 10;
-          ctx.shadowColor = 'rgba(56, 189, 248, 0.8)';
+          ctx.shadowColor = 'rgba(22, 139, 255, 0.85)';
           ctx.beginPath();
           ctx.moveTo(activeArc.startX, activeArc.startY);
           for (let i = 0; i < activeArc.segments.length; i++) {
