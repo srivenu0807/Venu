@@ -697,26 +697,40 @@
 
       function spawnElectricArc() {
         if (!isTabActive || Math.random() > 0.02) return;
-        const startX = width * (0.2 + Math.random() * 0.4);
-        const startY = height * (0.1 + Math.random() * 0.3);
-        const segments = [];
+        // Concentrated primarily toward the right side and upper quadrant
+        const startX = width * (0.55 + Math.random() * 0.4);
+        const startY = height * (0.05 + Math.random() * 0.35);
+        const mainSegments = [];
+        const branchSegments = [];
         let curX = startX;
         let curY = startY;
-        const length = 4 + Math.floor(Math.random() * 4);
+        const length = 5 + Math.floor(Math.random() * 5);
 
         for (let i = 0; i < length; i++) {
-          curX += (Math.random() - 0.4) * 35;
-          curY += 15 + Math.random() * 25;
-          segments.push({ x: curX, y: curY });
+          curX += (Math.random() - 0.45) * 32;
+          curY += 16 + Math.random() * 26;
+          mainSegments.push({ x: curX, y: curY });
+
+          // Occasional branching streak
+          if (i === 2 && Math.random() > 0.3) {
+            let bX = curX;
+            let bY = curY;
+            for (let j = 0; j < 3; j++) {
+              bX += (Math.random() - 0.2) * 28;
+              bY += 12 + Math.random() * 18;
+              branchSegments.push({ x: bX, y: bY });
+            }
+          }
         }
 
         activeArc = {
           startX,
           startY,
-          segments,
+          mainSegments,
+          branchSegments,
           life: 8,
           maxLife: 8,
-          opacity: 0.65 + Math.random() * 0.25
+          opacity: 0.75 + Math.random() * 0.25
         };
       }
 
@@ -744,26 +758,39 @@
 
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(22, 139, 255, ${currentAlpha * 0.5})`;
+          ctx.fillStyle = `rgba(85, 183, 255, ${currentAlpha * 0.55})`;
           ctx.shadowBlur = 8;
-          ctx.shadowColor = 'rgba(85, 183, 255, 0.6)';
+          ctx.shadowColor = 'rgba(22, 139, 255, 0.7)';
           ctx.fill();
         }
 
-        // Render micro electric arc if active (crisp Thor lightning streak)
+        // Render micro electric arc if active (crisp Thor branching lightning streak)
         if (activeArc) {
           ctx.save();
           const progress = activeArc.life / activeArc.maxLife;
-          ctx.strokeStyle = `rgba(22, 139, 255, ${activeArc.opacity * progress})`;
-          ctx.lineWidth = 1.3;
-          ctx.shadowBlur = 12;
-          ctx.shadowColor = 'rgba(85, 183, 255, 0.95)';
+          ctx.strokeStyle = `rgba(234, 248, 255, ${activeArc.opacity * progress})`;
+          ctx.lineWidth = 1.4;
+          ctx.shadowBlur = 14;
+          ctx.shadowColor = 'rgba(22, 139, 255, 0.95)';
+          
+          // Main bolt
           ctx.beginPath();
           ctx.moveTo(activeArc.startX, activeArc.startY);
-          for (let i = 0; i < activeArc.segments.length; i++) {
-            ctx.lineTo(activeArc.segments[i].x, activeArc.segments[i].y);
+          for (let i = 0; i < activeArc.mainSegments.length; i++) {
+            ctx.lineTo(activeArc.mainSegments[i].x, activeArc.mainSegments[i].y);
           }
           ctx.stroke();
+
+          // Sub-branch bolt
+          if (activeArc.branchSegments.length > 0) {
+            ctx.beginPath();
+            ctx.lineWidth = 0.9;
+            ctx.moveTo(activeArc.mainSegments[1].x, activeArc.mainSegments[1].y);
+            for (let i = 0; i < activeArc.branchSegments.length; i++) {
+              ctx.lineTo(activeArc.branchSegments[i].x, activeArc.branchSegments[i].y);
+            }
+            ctx.stroke();
+          }
           ctx.restore();
 
           activeArc.life--;
