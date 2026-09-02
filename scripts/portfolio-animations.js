@@ -764,33 +764,47 @@
           ctx.fill();
         }
 
-        // Render micro electric arc if active (crisp Thor branching lightning streak)
+        // Render micro electric arc if active (realistic Thor branching lightning streak with bright white core)
         if (activeArc) {
           ctx.save();
           const progress = activeArc.life / activeArc.maxLife;
-          ctx.strokeStyle = `rgba(234, 248, 255, ${activeArc.opacity * progress})`;
-          ctx.lineWidth = 1.4;
-          ctx.shadowBlur = 14;
-          ctx.shadowColor = 'rgba(22, 139, 255, 0.95)';
-          
-          // Main bolt
+
+          // Pass 1: Outer Electric-Blue Glow
           ctx.beginPath();
           ctx.moveTo(activeArc.startX, activeArc.startY);
           for (let i = 0; i < activeArc.mainSegments.length; i++) {
             ctx.lineTo(activeArc.mainSegments[i].x, activeArc.mainSegments[i].y);
           }
-          ctx.stroke();
-
-          // Sub-branch bolt
           if (activeArc.branchSegments.length > 0) {
-            ctx.beginPath();
-            ctx.lineWidth = 0.9;
             ctx.moveTo(activeArc.mainSegments[1].x, activeArc.mainSegments[1].y);
             for (let i = 0; i < activeArc.branchSegments.length; i++) {
               ctx.lineTo(activeArc.branchSegments[i].x, activeArc.branchSegments[i].y);
             }
-            ctx.stroke();
           }
+          ctx.strokeStyle = `rgba(61, 165, 255, ${activeArc.opacity * progress * 0.85})`;
+          ctx.lineWidth = 2.4;
+          ctx.shadowBlur = 16;
+          ctx.shadowColor = 'rgba(22, 139, 255, 0.95)';
+          ctx.stroke();
+
+          // Pass 2: Thin Bright White Core
+          ctx.beginPath();
+          ctx.moveTo(activeArc.startX, activeArc.startY);
+          for (let i = 0; i < activeArc.mainSegments.length; i++) {
+            ctx.lineTo(activeArc.mainSegments[i].x, activeArc.mainSegments[i].y);
+          }
+          if (activeArc.branchSegments.length > 0) {
+            ctx.moveTo(activeArc.mainSegments[1].x, activeArc.mainSegments[1].y);
+            for (let i = 0; i < activeArc.branchSegments.length; i++) {
+              ctx.lineTo(activeArc.branchSegments[i].x, activeArc.branchSegments[i].y);
+            }
+          }
+          ctx.strokeStyle = `rgba(255, 255, 255, ${activeArc.opacity * progress})`;
+          ctx.lineWidth = 0.9;
+          ctx.shadowBlur = 6;
+          ctx.shadowColor = '#FFFFFF';
+          ctx.stroke();
+
           ctx.restore();
 
           activeArc.life--;
