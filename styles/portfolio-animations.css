@@ -1183,7 +1183,50 @@ div[id] {
 }
 
 /* ==========================================================================
-   About Section Character Presentation
+   Hero Section Character Presentation
+   ========================================================================== */
+.hero-portrait-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.hero-portrait-card {
+  position: relative;
+  width: 100%;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  transition: transform 0.4s var(--anim-ease-out-expo);
+}
+
+.hero-portrait-card:hover {
+  transform: translateY(-4px);
+}
+
+.hero-portrait-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  object-position: center bottom;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 15px 35px rgba(2, 6, 13, 0.75)) drop-shadow(0 0 25px rgba(22, 139, 255, 0.18));
+  transition: transform 0.6s var(--anim-ease-out-expo), filter 0.6s var(--anim-ease-out-expo);
+}
+
+.hero-portrait-card:hover .hero-portrait-img {
+  transform: scale(1.02);
+  filter: drop-shadow(0 20px 45px rgba(2, 6, 13, 0.85)) drop-shadow(0 0 35px rgba(61, 165, 255, 0.35));
+}
+
+/* ==========================================================================
+   About Section Portrait Photograph Presentation
    ========================================================================== */
 .about-portrait-wrap {
   position: relative;
@@ -1202,43 +1245,36 @@ div[id] {
   }
 }
 
-.about-character-container,
 .about-portrait-card {
   position: relative;
   width: 100%;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: visible;
-  transition: transform 0.4s var(--anim-ease-out-expo);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: rgba(7, 26, 47, 0.45) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 20px 50px -10px rgba(2, 6, 13, 0.75), 0 0 35px rgba(22, 139, 255, 0.12);
+  transition: transform 0.4s var(--anim-ease-out-expo), box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
-.about-character-container:hover,
 .about-portrait-card:hover {
   transform: translateY(-4px);
+  border-color: rgba(61, 165, 255, 0.45) !important;
+  box-shadow: 0 25px 60px -10px rgba(2, 6, 13, 0.9), 0 0 45px rgba(61, 165, 255, 0.25);
 }
 
-.about-character-img,
 .about-portrait-img {
   width: 100%;
-  max-width: 100%;
-  height: auto;
-  max-height: 560px;
-  object-fit: contain;
-  object-position: center bottom;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
   display: block;
-  margin: 0 auto;
-  filter: drop-shadow(0 15px 35px rgba(2, 6, 13, 0.75)) drop-shadow(0 0 25px rgba(22, 139, 255, 0.18));
-  transition: transform 0.6s var(--anim-ease-out-expo), filter 0.6s var(--anim-ease-out-expo);
+  transition: transform 0.6s var(--anim-ease-out-expo);
 }
 
-.about-character-container:hover .about-character-img,
 .about-portrait-card:hover .about-portrait-img {
-  transform: scale(1.02);
-  filter: drop-shadow(0 20px 45px rgba(2, 6, 13, 0.85)) drop-shadow(0 0 35px rgba(61, 165, 255, 0.35));
+  transform: scale(1.03);
 }
 
 /* ==========================================================================
@@ -1883,10 +1919,10 @@ nav.is-scrolled {
 
   .project-card-image,
   .hero-portrait-wrap img,
+  .hero-portrait-card,
+  .hero-portrait-img,
   .about-portrait-card,
   .about-portrait-img,
-  .about-character-container,
-  .about-character-img,
   .project-badge-num {
     transform: none !important;
     transition: none !important;
