@@ -131,32 +131,25 @@ button:hover .text-lime {
 }
 
 /* ==========================================================================
-   Cinematic Thor-Inspired Electric Lightning Background System
-   - Atmosphere: WHITE -> ICE BLUE -> SKY BLUE -> ELECTRIC BLUE -> DEEP NAVY / BLACK
-   - Not completely black, natural transition with cloud & mist illumination
+   Cinematic Dark Storm & Electric-Blue Lightning Background System
+   - Master Reference Artwork: images/portfolio-background.png
+   - Mood: Dark Storm + Electric Blue Lightning + Deep Navy Clouds + Cinematic Atmosphere
+   - Readability: Dark translucent overlay + Vignette + Subtle Electric-Blue Atmospheric Glow
+   - Motion: Smooth slow breathing + Occasional soft pulse + Mouse Parallax on Desktop
    ========================================================================== */
 .portfolio-bg-atmosphere {
   position: fixed;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
   z-index: -2;
   overflow: hidden;
-  background-color: var(--color-black);
-  background:
-    /* Upper ambient white & ice-blue storm energy */
-    radial-gradient(circle 750px at 45% 10%, rgba(255, 255, 255, 0.22) 0%, rgba(221, 244, 255, 0.16) 35%, rgba(185, 229, 255, 0.1) 60%, transparent 85%),
-    /* Right-side electric storm discharge with deep blue contrast */
-    radial-gradient(ellipse 70% 80% at 85% 25%, rgba(22, 139, 255, 0.32) 0%, rgba(10, 35, 66, 0.75) 50%, #02060D 95%),
-    /* Left-side soft sky-blue ambient field */
-    radial-gradient(ellipse 75% 65% at 15% 60%, rgba(61, 165, 255, 0.16) 0%, rgba(7, 26, 47, 0.5) 55%, transparent 85%),
-    /* Base atmosphere gradient: White/Ice-Blue -> Sky Blue -> Electric Blue -> Deep Navy/Black */
-    linear-gradient(135deg, #071A2F 0%, #0A2342 30%, #071A2F 70%, #02060D 100%);
-  will-change: transform;
+  background-color: #02060D;
 }
 
-.lightning-layer {
+.lightning-layer,
+.storm-bg-layer {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -164,107 +157,68 @@ button:hover .text-lime {
   pointer-events: none;
 }
 
-/* Layer 1: Electric Storm Lightning Artwork (Realistic Branching Atmosphere) */
-.lightning-base {
-  background-image: url('../images/lightning-bg.jpg');
+/* Layer 1: The Main Dark Storm & Electric Lightning Visual */
+.lightning-base,
+.storm-bg-image {
+  position: absolute;
+  inset: -4%;
+  width: 108%;
+  height: 108%;
+  background-image: url('../images/portfolio-background.png');
   background-size: cover;
-  background-position: 72% 22%;
+  background-position: center center;
   background-repeat: no-repeat;
-  opacity: 0.48;
-  filter: contrast(1.2) saturate(1.28) brightness(1.05);
-  transform: scale(1.02);
-  animation: lightningBaseBreathe 22s ease-in-out infinite alternate;
+  opacity: 0.65;
+  filter: contrast(1.16) saturate(1.22) brightness(0.92);
+  transform: scale(1.02) translate3d(0, 0, 0);
+  animation: stormImageBreathe 28s ease-in-out infinite alternate;
   will-change: transform, opacity, filter;
-  transition: opacity 0.25s ease-out, filter 0.25s ease-out;
+  transition: transform 0.15s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
-.lightning-base.is-surging {
-  opacity: 0.8;
-  filter: contrast(1.28) saturate(1.38) brightness(1.22);
-  transition: opacity 0.08s ease-in, filter 0.08s ease-in;
-}
-
-.lightning-base.is-dimmed {
-  opacity: 0.36;
-  transition: opacity 0.45s ease-out;
-}
-
-/* Layer 2: Ethereal Cloud & Mist Movement */
-.lightning-clouds {
+/* Layer 2: Ethereal Deep Navy & Electric Cloud Mist */
+.lightning-clouds,
+.storm-bg-clouds {
   background-image:
-    radial-gradient(ellipse 75% 55% at 75% 30%, rgba(22, 139, 255, 0.22) 0%, rgba(7, 26, 47, 0.65) 55%, #02060D 100%),
-    radial-gradient(ellipse 85% 65% at 25% 18%, rgba(221, 244, 255, 0.14) 0%, transparent 60%),
-    radial-gradient(ellipse 65% 50% at 85% 80%, rgba(10, 35, 66, 0.5) 0%, transparent 65%);
+    radial-gradient(ellipse 70% 50% at 85% 25%, rgba(22, 139, 255, 0.18) 0%, rgba(7, 26, 47, 0.45) 50%, transparent 80%),
+    radial-gradient(ellipse 75% 55% at 20% 25%, rgba(61, 165, 255, 0.14) 0%, rgba(10, 35, 66, 0.4) 50%, transparent 80%),
+    radial-gradient(ellipse 90% 60% at 50% 85%, rgba(22, 139, 255, 0.12) 0%, rgba(7, 26, 47, 0.5) 50%, transparent 85%);
   mix-blend-mode: screen;
-  opacity: 0.78;
-  animation: cloudDriftSlow 48s ease-in-out infinite alternate;
+  opacity: 0.60;
+  animation: stormCloudDrift 36s ease-in-out infinite alternate;
   will-change: transform;
 }
 
-/* Layer 3: Breathing Electric-Blue Radial Glow */
-.lightning-glow {
+/* Layer 3: Soft Electric-Blue Atmospheric Glow & Breathing Pulse */
+.lightning-glow,
+.storm-bg-glow {
   background-image:
-    radial-gradient(circle 500px at 78% 26%, rgba(22, 139, 255, 0.32) 0%, rgba(61, 165, 255, 0.12) 42%, transparent 75%),
-    radial-gradient(circle 380px at 35% 22%, rgba(61, 165, 255, 0.14) 0%, transparent 70%),
-    radial-gradient(ellipse 85% 60% at 50% 12%, rgba(221, 244, 255, 0.15) 0%, transparent 65%);
+    radial-gradient(circle 550px at 85% 22%, rgba(22, 139, 255, 0.28) 0%, rgba(61, 165, 255, 0.1) 45%, transparent 75%),
+    radial-gradient(circle 480px at 18% 26%, rgba(61, 165, 255, 0.22) 0%, rgba(22, 139, 255, 0.08) 45%, transparent 75%),
+    radial-gradient(ellipse 80% 45% at 50% 90%, rgba(22, 139, 255, 0.16) 0%, transparent 70%);
   mix-blend-mode: screen;
-  opacity: 0.68;
-  animation: lightningGlowPulse 10s ease-in-out infinite alternate;
+  opacity: 0.52;
+  animation: stormGlowPulse 12s ease-in-out infinite alternate;
   will-change: opacity, transform;
-  transition: opacity 0.3s ease-out;
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
-.lightning-glow.is-surging {
-  opacity: 0.95;
-  transition: opacity 0.08s ease-in;
-}
-
-/* Layer 4 & 5: Localized Branch Shimmers */
-.lightning-branch {
-  mix-blend-mode: screen;
-  opacity: 0;
-  transition: opacity 0.4s ease-out;
-  will-change: opacity;
-}
-
-.lightning-branch-1 {
-  background: radial-gradient(ellipse 45% 38% at 75% 30%, rgba(61, 165, 255, 0.42) 0%, rgba(22, 139, 255, 0.18) 38%, transparent 72%);
-}
-
-.lightning-branch-2 {
-  background: radial-gradient(ellipse 38% 34% at 65% 20%, rgba(255, 255, 255, 0.48) 0%, rgba(61, 165, 255, 0.22) 40%, transparent 70%);
-}
-
-.lightning-branch.is-active {
-  opacity: 0.95;
-  transition: opacity 0.06s ease-in;
-}
-
-/* Layer 6: Dynamic Canvas for Micro-Electrical Energy */
-.lightning-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  mix-blend-mode: screen;
-  opacity: 0.88;
-  pointer-events: none;
-}
-
-/* Layer 7: Edge Vignette & Content Protection Scrim (Subtle Glass Overlays) */
-.lightning-vignette {
+/* Layer 4: Dark Content Readability Overlay (Deep Black, Deep Navy & Soft Tint) */
+.lightning-scrim,
+.storm-bg-overlay {
   background:
-    linear-gradient(180deg, rgba(2, 6, 13, 0.85) 0%, rgba(7, 26, 47, 0.25) 14%, transparent 32%),
-    linear-gradient(0deg, rgba(2, 6, 13, 0.92) 0%, rgba(7, 26, 47, 0.4) 16%, transparent 38%),
-    linear-gradient(90deg, rgba(2, 6, 13, 0.78) 0%, rgba(7, 26, 47, 0.45) 26%, rgba(7, 26, 47, 0.15) 54%, transparent 82%),
-    radial-gradient(ellipse 88% 76% at 50% 50%, transparent 36%, rgba(7, 26, 47, 0.5) 78%, rgba(2, 6, 13, 0.88) 100%);
+    linear-gradient(180deg, rgba(2, 6, 13, 0.65) 0%, rgba(7, 26, 47, 0.22) 20%, rgba(7, 26, 47, 0.28) 80%, rgba(2, 6, 13, 0.75) 100%),
+    radial-gradient(ellipse 92% 82% at 50% 48%, rgba(2, 6, 13, 0.28) 0%, rgba(7, 26, 47, 0.48) 65%, rgba(2, 6, 13, 0.85) 100%);
   mix-blend-mode: normal;
 }
 
-/* Layer 8: Subtle Dark Scrim */
-.lightning-scrim {
-  background-color: rgba(7, 26, 47, 0.2);
-  mix-blend-mode: multiply;
+/* Layer 5: Edge Vignette & Edge Shadow */
+.lightning-vignette,
+.storm-bg-vignette {
+  background:
+    linear-gradient(180deg, rgba(2, 6, 13, 0.80) 0%, transparent 15%, transparent 85%, rgba(2, 6, 13, 0.88) 100%),
+    radial-gradient(ellipse 95% 85% at 50% 50%, transparent 45%, rgba(2, 6, 13, 0.5) 80%, rgba(2, 6, 13, 0.88) 100%);
+  mix-blend-mode: normal;
 }
 
 /* Editorial Micro-Grain Noise Overlay */
@@ -275,120 +229,123 @@ button:hover .text-lime {
   height: 100%;
   pointer-events: none;
   z-index: -1;
-  opacity: 0.022;
+  opacity: 0.02;
   mix-blend-mode: overlay;
   background-repeat: repeat;
   background-size: 180px 180px;
   background-image: url("data:image/svg+xml,%3Csvg%20viewBox%3D%270%200%20200%20200%27%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%3E%3Cfilter%20id%3D%27noiseFilter%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.8%27%20numOctaves%3D%273%27%20stitchTiles%3D%27stitch%27/%3E%3C/filter%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20filter%3D%27url%28%23noiseFilter%29%27%20opacity%3D%271%27/%3E%3C/svg%3E");
 }
 
-/* ==========================================================================
-   Section Ambient Variations (Scroll Depth & Transitions)
-   ========================================================================== */
-section#work {
-  background: radial-gradient(ellipse 65% 55% at 90% 35%, rgba(22, 139, 255, 0.08) 0%, rgba(7, 26, 47, 0.15) 45%, transparent 75%);
-}
-
-section#journey {
-  background: radial-gradient(ellipse 60% 50% at 88% 50%, rgba(61, 165, 255, 0.06) 0%, rgba(10, 35, 66, 0.12) 42%, transparent 70%);
-}
-
-section#process {
-  background: radial-gradient(ellipse 60% 60% at 92% 45%, rgba(22, 139, 255, 0.09) 0%, rgba(7, 26, 47, 0.16) 45%, transparent 70%);
-}
-
-section#contact {
-  background: radial-gradient(ellipse 70% 65% at 90% 75%, rgba(22, 139, 255, 0.1) 0%, rgba(7, 26, 47, 0.2) 45%, transparent 75%);
+/* Seamless Continuous Background across All Sections */
+section#work,
+section#journey,
+section#process,
+section#contact,
+section#about {
+  background: transparent !important;
 }
 
 /* ==========================================================================
-   Atmospheric Keyframe Animations
+   Smooth Atmospheric Keyframe Animations (Slow, Smooth, Premium, No Strobe)
    ========================================================================== */
-@keyframes lightningBaseBreathe {
+@keyframes stormImageBreathe {
   0% {
     transform: scale(1.02) translate3d(0, 0, 0);
-    opacity: 0.46;
+    opacity: 0.62;
+    filter: contrast(1.15) saturate(1.2) brightness(0.90);
   }
-  35% {
-    transform: scale(1.035) translate3d(-2px, -1px, 0);
-    opacity: 0.54;
+  40% {
+    transform: scale(1.035) translate3d(-3px, -2px, 0);
+    opacity: 0.68;
+    filter: contrast(1.18) saturate(1.24) brightness(0.95);
   }
-  70% {
-    transform: scale(1.045) translate3d(2px, -2px, 0);
-    opacity: 0.49;
+  75% {
+    transform: scale(1.045) translate3d(3px, -1px, 0);
+    opacity: 0.64;
+    filter: contrast(1.16) saturate(1.22) brightness(0.92);
   }
   100% {
-    transform: scale(1.02) translate3d(0, 1px, 0);
-    opacity: 0.44;
+    transform: scale(1.02) translate3d(0, 2px, 0);
+    opacity: 0.60;
+    filter: contrast(1.14) saturate(1.2) brightness(0.88);
   }
 }
 
-@keyframes cloudDriftSlow {
+@keyframes stormCloudDrift {
   0% {
-    transform: translate3d(-1.5%, -1%, 0) scale(1.04);
+    transform: translate3d(-1%, -1%, 0) scale(1.02);
   }
   50% {
-    transform: translate3d(1.5%, 1%, 0) scale(1.07);
+    transform: translate3d(1.5%, 1%, 0) scale(1.05);
   }
   100% {
-    transform: translate3d(-1%, 0.8%, 0) scale(1.04);
+    transform: translate3d(-0.8%, 0.8%, 0) scale(1.02);
   }
 }
 
-@keyframes lightningGlowPulse {
+@keyframes stormGlowPulse {
   0% {
-    opacity: 0.58;
-    transform: scale(0.98);
+    opacity: 0.45;
+    transform: scale(0.99);
   }
-  30% {
-    opacity: 0.82;
+  45% {
+    opacity: 0.62;
     transform: scale(1.03);
   }
-  65% {
-    opacity: 0.62;
+  80% {
+    opacity: 0.48;
     transform: scale(1.0);
   }
   100% {
-    opacity: 0.72;
+    opacity: 0.55;
     transform: scale(1.02);
   }
 }
 
-/* ==========================================================================
-   Tablet Responsive Optimization
-   ========================================================================== */
+/* Tablet & Mobile Responsive Optimizations */
 @media (max-width: 1024px) {
-  .lightning-base {
-    background-position: 65% 20%;
-    opacity: 0.42;
+  .lightning-base,
+  .storm-bg-image {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    opacity: 0.58;
+    animation: stormImageBreatheMobile 24s ease-in-out infinite alternate;
   }
-
-  .lightning-canvas {
-    opacity: 0.75;
+  
+  .lightning-glow,
+  .storm-bg-glow {
+    opacity: 0.42;
   }
 }
 
-/* ==========================================================================
-   Mobile Responsive Optimization
-   ========================================================================== */
 @media (max-width: 768px) {
-  .lightning-base {
-    background-position: 60% 15%;
-    opacity: 0.38;
-    transform: scale(1.04);
-  }
-
-  .lightning-canvas {
-    opacity: 0.65;
-  }
-
-  .lightning-clouds {
-    opacity: 0.85;
+  .lightning-base,
+  .storm-bg-image {
+    background-position: center center;
+    opacity: 0.54;
+    filter: contrast(1.12) saturate(1.18) brightness(0.88);
   }
 
   .portfolio-bg-noise {
-    opacity: 0.018;
+    opacity: 0.016;
     background-size: 140px 140px;
+  }
+}
+
+@keyframes stormImageBreatheMobile {
+  0% {
+    transform: scale(1.01);
+    opacity: 0.52;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 0.58;
+  }
+  100% {
+    transform: scale(1.01);
+    opacity: 0.50;
   }
 }
 
