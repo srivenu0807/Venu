@@ -606,6 +606,7 @@ div[id] {
 .project-card-image-wrap {
   position: relative;
   overflow: hidden;
+  aspect-ratio: 16 / 9;
   border-radius: 0.85rem;
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: rgba(7, 26, 47, 0.45);
