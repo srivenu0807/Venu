@@ -593,88 +593,88 @@
     modalContent.innerHTML = `
       <div class="project-case-study">
         <!-- 1. PROJECT HEADER -->
-        <div class="case-study-header mb-6">
-          <div class="flex items-center justify-between gap-3 mb-3">
-            <div class="flex items-baseline gap-2.5">
-              <span class="text-xs font-mono tracking-[0.2em] font-bold" style="color: #168BFF;">${project.number}</span>
-              <span class="text-[10px] tracking-[0.25em] text-cream/40 font-mono uppercase">${project.type}</span>
+        <div class="case-study-header">
+          <div class="case-study-top-meta">
+            <div class="case-study-tag-group">
+              <span class="case-study-number">${project.number}</span>
+              <span class="case-study-type">${project.type}</span>
             </div>
-            <span class="text-[10px] tracking-[0.15em] text-cream/35 font-mono uppercase">Case Study</span>
+            <span class="case-study-badge">Case Study</span>
           </div>
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-[-0.03em] text-cream leading-tight mb-3">${project.title}</h2>
-          <p class="text-sm md:text-base text-cream/70 leading-relaxed font-light">${project.summary}</p>
+          <h2 class="case-study-title">${project.title}</h2>
+          <p class="case-study-summary">${project.summary}</p>
         </div>
 
         <!-- 2. LARGE PROJECT PREVIEW -->
-        <div class="case-study-preview w-full rounded-xl overflow-hidden bg-graphite/60 border border-white/10 mb-8 aspect-video shadow-2xl">
-          <picture class="w-full h-full block">
+        <div class="case-study-preview">
+          <picture>
             <source srcset="${project.imageWebp}" type="image/webp">
-            <img src="${project.image}" alt="${project.title} — Case Study Preview" class="w-full h-full object-cover object-top" loading="lazy" />
+            <img src="${project.image}" alt="${project.title} — Case Study Preview" loading="lazy" />
           </picture>
         </div>
 
         <!-- 3. PROJECT OVERVIEW -->
-        <div class="case-study-section mb-7 p-5 sm:p-6 rounded-xl bg-white/[0.03] border border-white/8">
-          <h3 class="text-xs font-mono tracking-[0.2em] text-[#168BFF] uppercase mb-3 font-bold">01 / PROJECT OVERVIEW</h3>
-          <p class="text-sm md:text-base text-cream/80 leading-relaxed font-light">${project.overview}</p>
+        <div class="case-study-section">
+          <h3 class="case-study-heading">01 / PROJECT OVERVIEW</h3>
+          <p class="case-study-body">${project.overview}</p>
         </div>
 
         <!-- 4. ROLE + TOOLS -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-7">
-          <div class="p-4 sm:p-5 rounded-xl bg-white/[0.03] border border-white/8">
-            <span class="text-[10px] font-mono tracking-[0.2em] text-cream/40 uppercase block mb-1.5 font-bold">ROLE</span>
-            <p class="text-sm font-mono text-cream/90 font-medium">${project.role}</p>
+        <div class="case-study-meta-grid">
+          <div class="case-study-meta-box">
+            <span class="case-study-meta-label">ROLE</span>
+            <p class="case-study-meta-value">${project.role}</p>
           </div>
-          <div class="p-4 sm:p-5 rounded-xl bg-white/[0.03] border border-white/8">
-            <span class="text-[10px] font-mono tracking-[0.2em] text-cream/40 uppercase block mb-1.5 font-bold">TOOLS / TECHNOLOGIES</span>
-            <p class="text-sm font-mono text-cream/90 font-medium">${project.tools}</p>
+          <div class="case-study-meta-box">
+            <span class="case-study-meta-label">TOOLS / TECHNOLOGIES</span>
+            <p class="case-study-meta-value">${project.tools}</p>
           </div>
         </div>
 
         <!-- 5. PROJECT OBJECTIVE -->
-        <div class="case-study-section mb-7 p-5 sm:p-6 rounded-xl bg-white/[0.03] border border-white/8">
-          <h3 class="text-xs font-mono tracking-[0.2em] text-[#168BFF] uppercase mb-3 font-bold">02 / PROJECT OBJECTIVE</h3>
-          <p class="text-sm md:text-base text-cream/80 leading-relaxed font-light">${project.objective}</p>
+        <div class="case-study-section">
+          <h3 class="case-study-heading">02 / PROJECT OBJECTIVE</h3>
+          <p class="case-study-body">${project.objective}</p>
         </div>
 
         <!-- 6. DESIGN APPROACH -->
-        <div class="case-study-section mb-7 p-5 sm:p-6 rounded-xl bg-white/[0.03] border border-white/8">
-          <h3 class="text-xs font-mono tracking-[0.2em] text-[#168BFF] uppercase mb-3 font-bold">03 / DESIGN APPROACH</h3>
-          <p class="text-sm md:text-base text-cream/80 leading-relaxed font-light">${project.designApproach}</p>
+        <div class="case-study-section">
+          <h3 class="case-study-heading">03 / DESIGN APPROACH</h3>
+          <p class="case-study-body">${project.designApproach}</p>
         </div>
 
         <!-- 7. KEY FEATURES -->
-        <div class="case-study-section mb-7 p-5 sm:p-6 rounded-xl bg-white/[0.03] border border-white/8">
-          <h3 class="text-xs font-mono tracking-[0.2em] text-[#168BFF] uppercase mb-4 font-bold">04 / KEY FEATURES</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="case-study-section">
+          <h3 class="case-study-heading">04 / KEY FEATURES</h3>
+          <div class="case-study-features-grid">
             ${project.keyFeatures.map((feat) => `
-              <div class="flex items-start gap-2.5 p-3 rounded-lg bg-white/[0.02] border border-white/5">
-                <svg class="w-4 h-4 text-[#168BFF] flex-shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                <span class="text-xs text-cream/80 font-light leading-snug">${feat}</span>
+              <div class="case-study-feature-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>${feat}</span>
               </div>
             `).join('')}
           </div>
         </div>
 
         <!-- 8. RESPONSIVE DESIGN -->
-        <div class="case-study-section mb-7 p-5 sm:p-6 rounded-xl bg-white/[0.03] border border-white/8">
-          <h3 class="text-xs font-mono tracking-[0.2em] text-[#168BFF] uppercase mb-3 font-bold">05 / RESPONSIVE DESIGN</h3>
-          <p class="text-sm md:text-base text-cream/80 leading-relaxed font-light">${project.responsiveDesign}</p>
+        <div class="case-study-section">
+          <h3 class="case-study-heading">05 / RESPONSIVE DESIGN</h3>
+          <p class="case-study-body">${project.responsiveDesign}</p>
         </div>
 
         <!-- 9. PROJECT OUTCOME -->
-        <div class="case-study-section mb-8 p-5 sm:p-6 rounded-xl bg-white/[0.03] border border-white/8">
-          <h3 class="text-xs font-mono tracking-[0.2em] text-[#168BFF] uppercase mb-3 font-bold">06 / PROJECT OUTCOME</h3>
-          <p class="text-sm md:text-base text-cream/80 leading-relaxed font-light">${project.outcome}</p>
+        <div class="case-study-section">
+          <h3 class="case-study-heading">06 / PROJECT OUTCOME</h3>
+          <p class="case-study-body">${project.outcome}</p>
         </div>
 
         <!-- 10 & 11. ACTIONS (NEXT PROJECT + VISIT LIVE WEBSITE) -->
-        <div class="case-study-actions flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-6 border-t border-white/10">
-          <button data-next-project="${project.nextId}" class="case-study-next-btn inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs font-mono tracking-[0.18em] uppercase font-bold text-cream/80 bg-white/5 hover:bg-white/10 border border-white/15 transition-all duration-300 cursor-pointer">
+        <div class="case-study-actions">
+          <button data-next-project="${project.nextId}" class="case-study-next-btn">
             <span>NEXT PROJECT (${project.nextTitle})</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </button>
-          <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="case-study-live-btn inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full text-xs font-mono tracking-[0.2em] uppercase font-bold text-white bg-[#168BFF] hover:bg-[#3DA5FF] transition-all duration-300 shadow-lg shadow-blue-500/20 text-decoration-none">
+          <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="case-study-live-btn">
             <span>VISIT LIVE WEBSITE</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
           </a>
