@@ -482,6 +482,18 @@
       image: './images/jbk-academy.jpg',
       imageWebp: './images/jbk-academy.webp',
       liveUrl: 'https://jbkacademy.in/marathahalli/'
+    },
+    'maac-kphb': {
+      title: 'MAAC KPHB',
+      type: 'WEBSITE REDESIGN',
+      number: '06',
+      color: '#ff7657',
+      role: 'WEBSITE REDESIGN',
+      tools: 'Figma · WordPress · Elementor · UI/UX Design · Responsive Web Design',
+      description: 'A modern, responsive website redesign for MAAC KPHB, focused on presenting creative courses, training programs, student opportunities and career-focused information through a cleaner and more engaging digital experience.',
+      image: './images/maac-kphb.jpg',
+      imageWebp: './images/maac-kphb.webp',
+      liveUrl: 'https://maackphb.com/'
     }
   };
 
