@@ -113,6 +113,11 @@
       }
     }
 
+    // Default to 'work' if near top of page
+    if (!currentSection && scrollY < 500) {
+      currentSection = 'work';
+    }
+
     navLinks.forEach((link) => {
       const target = link.getAttribute('data-nav');
       if (target === currentSection) {

@@ -376,13 +376,13 @@ div[id] {
   top: 0;
   left: 0;
   width: 100%;
-  height: 3px;
+  height: 2px;
   background: linear-gradient(90deg, #168BFF 0%, #3DA5FF 100%);
   transform-origin: 0% 50%;
   transform: scaleX(0);
   z-index: 1000;
   pointer-events: none;
-  box-shadow: 0 0 12px rgba(61, 165, 255, 0.7);
+  box-shadow: 0 0 8px rgba(61, 165, 255, 0.5);
   will-change: transform;
 }
 
@@ -1285,32 +1285,75 @@ div[id] {
 
 /* ==========================================================================
    Navbar & Active Nav Indicator
+   - Premium, clean, modern, minimal, professional
+   - SV logo with subtle electric-blue glow
+   - Evenly spaced nav items on baseline
+   - Active WORK highlighted with electric-blue text, subtle thin underline & glow
+   - Smooth hover transitions
+   - Subtle dark blue/blue-gray bottom border
    ========================================================================== */
 nav {
-  background-color: rgba(2, 6, 13, 0.82) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: rgba(2, 6, 13, 0.85) !important;
+  border-bottom: 1px solid rgba(61, 165, 255, 0.12) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
 nav.is-scrolled {
   background-color: rgba(2, 6, 13, 0.94) !important;
-  border-bottom-color: rgba(61, 165, 255, 0.3) !important;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+  border-bottom-color: rgba(61, 165, 255, 0.22) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.75);
+}
+
+.logo-sv {
+  font-family: 'Outfit', sans-serif;
+  color: #3DA5FF !important;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-shadow: 0 0 16px rgba(61, 165, 255, 0.45);
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+[data-logo]:hover .logo-sv {
+  color: #3DA5FF !important;
+  text-shadow: 0 0 22px rgba(61, 165, 255, 0.75);
+  transform: translateY(-0.5px);
+}
+
+.nav-links-group {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
 }
 
 .nav-link {
   position: relative;
-  padding: 0.25rem 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(240, 245, 255, 0.65) !important;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.nav-link span:not(.nav-link-indicator) {
+  color: inherit !important;
   transition: color 0.25s ease;
 }
 
-.nav-link span {
-  color: #FFFFFF !important;
+.nav-link:hover {
+  color: #3DA5FF !important;
+  text-shadow: 0 0 10px rgba(61, 165, 255, 0.4);
 }
 
-.nav-link:hover span {
+.nav-link:hover span:not(.nav-link-indicator) {
   color: #3DA5FF !important;
 }
 
@@ -1320,20 +1363,34 @@ nav.is-scrolled {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--color-electric-blue);
-  box-shadow: 0 0 10px rgba(61, 165, 255, 0.8);
+  border-radius: 9999px;
+  background-color: #3DA5FF;
+  box-shadow: 0 0 8px rgba(61, 165, 255, 0.6);
   transform: scaleX(0);
-  transform-origin: 0% 50%;
-  transition: transform 0.3s var(--anim-ease-out-expo);
+  transform-origin: 50% 50%;
+  transition: transform 0.25s var(--anim-ease-out-expo), opacity 0.25s ease;
+  opacity: 0;
 }
 
-.nav-link.is-active span {
+.nav-link:hover .nav-link-indicator {
+  transform: scaleX(0.45);
+  opacity: 0.5;
+}
+
+.nav-link.is-active {
+  color: #3DA5FF !important;
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(61, 165, 255, 0.5);
+}
+
+.nav-link.is-active span:not(.nav-link-indicator) {
   color: #3DA5FF !important;
   font-weight: 700;
 }
 
 .nav-link.is-active .nav-link-indicator {
   transform: scaleX(1);
+  opacity: 1;
 }
 
 /* ==========================================================================
