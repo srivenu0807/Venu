@@ -579,6 +579,29 @@ div[id] {
 /* ==========================================================================
    Selected Work Project Cards (rgba(7, 26, 47, 0.45) + rgba(255, 255, 255, 0.15))
    ========================================================================== */
+.work-projects-grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 2rem !important;
+  width: 100% !important;
+  align-items: stretch !important;
+  box-sizing: border-box !important;
+}
+
+@media (min-width: 768px) {
+  .work-projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 2.5rem 2.5rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .work-projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 3rem 3rem !important;
+  }
+}
+
 .aspect-\[16\/9\],
 .aspect-video {
   aspect-ratio: 16 / 9 !important;
@@ -594,6 +617,9 @@ div[id] {
 
 .project-card {
   position: relative;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
   transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
