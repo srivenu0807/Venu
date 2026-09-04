@@ -420,80 +420,164 @@
   }
 
   /* ==========================================================================
-     9. Project Details Exploration Modal
+     9. Project Details Exploration Modal (Complete Case Study Presentation)
      ========================================================================== */
   const projectData = {
     'maynu-clinics': {
+      id: 'maynu-clinics',
       title: 'MAYNU CLINICS',
       type: 'WEBSITE DESIGN',
       number: '01',
       color: '#168BFF',
-      role: 'WEB DESIGN',
-      tools: 'Figma · WordPress · Elementor',
-      description: 'A modern, patient-first healthcare and clinic website designed for trust, clarity, and rapid appointment booking. Crafted with clean typographic hierarchy, custom iconography, and responsive layouts.',
+      role: 'Web Design & WordPress Development',
+      tools: 'WordPress · Elementor · Figma · UI/UX Design · Responsive Web Design',
+      summary: 'A modern healthcare website designed to create a clean, trustworthy and responsive digital experience.',
+      overview: 'Maynu Clinics needed a patient-focused healthcare website designed to establish digital credibility, showcase comprehensive clinical specialties, and facilitate rapid online appointment bookings. The project involved complete visual design, intuitive information architecture, and a responsive WordPress implementation tailored for clear medical discovery.',
+      objective: 'Create an approachable, highly credible digital portal that presents medical treatments clearly, simplifies doctor discovery, and reduces friction for patients scheduling appointments.',
+      designApproach: 'Implemented a clean, trust-inspiring visual hierarchy with high contrast, calm medical color tones, accessible typography, and strategically positioned call-to-action touchpoints across all service pages.',
+      keyFeatures: [
+        'Streamlined Online Appointment Request Flow',
+        'Comprehensive Medical Specialties & Treatment Catalog',
+        'Doctor Profiles with Qualifications & Clinical Focus',
+        'Interactive Clinic Location & Contact Integration'
+      ],
+      responsiveDesign: 'Engineered with a mobile-first philosophy to ensure patients on smartphones and tablets experience rapid load times, touch-friendly appointment booking, and crisp typography across all viewport sizes.',
+      outcome: 'The completed website delivers an intuitive, reassuring experience for patients, providing clear service pathways and significantly simplifying appointment inquiry workflows.',
       image: './images/maynu-clinics.jpg',
       imageWebp: './images/maynu-clinics.webp',
-      liveUrl: 'https://maynuclinics.com/'
+      liveUrl: 'https://maynuclinics.com/',
+      nextId: 'onclick-digital',
+      nextTitle: 'ONCLICK DIGITAL'
     },
     'onclick-digital': {
+      id: 'onclick-digital',
       title: 'ONCLICK DIGITAL',
       type: 'WEBSITE REDESIGN',
       number: '02',
       color: '#168BFF',
-      role: 'WEB DESIGN',
-      tools: 'Figma · WordPress · Elementor',
-      description: 'Complete brand and website redesign for a full-service digital marketing agency with bold modern aesthetics.',
+      role: 'Web Design & Agency Brand Redesign',
+      tools: 'WordPress · Elementor · Figma · UI/UX Design · CSS',
+      summary: 'A bold, high-impact agency redesign focused on modern aesthetics, interactive case studies, and lead generation.',
+      overview: 'OnClick Digital Marketing is a full-service agency requiring a digital presence that reflects modern creative and technical excellence. The project involved reimagining the brand’s digital identity, creating dynamic service presentations for SEO, PPC, and Web Development, and engineering conversion-oriented landing page funnels.',
+      objective: 'Modernize the agency’s online identity, articulate diverse marketing capabilities with high visual impact, and increase inbound inquiry conversions from prospective business clients.',
+      designApproach: 'Utilized a sleek, dark-mode design system with electric accents, engaging micro-interactions, bold editorial typography, and clear client proof-points to communicate industry authority.',
+      keyFeatures: [
+        'Interactive Marketing Solutions & Service Showcase',
+        'Structured Case Study Presentation Layouts',
+        'High-Conversion Consultation & Inquiry Funnels',
+        'Performance-Optimized Responsive Component Architecture'
+      ],
+      responsiveDesign: 'Built using adaptive CSS grids and flexible typography so that complex service tables and portfolio visuals render flawlessly on mobile, tablet, and widescreen desktop monitors.',
+      outcome: 'A modern, high-energy agency website that commands attention, showcases technical capability, and provides a clear pathway for client inquiries.',
       image: './images/onclick-digital.jpg',
       imageWebp: './images/onclick-digital.webp',
-      liveUrl: 'https://onclickdigitalmarketing.com/'
+      liveUrl: 'https://onclickdigitalmarketing.com/',
+      nextId: 'jbk-it',
+      nextTitle: 'JBK IT'
     },
     'jbk-it': {
+      id: 'jbk-it',
       title: 'JBK IT',
       type: 'WEBSITE REDESIGN',
       number: '03',
       color: '#168BFF',
-      role: 'WEB DESIGN',
-      tools: 'Figma · WordPress · Elementor',
-      description: 'Corporate tech infrastructure & enterprise services website redesign with structured service catalogs.',
+      role: 'Web Design & Educational Portal Redesign',
+      tools: 'WordPress · Elementor · Figma · UI/UX Design · Responsive Web Design',
+      summary: 'A structured career training & certification portal for JBK Technologies featuring comprehensive course roadmaps.',
+      overview: 'JBK IT (JBK Technologies) provides specialized professional training in Tally Prime, GST, SAP FICO, and Advanced Accounting. The redesign focused on transforming their portal into a structured, student-friendly platform where learners can explore curriculum details, understand certification paths, and easily register for demo sessions.',
+      objective: 'Streamline course exploration for students and job-seekers, showcase practical training benefits and placement assistance, and make admission counseling inquiries effortless.',
+      designApproach: 'Constructed an intuitive educational hierarchy with clear course categorization, distinct module breakdowns, prominent faculty highlights, and one-click WhatsApp and call consultation triggers.',
+      keyFeatures: [
+        'Comprehensive Training Course Roadmaps & Module Syllabi',
+        'Student Success Reviews & 100% Placement Guidance Showcase',
+        'Instant Demo Booking & Direct Inquiry Forms',
+        'Branch Contact Details & Verification Assistance'
+      ],
+      responsiveDesign: 'Optimized specifically for mobile-first student traffic with fast-loading course sheets, clear syllabus accordions, and frictionless contact actions on mobile screens.',
+      outcome: 'A clear, professional educational website that builds learner confidence and significantly simplifies the enrollment and counseling process.',
       image: './images/jbk-it.jpg',
       imageWebp: './images/jbk-it.webp',
-      liveUrl: 'https://jbkittechnologies.com/'
+      liveUrl: 'https://jbkittechnologies.com/',
+      nextId: 'smake',
+      nextTitle: 'SMAKE'
     },
     'smake': {
+      id: 'smake',
       title: 'SMAKE',
       type: 'E-COMMERCE WEBSITE',
       number: '04',
       color: '#168BFF',
-      role: 'WEB DESIGN',
-      tools: 'Figma · WordPress',
-      description: 'A sleek, visual-first e-commerce shopping experience featuring high-impact product showcases and intuitive flows.',
+      role: 'E-Commerce Web Design & Development',
+      tools: 'WordPress · WooCommerce · Figma · UI/UX Design · Responsive Web Design',
+      summary: 'A sleek, visual-first e-commerce shopping experience for custom apparel and lifestyle merchandise.',
+      overview: 'SMAKE is a contemporary fashion and custom merchandise brand. The objective was to build a visually engaging digital storefront that elevates product presentation, simplifies size and color variant selection, and provides a smooth, frictionless purchasing journey.',
+      objective: 'Create an attractive, brand-aligned e-commerce store that showcases merchandise with high visual impact and delivers an effortless checkout flow.',
+      designApproach: 'Applied a minimalist, product-centric aesthetic with large imagery, clean typography, intuitive category filtering, and sticky add-to-cart interactions for maximum shopping convenience.',
+      keyFeatures: [
+        'High-Resolution Product Showcases & Gallery Views',
+        'Interactive Size, Color, and Variant Selection Matrix',
+        'Streamlined Shopping Cart & Smooth Checkout Funnel',
+        'Mobile-Optimized Product Filter & Navigation Drawer'
+      ],
+      responsiveDesign: 'Engineered for smooth handheld shopping with thumb-friendly touch targets, responsive product grids, and rapid image loading across all mobile devices.',
+      outcome: 'A polished, modern e-commerce storefront that strengthens brand presence and provides customers with an enjoyable, intuitive shopping experience.',
       image: './images/smake.jpg',
       imageWebp: './images/smake.webp',
-      liveUrl: 'https://smake.in/'
+      liveUrl: 'https://smake.in/',
+      nextId: 'jbk-academy',
+      nextTitle: 'JBK ACADEMY – MARATHAHALLI'
     },
     'jbk-academy': {
+      id: 'jbk-academy',
       title: 'JBK ACADEMY – MARATHAHALLI',
       type: 'WEBSITE REDESIGN',
       number: '05',
       color: '#168BFF',
-      role: 'WEB DESIGN',
-      tools: 'Figma · WordPress · Elementor',
-      description: 'Comprehensive digital portal for an educational academy featuring interactive course roadmaps and showcases.',
+      role: 'Web Design & Educational Portal Redesign',
+      tools: 'WordPress · Elementor · Figma · UI/UX Design · Responsive Web Design',
+      summary: 'A comprehensive campus portal for JBK Academy in Marathahalli featuring interactive training roadmaps.',
+      overview: 'JBK Academy’s Marathahalli campus in Bengaluru required a dedicated digital portal to connect students with classroom and online software training, practical workshops, and career coaching programs. The project focused on structured branch navigation, course roadmaps, and clear batch timings.',
+      objective: 'Deliver a transparent, informative campus portal that enables students to discover IT courses, review batch schedules, and connect with academic counselors.',
+      designApproach: 'Designed a structured, accessible layout with modular course cards, easy-to-read batch schedules, student project displays, and direct admission inquiry triggers.',
+      keyFeatures: [
+        'Campus-Specific Course Schedule & Training Roadmaps',
+        'Student Project Showcases & Career Placement Highlights',
+        'Quick Demo Session Registration & Counseling Triggers',
+        'Campus Location Map, Facility Tour & Contact Info'
+      ],
+      responsiveDesign: 'Built for consistent cross-device performance ensuring curriculum overviews and enrollment forms remain easily readable and accessible across mobile and desktop.',
+      outcome: 'A modern, reliable academic portal that empowers students to evaluate career training options and connect directly with campus counselors.',
       image: './images/jbk-academy.jpg',
       imageWebp: './images/jbk-academy.webp',
-      liveUrl: 'https://jbkacademy.in/marathahalli/'
+      liveUrl: 'https://jbkacademy.in/marathahalli/',
+      nextId: 'maac-kphb',
+      nextTitle: 'MAAC KPHB'
     },
     'maac-kphb': {
+      id: 'maac-kphb',
       title: 'MAAC KPHB',
       type: 'WEBSITE REDESIGN',
       number: '06',
       color: '#168BFF',
-      role: 'WEBSITE REDESIGN',
-      tools: 'Figma · WordPress · Elementor · UI/UX Design · Responsive Web Design',
-      description: 'A modern, responsive website redesign for MAAC KPHB, focused on presenting creative courses, training programs, student opportunities and career-focused information through a cleaner and more engaging digital experience.',
+      role: 'Web Design & UI/UX Redesign',
+      tools: 'WordPress · Elementor · UI/UX Design · Responsive Web Design',
+      summary: 'A modern, responsive website redesign for MAAC KPHB showcasing creative courses and student opportunities.',
+      overview: 'MAAC KPHB (Maya Academy of Advanced Creativity) is a premier training institute for 3D Animation, VFX, Gaming, and Graphic Design. The redesign focused on crafting a vibrant, visually captivating digital experience that showcases creative course offerings, student showreels, and career opportunities.',
+      objective: 'Showcase specialized creative industry courses, present student artwork and showreels dynamically, and streamline inquiry submissions for free demo classes and admissions.',
+      designApproach: 'Created a high-energy visual experience featuring bold typography, dark cinematic layouts, vibrant accent colors, and clear category segmentation for Animation, VFX, Gaming, and Design courses.',
+      keyFeatures: [
+        'Specialized Course Tracks (3D Animation, VFX, Gaming, Graphic Design)',
+        'Student Portfolio & Artwork Showcase Galleries',
+        'Free Demo Class Booking & Scholarship Inquiry Forms',
+        'Career Placement Track Record & Alumni Success Highlights'
+      ],
+      responsiveDesign: 'Fully responsive design adapting fluidly from high-resolution desktop monitors to smartphones, maintaining visual richness without sacrificing mobile page speed.',
+      outcome: 'An engaging, modern digital portal that captures the creative energy of MAAC KPHB and guides aspiring artists seamlessly toward course enrollment.',
       image: './images/maac-kphb.jpg',
       imageWebp: './images/maac-kphb.webp',
-      liveUrl: 'https://maackphb.com/'
+      liveUrl: 'https://maackphb.com/',
+      nextId: 'maynu-clinics',
+      nextTitle: 'MAYNU CLINICS'
     }
   };
 
@@ -507,31 +591,113 @@
     if (!project || !modal || !modalContent) return;
 
     modalContent.innerHTML = `
-      <div class="flex items-center justify-between mb-4">
-        <div class="flex items-baseline gap-3">
-          <span class="text-xs font-mono tracking-[0.2em]" style="color: ${project.color}; font-weight: 700;">${project.number}</span>
-          <span class="text-[10px] tracking-[0.2em] text-cream/40 font-mono uppercase">${project.type}</span>
+      <div class="project-case-study">
+        <!-- 1. PROJECT HEADER -->
+        <div class="case-study-header mb-6">
+          <div class="flex items-center justify-between gap-3 mb-3">
+            <div class="flex items-baseline gap-2.5">
+              <span class="text-xs font-mono tracking-[0.2em] font-bold" style="color: #168BFF;">${project.number}</span>
+              <span class="text-[10px] tracking-[0.25em] text-cream/40 font-mono uppercase">${project.type}</span>
+            </div>
+            <span class="text-[10px] tracking-[0.15em] text-cream/35 font-mono uppercase">Case Study</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-[-0.03em] text-cream leading-tight mb-3">${project.title}</h2>
+          <p class="text-sm md:text-base text-cream/70 leading-relaxed font-light">${project.summary}</p>
+        </div>
+
+        <!-- 2. LARGE PROJECT PREVIEW -->
+        <div class="case-study-preview w-full rounded-xl overflow-hidden bg-graphite/60 border border-white/10 mb-8 aspect-video shadow-2xl">
+          <picture class="w-full h-full block">
+            <source srcset="${project.imageWebp}" type="image/webp">
+            <img src="${project.image}" alt="${project.title} — Case Study Preview" class="w-full h-full object-cover object-top" loading="lazy" />
+          </picture>
+        </div>
+
+        <!-- 3. PROJECT OVERVIEW -->
+        <div class="case-study-section mb-7 p-5 sm:p-6 rounded-xl bg-white/[0.03] border border-white/8">
+          <h3 class="text-xs font-mono tracking-[0.2em] text-[#168BFF] uppercase mb-3 font-bold">01 / PROJECT OVERVIEW</h3>
+          <p class="text-sm md:text-base text-cream/80 leading-relaxed font-light">${project.overview}</p>
+        </div>
+
+        <!-- 4. ROLE + TOOLS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-7">
+          <div class="p-4 sm:p-5 rounded-xl bg-white/[0.03] border border-white/8">
+            <span class="text-[10px] font-mono tracking-[0.2em] text-cream/40 uppercase block mb-1.5 font-bold">ROLE</span>
+            <p class="text-sm font-mono text-cream/90 font-medium">${project.role}</p>
+          </div>
+          <div class="p-4 sm:p-5 rounded-xl bg-white/[0.03] border border-white/8">
+            <span class="text-[10px] font-mono tracking-[0.2em] text-cream/40 uppercase block mb-1.5 font-bold">TOOLS / TECHNOLOGIES</span>
+            <p class="text-sm font-mono text-cream/90 font-medium">${project.tools}</p>
+          </div>
+        </div>
+
+        <!-- 5. PROJECT OBJECTIVE -->
+        <div class="case-study-section mb-7 p-5 sm:p-6 rounded-xl bg-white/[0.03] border border-white/8">
+          <h3 class="text-xs font-mono tracking-[0.2em] text-[#168BFF] uppercase mb-3 font-bold">02 / PROJECT OBJECTIVE</h3>
+          <p class="text-sm md:text-base text-cream/80 leading-relaxed font-light">${project.objective}</p>
+        </div>
+
+        <!-- 6. DESIGN APPROACH -->
+        <div class="case-study-section mb-7 p-5 sm:p-6 rounded-xl bg-white/[0.03] border border-white/8">
+          <h3 class="text-xs font-mono tracking-[0.2em] text-[#168BFF] uppercase mb-3 font-bold">03 / DESIGN APPROACH</h3>
+          <p class="text-sm md:text-base text-cream/80 leading-relaxed font-light">${project.designApproach}</p>
+        </div>
+
+        <!-- 7. KEY FEATURES -->
+        <div class="case-study-section mb-7 p-5 sm:p-6 rounded-xl bg-white/[0.03] border border-white/8">
+          <h3 class="text-xs font-mono tracking-[0.2em] text-[#168BFF] uppercase mb-4 font-bold">04 / KEY FEATURES</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            ${project.keyFeatures.map((feat) => `
+              <div class="flex items-start gap-2.5 p-3 rounded-lg bg-white/[0.02] border border-white/5">
+                <svg class="w-4 h-4 text-[#168BFF] flex-shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-xs text-cream/80 font-light leading-snug">${feat}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- 8. RESPONSIVE DESIGN -->
+        <div class="case-study-section mb-7 p-5 sm:p-6 rounded-xl bg-white/[0.03] border border-white/8">
+          <h3 class="text-xs font-mono tracking-[0.2em] text-[#168BFF] uppercase mb-3 font-bold">05 / RESPONSIVE DESIGN</h3>
+          <p class="text-sm md:text-base text-cream/80 leading-relaxed font-light">${project.responsiveDesign}</p>
+        </div>
+
+        <!-- 9. PROJECT OUTCOME -->
+        <div class="case-study-section mb-8 p-5 sm:p-6 rounded-xl bg-white/[0.03] border border-white/8">
+          <h3 class="text-xs font-mono tracking-[0.2em] text-[#168BFF] uppercase mb-3 font-bold">06 / PROJECT OUTCOME</h3>
+          <p class="text-sm md:text-base text-cream/80 leading-relaxed font-light">${project.outcome}</p>
+        </div>
+
+        <!-- 10 & 11. ACTIONS (NEXT PROJECT + VISIT LIVE WEBSITE) -->
+        <div class="case-study-actions flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-6 border-t border-white/10">
+          <button data-next-project="${project.nextId}" class="case-study-next-btn inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs font-mono tracking-[0.18em] uppercase font-bold text-cream/80 bg-white/5 hover:bg-white/10 border border-white/15 transition-all duration-300 cursor-pointer">
+            <span>NEXT PROJECT (${project.nextTitle})</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+          <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="case-study-live-btn inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full text-xs font-mono tracking-[0.2em] uppercase font-bold text-white bg-[#168BFF] hover:bg-[#3DA5FF] transition-all duration-300 shadow-lg shadow-blue-500/20 text-decoration-none">
+            <span>VISIT LIVE WEBSITE</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+          </a>
         </div>
       </div>
-      <h3 class="text-2xl md:text-4xl font-black tracking-[-0.03em] text-cream mb-4">${project.title}</h3>
-      <div class="w-full rounded-lg overflow-hidden bg-graphite border border-white/10 mb-6">
-        <picture>
-          <source srcset="${project.imageWebp}" type="image/webp">
-          <img src="${project.image}" alt="${project.title} — preview mockup" class="w-full h-auto aspect-[16/10] object-cover" />
-        </picture>
-      </div>
-      <p class="text-sm md:text-base text-cream/70 leading-relaxed font-light mb-6">${project.description}</p>
-      <div class="py-4 border-t border-b border-white/10 mb-6 flex flex-wrap gap-6 text-xs font-mono">
-        <div><span class="text-cream/30 block mb-1">ROLE</span><span class="text-cream/80">${project.role}</span></div>
-        <div><span class="text-cream/30 block mb-1">TOOLS</span><span class="text-cream/80">${project.tools}</span></div>
-      </div>
-      <div class="flex items-center justify-end gap-4">
-        <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-mono tracking-[0.2em] uppercase font-bold transition-all duration-300 hover:opacity-90" style="background: ${project.color}; color: #0b0b0d;">
-          <span>Visit Live Website</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-        </a>
-      </div>
     `;
+
+    // Hook Next Project button inside modal
+    const nextBtn = modalContent.querySelector('[data-next-project]');
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const nextId = nextBtn.getAttribute('data-next-project');
+        if (nextId) {
+          const dialog = modal.querySelector('.project-modal-dialog');
+          if (dialog) dialog.scrollTop = 0;
+          openProjectModal(nextId);
+        }
+      });
+    }
+
+    const dialog = modal.querySelector('.project-modal-dialog');
+    if (dialog) dialog.scrollTop = 0;
 
     modal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
