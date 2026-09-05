@@ -1435,22 +1435,22 @@ div[id] {
 @media (min-width: 1024px) {
   .hero-master-character-wrap {
     position: absolute;
-    left: 47%;
-    top: 3%;
+    left: 49.5%;
+    top: 2%;
     margin: 0;
-    width: clamp(520px, 42vw, 780px);
-    max-width: 800px;
-    z-index: 10;
+    width: clamp(560px, 45vw, 840px);
+    max-width: 860px;
+    z-index: 15;
     pointer-events: none;
   }
 }
 
 @media (min-width: 1440px) {
   .hero-master-character-wrap {
-    left: 46.5%;
-    top: 1%;
-    width: clamp(560px, 43vw, 820px);
-    max-width: 840px;
+    left: 49%;
+    top: 0%;
+    width: clamp(600px, 46vw, 880px);
+    max-width: 900px;
   }
 }
 
@@ -1517,14 +1517,14 @@ div[id] {
 
 @media (min-width: 1024px) {
   .hero-character-img {
-    max-height: clamp(440px, 54vh, 700px);
+    max-height: clamp(480px, 58vh, 760px);
     filter: drop-shadow(0 20px 45px rgba(2, 6, 13, 0.95)) drop-shadow(0 0 35px rgba(0, 132, 255, 0.32));
   }
 }
 
 @media (min-width: 1440px) {
   .hero-character-img {
-    max-height: clamp(480px, 56vh, 740px);
+    max-height: clamp(520px, 60vh, 800px);
   }
 }
 
@@ -1539,7 +1539,7 @@ div[id] {
     flex-direction: column;
     align-items: flex-end;
     position: absolute;
-    right: clamp(2.5rem, 6vw, 7rem);
+    right: clamp(4rem, 8.5vw, 10.5rem);
     top: 22%;
     z-index: 8;
     gap: 3.5rem;
@@ -1549,7 +1549,7 @@ div[id] {
 
 @media (min-width: 1440px) {
   .hero-middle-right-panel {
-    right: clamp(3rem, 7vw, 8.5rem);
+    right: clamp(5rem, 9.5vw, 12.5rem);
     top: 20%;
     gap: 4rem;
   }
