@@ -121,23 +121,23 @@
     
     <!-- 1. Top Bar inside Hero Canvas -->
     <div class="hero-canvas-top-meta" data-reveal="fade-up" style="--reveal-delay: 40ms;">
-      <div class="hero-role-tag">
-        <span class="hero-role-line"></span>
-        <span class="hero-role-text">WEB DESIGNER<span class="hero-meta-br"><br></span> &amp; DEVELOPER</span>
-      </div>
-      <div class="hero-avail-pill md:hidden">
+      <div class="hero-avail-pill">
         <span class="hero-status-dot">
           <span class="hero-status-ping"></span>
           <span class="hero-status-solid"></span>
         </span>
-        <span class="hero-avail-text">AVAILABLE<span class="hero-meta-br"><br></span> FOR WORK</span>
+        <span class="hero-avail-text">AVAILABLE FOR WORK</span>
+      </div>
+      <div class="hero-role-tag">
+        <span class="hero-role-line"></span>
+        <span class="hero-role-text">WEB DESIGNER &amp; DEVELOPER</span>
       </div>
     </div>
 
     <!-- 2. Master Poster Centerpiece: Typography + Overlapping Character + Middle-Right Panel -->
     <div class="hero-centerpiece-stage">
       
-      <!-- Coordinates Marker (Left Edge) -->
+      <!-- Coordinates Marker (Left Edge Desktop / Right Edge Mobile) -->
       <div class="hero-coords-marker" data-reveal="fade-in" style="--reveal-delay: 80ms;">
         <span class="hero-plus-icon">+</span>
         <div class="hero-coords-text">
@@ -149,7 +149,14 @@
       <!-- 3-Tier Master Display Typography -->
       <div class="hero-master-typography" id="hero-poster-typography">
         <div class="hero-typo-row hero-row-sri" data-reveal="fade-up" style="--reveal-delay: 90ms;">
-          <h1 class="hero-display-word hero-word-sri">SRI</h1>
+          <h1 class="hero-display-word hero-word-sri">
+            SRI
+            <span class="hero-sri-accent-sparks" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 18L10 8M12 20L18 10" stroke="#3DA5FF" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </h1>
         </div>
         <div class="hero-typo-row hero-row-venu" data-reveal="fade-up" style="--reveal-delay: 140ms;">
           <h1 class="hero-display-word hero-word-venu">VENU</h1>
@@ -157,33 +164,47 @@
         <div class="hero-typo-row hero-row-puduvayila" data-reveal="fade-up" style="--reveal-delay: 200ms;">
           <h1 class="hero-display-word hero-word-puduvayila">PUDUVAYILA</h1>
         </div>
-
-        <!-- Lower-Left Content (Underneath PUDUVAYILA) -->
-        <div class="hero-lower-left-content" data-reveal="fade-up" style="--reveal-delay: 260ms;">
-          <p class="hero-editorial-desc">
-            Designing and building websites that are visually engaging,<br class="hidden sm:inline">
-            responsive and built with intention.
-          </p>
-          <div class="hero-action-buttons-wrap">
-            <button class="hero-cta-btn hero-cta-primary group cursor-pointer" data-explore="work" aria-label="Explore Selected Work">
-              <span>EXPLORE WORK</span>
-              <span class="hero-cta-icon">↓</span>
-            </button>
-            <a href="#contact" class="hero-cta-btn hero-cta-secondary group" aria-label="Download Resume">
-              <span>DOWNLOAD RESUME</span>
-              <span class="hero-cta-icon">↗</span>
-            </a>
-          </div>
-        </div>
       </div>
 
-      <!-- Integrated Sitting Character (Center-Right, Overlapping VENU & PUDUVAYILA) -->
+      <!-- Integrated Character Container (Overlapping on Desktop, Centered Below on Mobile) -->
       <div class="hero-master-character-wrap" id="hero-character-integrated-wrap">
         <!-- Soft Radial Backlight Glow -->
         <div class="hero-character-ambient-glow" aria-hidden="true"></div>
 
         <!-- Grounding Floor Contact Shadow -->
         <div class="hero-character-floor-shadow" aria-hidden="true"></div>
+
+        <!-- Mobile Left Services Side Accent -->
+        <div class="hero-mobile-services-badge" aria-hidden="true">
+          <div class="hero-mobile-services-line"></div>
+          <div class="hero-mobile-services-list">
+            <span>UI/UX</span>
+            <span>WEBSITES</span>
+            <span>BRANDING</span>
+            <span>DEVELOPMENT</span>
+          </div>
+        </div>
+
+        <!-- Mobile Right Cursive Accent & Coordinates -->
+        <div class="hero-mobile-right-accents" aria-hidden="true">
+          <div class="hero-mobile-script-box">
+            <p class="hero-mobile-script-tag">
+              <span>Designing</span><br>
+              <span>Ideas into</span><br>
+              <span class="hero-script-blue">Real Experiences.</span>
+            </p>
+            <svg class="hero-script-underline-svg" width="110" height="10" viewBox="0 0 180 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 8.5C48 2.5 125 3.5 176 10.5" stroke="#0084FF" stroke-width="3.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="hero-mobile-coords-box">
+            <div class="hero-mobile-coords-text">
+              <span>17.3850° N</span>
+              <span>78.4867° E</span>
+            </div>
+            <span class="hero-mobile-coords-plus">+</span>
+          </div>
+        </div>
 
         <!-- Floating Character Illustration -->
         <div class="hero-character-float" id="hero-character-float">
@@ -197,9 +218,18 @@
             decoding="async"
           >
         </div>
+
+        <!-- Mobile 3D Block Podium Base with DESIGN x CODE -->
+        <div class="hero-mobile-podium-block" aria-hidden="true">
+          <div class="hero-mobile-podium-text">
+            <span>DESIGN</span>
+            <span class="hero-podium-cross">×</span>
+            <span>CODE</span>
+          </div>
+        </div>
       </div>
 
-      <!-- Middle-Right Supporting Details (Handwritten Script + Vertical Services) -->
+      <!-- Desktop Middle-Right Supporting Details (Handwritten Script + Vertical Services) -->
       <div class="hero-middle-right-panel" data-reveal="fade-in" style="--reveal-delay: 280ms;">
         <!-- Dynamic Cursive Script with Accent Brush Underline -->
         <div class="hero-script-box">
@@ -224,6 +254,24 @@
         </div>
       </div>
 
+      <!-- Lower Content (Underneath PUDUVAYILA on Desktop / Below Character on Mobile) -->
+      <div class="hero-lower-left-content" data-reveal="fade-up" style="--reveal-delay: 260ms;">
+        <p class="hero-editorial-desc">
+          Designing and building websites that are visually engaging,<br class="hidden sm:inline">
+          responsive and built with intention.
+        </p>
+        <div class="hero-action-buttons-wrap">
+          <button class="hero-cta-btn hero-cta-primary group cursor-pointer" data-explore="work" aria-label="Explore Selected Work">
+            <span>EXPLORE WORK</span>
+            <span class="hero-cta-icon">↓</span>
+          </button>
+          <a href="#contact" class="hero-cta-btn hero-cta-secondary group" aria-label="Download Resume">
+            <span>DOWNLOAD RESUME</span>
+            <span class="hero-cta-icon">↗</span>
+          </a>
+        </div>
+      </div>
+
     </div>
 
     <!-- 3. Bottom Bar Row -->
@@ -234,8 +282,8 @@
       </div>
 
       <button class="hero-scroll-btn group cursor-pointer" aria-label="Scroll to explore work" data-explore="work">
-        <div class="hero-scroll-circle">
-          <span class="hero-scroll-circle-arrow">↓</span>
+        <div class="hero-scroll-pill">
+          <span class="hero-scroll-pill-dot"></span>
         </div>
         <span class="hero-scroll-text">SCROLL TO EXPLORE</span>
       </button>
