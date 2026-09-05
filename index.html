@@ -90,112 +90,119 @@
       <span class="block h-[2px] bg-lime origin-center transition-all duration-300" style="width: 16px; opacity: 0.8;"></span>
     </button>
   </div>
-</nav><main><section class="relative min-h-screen overflow-hidden flex items-center hero-section" id="hero">
-  <div class="absolute inset-0 opacity-[0.025] hero-bg-grid">
+</nav><main><section class="relative min-h-screen overflow-hidden flex flex-col justify-between hero-section" id="hero">
+  <!-- Subtle Architectural Grid Background -->
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none hero-bg-grid" aria-hidden="true">
     <div class="w-full h-full" style="background-image: linear-gradient(rgba(244, 241, 234, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(244, 241, 234, 0.4) 1px, transparent 1px); background-size: 80px 80px;"></div>
   </div>
-  <div class="w-full relative z-10">
-    <div class="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-12 pt-24 md:pt-16 pb-16 md:pb-12">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-0 items-center min-h-[calc(100vh-6rem)]">
-        
-        <!-- Hero Left Column: Editorial Typography & Actions -->
-        <div class="lg:col-span-7 relative z-20 flex flex-col justify-center">
-          
-          <!-- Top Status Badges -->
-          <div class="mb-4 md:mb-5 flex flex-wrap items-center gap-3" data-reveal="fade-up" style="--reveal-delay: 50ms;">
-            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#071A2F]/90 border border-white/15 backdrop-blur-md shadow-lg">
-              <span class="relative flex h-2 w-2">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3DA5FF] opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-[#168BFF]"></span>
-              </span>
-              <span class="text-[10px] md:text-[11px] tracking-[0.2em] text-cream/90 font-mono uppercase font-semibold">AVAILABLE FOR WORK</span>
-            </div>
-            <span class="hidden sm:inline-block text-[10px] md:text-[11px] tracking-[0.3em] text-[#3DA5FF] uppercase font-mono font-medium">Web Designer &amp; Developer</span>
-          </div>
 
-          <!-- Mobile-only Role tag -->
-          <div class="sm:hidden mb-2" data-reveal="fade-up" style="--reveal-delay: 80ms;">
-            <span class="text-[10px] tracking-[0.3em] text-[#3DA5FF] uppercase font-mono font-medium">Web Designer &amp; Developer</span>
-          </div>
+  <!-- Ambient Blue Spotlight Following Cursor / Glow -->
+  <div class="hero-ambient-spotlight" aria-hidden="true"></div>
 
-          <!-- Massive Editorial Title -->
-          <div class="hero-title-group">
-            <div class="overflow-hidden" data-reveal="fade-up" style="--reveal-delay: 140ms;">
-              <h1 class="hero-huge-title text-cream">SRI</h1>
-            </div>
-            <div class="overflow-hidden" data-reveal="fade-up" style="--reveal-delay: 210ms;">
-              <h1 class="hero-huge-title text-cream">VENU</h1>
-            </div>
-            <div class="overflow-hidden" data-reveal="fade-up" style="--reveal-delay: 280ms;">
-              <h1 class="hero-huge-title">
-                <span class="text-cream/95">PUDUVAYI</span><span class="text-[#3DA5FF]">LA</span>
-              </h1>
-            </div>
-          </div>
+  <!-- Main Hero Container -->
+  <div class="relative w-full max-w-[1500px] mx-auto px-6 md:px-10 lg:px-12 pt-28 md:pt-24 pb-12 flex-1 flex flex-col justify-between z-10">
+    
+    <!-- Top Editorial Metadata Row -->
+    <div class="w-full flex flex-wrap items-center justify-between gap-4 pb-5 md:pb-6 border-b border-white/[0.08]" data-reveal="fade-up" style="--reveal-delay: 50ms;">
+      <!-- Available for work status pill -->
+      <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#071A2F]/90 border border-white/15 backdrop-blur-md shadow-lg">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3DA5FF] opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-[#168BFF]"></span>
+        </span>
+        <span class="text-[10px] md:text-[11px] tracking-[0.2em] text-cream/90 font-mono uppercase font-semibold">AVAILABLE FOR WORK</span>
+      </div>
 
-          <!-- Sub-headline / Core Focus -->
-          <div class="mt-5 md:mt-6 flex items-center gap-3.5" data-reveal="fade-up" style="--reveal-delay: 350ms;">
-            <div class="w-12 h-[1.5px] bg-[#168BFF]/60"></div>
-            <span class="text-[10px] md:text-xs tracking-[0.22em] text-cream/60 font-mono uppercase">Design × Code × AI Workflows</span>
-          </div>
-
-          <!-- Hero Description -->
-          <p class="mt-4 md:mt-5 max-w-md md:max-w-lg text-sm md:text-base leading-relaxed text-cream/60 font-light" data-reveal="fade-up" style="--reveal-delay: 420ms;">
-            Designing and building websites that are visually engaging, responsive and built with intention.
-          </p>
-
-          <!-- Hero Action Buttons -->
-          <div class="mt-7 md:mt-9 hero-cta-wrap" data-reveal="fade-up" style="--reveal-delay: 490ms;">
-            <button class="hero-cta-btn hero-cta-primary group cursor-pointer" data-explore="work" aria-label="Explore Selected Work">
-              <span>EXPLORE WORK</span>
-              <span class="hero-cta-icon">↓</span>
-            </button>
-            <a href="#contact" class="hero-cta-btn hero-cta-secondary group" aria-label="Download Resume">
-              <span>DOWNLOAD RESUME</span>
-              <span class="hero-cta-icon">↗</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Hero Right Column: Large Sitting Character Stage overlapping slightly -->
-        <div class="lg:col-span-5 relative z-10 flex justify-center items-center mt-6 lg:mt-0 lg:-ml-12 xl:-ml-20">
-          <div class="relative w-full max-w-[340px] sm:max-w-[420px] md:max-w-[500px] lg:max-w-[620px] xl:max-w-[680px] mx-auto hero-character-stage" data-reveal="fade-up" style="--reveal-delay: 180ms;">
-            
-            <!-- Soft Electric-Blue Ambient Backlight Glow -->
-            <div class="hero-character-ambient-glow" aria-hidden="true"></div>
-
-            <!-- Grounding Floor Contact Shadow -->
-            <div class="hero-character-floor-shadow" aria-hidden="true"></div>
-
-            <!-- Large Floating Sitting Character Illustration -->
-            <div class="hero-character-float" id="hero-character-float">
-              <img
-                alt="Sri Venu Puduvayila — Web Designer &amp; Developer Sitting Character"
-                class="hero-character-img select-none"
-                src="./images/hero-character.png"
-                width="853"
-                height="1024"
-                fetchpriority="high"
-                decoding="async"
-              >
-            </div>
-
-            <!-- Minimal Technical Status Badge -->
-            <div class="hero-character-badge" aria-hidden="true">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#168BFF] shadow-[0_0_8px_#3DA5FF]"></span>
-              <span class="text-[10px] tracking-[0.2em] text-cream/80 font-mono uppercase">Design × Code</span>
-            </div>
-          </div>
-        </div>
-
+      <!-- Center / Right Technical Coordinates & Roles -->
+      <div class="flex items-center gap-4 md:gap-6 text-[10px] md:text-[11px] font-mono tracking-[0.25em] text-cream/50 uppercase">
+        <span class="text-[#3DA5FF] font-medium">WEB DESIGNER × DEVELOPER</span>
+        <span class="hidden lg:inline-block text-cream/30">|</span>
+        <span class="hidden lg:inline-block">17.3850° N, 78.4867° E</span>
+        <span class="hidden md:inline-block text-cream/30">|</span>
+        <span class="hidden sm:inline-block">DESIGN × CODE</span>
       </div>
     </div>
+
+    <!-- Centerpiece Canvas: Giant Typography + Integrated Overlapping Sitting Character -->
+    <div class="relative w-full my-auto py-6 md:py-10 hero-poster-stage">
+      
+      <!-- Giant Display Typography Layer -->
+      <div class="hero-poster-typography" id="hero-poster-typography">
+        <div class="overflow-hidden" data-reveal="fade-up" style="--reveal-delay: 120ms;">
+          <h1 class="hero-poster-title text-cream">SRI VENU</h1>
+        </div>
+        <div class="overflow-hidden" data-reveal="fade-up" style="--reveal-delay: 200ms;">
+          <h1 class="hero-poster-title">
+            <span class="text-cream/95">PUDUVAYI</span><span class="text-[#3DA5FF]">LA</span>
+          </h1>
+        </div>
+      </div>
+
+      <!-- Integrated Sitting Character Layer (Overlapping / Nestled in Typography) -->
+      <div class="hero-character-integrated-wrap" id="hero-character-integrated-wrap" data-reveal="fade-up" style="--reveal-delay: 160ms;">
+        <!-- Soft Radial Backlight Glow -->
+        <div class="hero-character-ambient-glow" aria-hidden="true"></div>
+
+        <!-- Grounding Floor Contact Shadow -->
+        <div class="hero-character-floor-shadow" aria-hidden="true"></div>
+
+        <!-- Floating Sitting Character Illustration -->
+        <div class="hero-character-float" id="hero-character-float">
+          <img
+            alt="Sri Venu Puduvayila — Web Designer &amp; Developer Sitting Illustration"
+            class="hero-character-img select-none"
+            src="./images/hero-character.png"
+            width="853"
+            height="1024"
+            fetchpriority="high"
+            decoding="async"
+          >
+        </div>
+
+        <!-- Minimal Technical Status Badge -->
+        <div class="hero-character-badge" aria-hidden="true">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#168BFF] shadow-[0_0_8px_#3DA5FF]"></span>
+          <span class="text-[10px] tracking-[0.2em] text-cream/80 font-mono uppercase">Design × Code</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Editorial Action & Content Row -->
+    <div class="w-full pt-6 md:pt-8 border-t border-white/[0.08] grid grid-cols-1 md:grid-cols-12 gap-6 items-center" data-reveal="fade-up" style="--reveal-delay: 350ms;">
+      <!-- Editorial Description -->
+      <div class="md:col-span-6 lg:col-span-5">
+        <p class="text-xs md:text-sm lg:text-base leading-relaxed text-cream/65 font-light max-w-md">
+          Designing and building websites that are visually engaging, responsive and built with intention using Figma, WordPress, and AI workflows.
+        </p>
+      </div>
+
+      <!-- Stack Badges / Disciplines -->
+      <div class="hidden lg:flex md:col-span-3 items-center gap-3 text-[10px] font-mono tracking-[0.18em] text-cream/40 uppercase">
+        <span class="px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.08]">01 FIGMA</span>
+        <span class="px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.08]">02 WORDPRESS</span>
+        <span class="px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.08]">03 DEV</span>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="md:col-span-6 lg:col-span-4 flex items-center md:justify-end gap-3.5 hero-cta-wrap">
+        <button class="hero-cta-btn hero-cta-primary group cursor-pointer" data-explore="work" aria-label="Explore Selected Work">
+          <span>EXPLORE WORK</span>
+          <span class="hero-cta-icon">↓</span>
+        </button>
+        <a href="#contact" class="hero-cta-btn hero-cta-secondary group" aria-label="Download Resume">
+          <span>DOWNLOAD RESUME</span>
+          <span class="hero-cta-icon">↗</span>
+        </a>
+      </div>
+    </div>
+
   </div>
 
-  <!-- Scroll Down Indicator -->
-  <button class="absolute bottom-6 left-6 md:left-10 flex items-center gap-3 hero-scroll-btn group cursor-pointer z-20" data-reveal="fade-in" aria-label="Scroll to work">
-    <div class="w-[1px] h-12 bg-gradient-to-b from-[#168BFF]/60 to-transparent hero-scroll-indicator"></div>
-    <span class="text-[9px] tracking-[0.3em] text-cream/30 group-hover:text-[#3DA5FF] font-mono [writing-mode:vertical-lr] transition-colors duration-300">SCROLL</span>
+  <!-- Scroll Down Indicator Button -->
+  <button class="absolute bottom-4 right-6 md:right-12 hidden md:flex items-center gap-2 hero-scroll-btn group cursor-pointer z-20" data-reveal="fade-in" aria-label="Scroll to work">
+    <span class="text-[9px] tracking-[0.3em] text-cream/35 group-hover:text-[#3DA5FF] font-mono uppercase transition-colors duration-300">SCROLL</span>
+    <div class="w-8 h-[1px] bg-gradient-to-r from-cream/20 to-transparent group-hover:from-[#3DA5FF] transition-all duration-300"></div>
   </button>
 </section><section class="relative py-20 md:py-32 overflow-hidden">
   <div class="max-w-[1400px] mx-auto px-6 md:px-10">

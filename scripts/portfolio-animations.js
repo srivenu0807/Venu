@@ -837,7 +837,9 @@
        ------------------------------------------------------------------------ */
     const isDesktopPointer = window.innerWidth >= 1024 && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     const heroChar = document.getElementById('hero-character-float');
+    const heroTypo = document.getElementById('hero-poster-typography');
     const heroGlow = document.querySelector('.hero-character-ambient-glow');
+    const heroSpotlight = document.querySelector('.hero-ambient-spotlight');
 
     if (isDesktopPointer && (bgImage || heroChar)) {
       let targetX = 0;
@@ -876,10 +878,16 @@
           cloudsLayer.style.transform = `translate3d(${(currentX * 0.8).toFixed(2)}px, ${(currentY * 0.8).toFixed(2)}px, 0)`;
         }
         if (heroChar) {
-          heroChar.style.transform = `translate3d(${(currentX * -0.45).toFixed(2)}px, ${(currentY * -0.45).toFixed(2)}px, 0)`;
+          heroChar.style.transform = `translate3d(${(currentX * -0.5).toFixed(2)}px, ${(currentY * -0.5).toFixed(2)}px, 0)`;
+        }
+        if (heroTypo) {
+          heroTypo.style.transform = `translate3d(${(currentX * 0.18).toFixed(2)}px, ${(currentY * 0.18).toFixed(2)}px, 0)`;
         }
         if (heroGlow) {
           heroGlow.style.transform = `translate(-50%, -30%) translate3d(${(currentX * -0.7).toFixed(2)}px, ${(currentY * -0.7).toFixed(2)}px, 0)`;
+        }
+        if (heroSpotlight) {
+          heroSpotlight.style.transform = `translate3d(${(currentX * 0.8).toFixed(2)}px, ${(currentY * 0.8).toFixed(2)}px, 0)`;
         }
 
         if (Math.abs(targetX - currentX) > 0.04 || Math.abs(targetY - currentY) > 0.04) {
