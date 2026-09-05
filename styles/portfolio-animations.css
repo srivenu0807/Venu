@@ -1439,10 +1439,10 @@ div[id] {
   .hero-master-character-wrap {
     position: absolute;
     left: 21%;
-    top: -36px;
+    top: -45px;
     margin: 0;
-    width: clamp(480px, 37vw, 640px);
-    max-width: 660px;
+    width: clamp(340px, 26vw, 440px);
+    max-width: 460px;
     z-index: 15;
     pointer-events: none;
   }
@@ -1451,9 +1451,9 @@ div[id] {
 @media (min-width: 1440px) {
   .hero-master-character-wrap {
     left: 22%;
-    top: -42px;
-    width: clamp(520px, 38vw, 700px);
-    max-width: 720px;
+    top: -45px;
+    width: clamp(360px, 27vw, 480px);
+    max-width: 500px;
   }
 }
 
@@ -1461,8 +1461,8 @@ div[id] {
   .hero-master-character-wrap {
     left: 23%;
     top: -45px;
-    width: clamp(550px, 39vw, 740px);
-    max-width: 760px;
+    width: clamp(380px, 28vw, 500px);
+    max-width: 520px;
   }
 }
 
@@ -1524,14 +1524,20 @@ div[id] {
 
 @media (min-width: 1024px) {
   .hero-character-img {
-    max-height: clamp(550px, 66vh, 850px);
+    max-height: clamp(170px, 20vh, 220px);
     filter: drop-shadow(0 20px 45px rgba(2, 6, 13, 0.95)) drop-shadow(0 0 35px rgba(0, 132, 255, 0.32));
   }
 }
 
 @media (min-width: 1440px) {
   .hero-character-img {
-    max-height: clamp(590px, 68vh, 920px);
+    max-height: clamp(200px, 22vh, 250px);
+  }
+}
+
+@media (min-width: 1600px) {
+  .hero-character-img {
+    max-height: clamp(220px, 24vh, 270px);
   }
 }
 
