@@ -1435,7 +1435,7 @@ div[id] {
 @media (min-width: 1024px) {
   .hero-master-character-wrap {
     position: absolute;
-    left: 28%;
+    left: 17%;
     top: 2%;
     margin: 0;
     width: clamp(560px, 46vw, 860px);
@@ -1447,7 +1447,7 @@ div[id] {
 
 @media (min-width: 1440px) {
   .hero-master-character-wrap {
-    left: 29%;
+    left: 18%;
     top: 0%;
     width: clamp(600px, 47vw, 900px);
     max-width: 920px;
