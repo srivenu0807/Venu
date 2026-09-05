@@ -1438,11 +1438,11 @@ div[id] {
 @media (min-width: 1024px) {
   .hero-master-character-wrap {
     position: absolute;
-    left: 33.5%;
+    left: 21%;
     top: 2%;
     margin: 0;
-    width: clamp(430px, 34vw, 580px);
-    max-width: 600px;
+    width: clamp(480px, 37vw, 640px);
+    max-width: 660px;
     z-index: 15;
     pointer-events: none;
   }
@@ -1450,19 +1450,19 @@ div[id] {
 
 @media (min-width: 1440px) {
   .hero-master-character-wrap {
-    left: 34%;
+    left: 22%;
     top: 0%;
-    width: clamp(470px, 35vw, 620px);
-    max-width: 640px;
+    width: clamp(520px, 38vw, 700px);
+    max-width: 720px;
   }
 }
 
 @media (min-width: 1600px) {
   .hero-master-character-wrap {
-    left: 34.5%;
+    left: 23%;
     top: 0%;
-    width: clamp(500px, 36vw, 660px);
-    max-width: 680px;
+    width: clamp(550px, 39vw, 740px);
+    max-width: 760px;
   }
 }
 
