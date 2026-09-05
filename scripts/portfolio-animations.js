@@ -836,12 +836,11 @@
        B. Subtle Desktop Mouse Parallax (Website content does NOT move)
        ------------------------------------------------------------------------ */
     const isDesktopPointer = window.innerWidth >= 1024 && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    const heroChar = document.getElementById('hero-character-float');
     const heroTypo = document.getElementById('hero-poster-typography');
     const heroGlow = document.querySelector('.hero-character-ambient-glow');
     const heroSpotlight = document.querySelector('.hero-ambient-spotlight');
 
-    if (isDesktopPointer && (bgImage || heroChar)) {
+    if (isDesktopPointer && bgImage) {
       let targetX = 0;
       let targetY = 0;
       let currentX = 0;
@@ -876,9 +875,6 @@
         }
         if (cloudsLayer) {
           cloudsLayer.style.transform = `translate3d(${(currentX * 0.8).toFixed(2)}px, ${(currentY * 0.8).toFixed(2)}px, 0)`;
-        }
-        if (heroChar) {
-          heroChar.style.transform = `translate3d(${(currentX * -0.5).toFixed(2)}px, ${(currentY * -0.5).toFixed(2)}px, 0)`;
         }
         if (heroTypo) {
           heroTypo.style.transform = `translate3d(${(currentX * 0.18).toFixed(2)}px, ${(currentY * 0.18).toFixed(2)}px, 0)`;

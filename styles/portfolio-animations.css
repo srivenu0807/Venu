@@ -1415,19 +1415,22 @@ div[id] {
 /* Master Integrated Character */
 .hero-master-character-wrap {
   position: relative;
-  width: clamp(250px, 72vw, 360px);
-  max-width: 80%;
+  width: clamp(260px, 75vw, 380px);
+  max-width: 85%;
   margin: 1.75rem auto 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 5;
+  z-index: 15;
   perspective: 1000px;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
 }
 
 @media (min-width: 640px) {
   .hero-master-character-wrap {
-    width: clamp(320px, 65vw, 440px);
+    width: clamp(340px, 68vw, 470px);
     margin: 2rem auto 0 auto;
   }
 }
@@ -1435,11 +1438,11 @@ div[id] {
 @media (min-width: 1024px) {
   .hero-master-character-wrap {
     position: absolute;
-    left: 17%;
+    left: 14%;
     top: 2%;
     margin: 0;
-    width: clamp(560px, 46vw, 860px);
-    max-width: 880px;
+    width: clamp(615px, 50vw, 940px);
+    max-width: 960px;
     z-index: 15;
     pointer-events: none;
   }
@@ -1447,10 +1450,10 @@ div[id] {
 
 @media (min-width: 1440px) {
   .hero-master-character-wrap {
-    left: 18%;
+    left: 15%;
     top: 0%;
-    width: clamp(600px, 47vw, 900px);
-    max-width: 920px;
+    width: clamp(660px, 52vw, 990px);
+    max-width: 1010px;
   }
 }
 
@@ -1489,17 +1492,10 @@ div[id] {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: heroCharacterFloat 6s ease-in-out infinite;
-  will-change: transform;
-}
-
-@keyframes heroCharacterFloat {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
+  animation: none !important;
+  transform: none !important;
+  transition: none !important;
+  will-change: auto;
 }
 
 .hero-character-img {
@@ -1511,20 +1507,22 @@ div[id] {
   display: block;
   margin: 0 auto;
   filter: drop-shadow(0 15px 35px rgba(2, 6, 13, 0.95)) drop-shadow(0 0 25px rgba(0, 132, 255, 0.28));
-  transition: transform 0.6s var(--anim-ease-out-expo), filter 0.6s var(--anim-ease-out-expo);
-  will-change: transform, filter;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+  will-change: auto;
 }
 
 @media (min-width: 1024px) {
   .hero-character-img {
-    max-height: clamp(500px, 60vh, 780px);
+    max-height: clamp(550px, 66vh, 850px);
     filter: drop-shadow(0 20px 45px rgba(2, 6, 13, 0.95)) drop-shadow(0 0 35px rgba(0, 132, 255, 0.32));
   }
 }
 
 @media (min-width: 1440px) {
   .hero-character-img {
-    max-height: clamp(540px, 62vh, 840px);
+    max-height: clamp(590px, 68vh, 920px);
   }
 }
 
