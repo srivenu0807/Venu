@@ -84,7 +84,7 @@
      4. Navigation & Scroll Spy
      ========================================================================== */
   const nav = document.querySelector('nav');
-  const navLinks = document.querySelectorAll('[data-nav]');
+  const desktopNavLinks = document.querySelectorAll('.nav-links-group [data-nav]');
   const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
   const sections = ['work', 'journey', 'about', 'contact'];
 
@@ -118,7 +118,7 @@
       currentSection = 'work';
     }
 
-    navLinks.forEach((link) => {
+    desktopNavLinks.forEach((link) => {
       const target = link.getAttribute('data-nav');
       if (target === currentSection) {
         link.classList.add('is-active');
@@ -128,8 +128,7 @@
     });
 
     mobileNavLinks.forEach((link) => {
-      const href = link.getAttribute('href') || '';
-      const target = href.replace('#', '');
+      const target = link.getAttribute('data-nav') || (link.getAttribute('href') || '').replace('#', '');
       if (target === currentSection) {
         link.classList.add('is-active');
       } else {
@@ -138,8 +137,8 @@
     });
   }
 
-  // Smooth scroll for nav anchor clicks
-  navLinks.forEach((link) => {
+  // Smooth scroll for desktop nav anchor clicks
+  desktopNavLinks.forEach((link) => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const targetId = link.getAttribute('data-nav');
@@ -151,20 +150,17 @@
     });
   });
 
-  // Mobile nav anchor clicks
+  // Mobile nav anchor clicks: navigate to section AND automatically close mobile menu
   mobileNavLinks.forEach((link) => {
     link.addEventListener('click', (e) => {
-      const href = link.getAttribute('href') || '';
-      if (href.startsWith('#')) {
-        e.preventDefault();
-        closeMobileMenu();
-        const targetId = href.substring(1);
+      e.preventDefault();
+      const targetId = link.getAttribute('data-nav') || (link.getAttribute('href') || '').replace('#', '');
+      closeMobileMenu();
+      if (targetId) {
         const targetEl = document.getElementById(targetId);
         if (targetEl) {
-          setTimeout(() => {
-            const pos = targetEl.getBoundingClientRect().top + window.pageYOffset;
-            smoothScrollTo(pos);
-          }, 250);
+          const pos = targetEl.getBoundingClientRect().top + window.pageYOffset;
+          smoothScrollTo(pos);
         }
       }
     });
@@ -175,6 +171,9 @@
   if (logo) {
     logo.addEventListener('click', (e) => {
       e.preventDefault();
+      if (mobileMenuOpen) {
+        closeMobileMenu();
+      }
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
@@ -234,9 +233,10 @@
   }, { passive: true });
 
   /* ==========================================================================
-     6. Mobile Navigation Menu Toggle
+     6. Mobile Navigation Menu Toggle & Accessibility
      ========================================================================== */
-  const mobileMenuToggle = document.querySelector('button[aria-label="Toggle menu"]');
+  const mobileMenuToggle = document.querySelector('#mobile-menu-toggle, button[aria-label="Toggle menu"]');
+  const mobileMenuCloseBtn = document.getElementById('mobile-nav-close-btn');
   const mobileMenu = document.getElementById('mobile-nav-menu');
   let mobileMenuOpen = false;
 
@@ -244,10 +244,13 @@
     if (!mobileMenu) return;
     mobileMenuOpen = true;
     mobileMenu.classList.add('is-open');
+    mobileMenu.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
 
-    // Animate hamburger to X
+    // Animate hamburger to X & update a11y
     if (mobileMenuToggle) {
+      mobileMenuToggle.setAttribute('aria-expanded', 'true');
+      mobileMenuToggle.setAttribute('aria-label', 'Close menu');
       const bars = mobileMenuToggle.querySelectorAll('span');
       if (bars.length >= 2) {
         bars[0].style.transform = 'translateY(4px) rotate(45deg)';
@@ -263,22 +266,26 @@
     if (!mobileMenu) return;
     mobileMenuOpen = false;
     mobileMenu.classList.remove('is-open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
 
     if (mobileMenuToggle) {
+      mobileMenuToggle.setAttribute('aria-expanded', 'false');
+      mobileMenuToggle.setAttribute('aria-label', 'Toggle menu');
       const bars = mobileMenuToggle.querySelectorAll('span');
       if (bars.length >= 2) {
         bars[0].style.transform = 'none';
-        bars[0].style.width = '20px';
+        bars[0].style.width = '22px';
         bars[1].style.transform = 'none';
-        bars[1].style.width = '14px';
-        bars[1].style.opacity = '0.5';
+        bars[1].style.width = '16px';
+        bars[1].style.opacity = '0.8';
       }
     }
   }
 
   if (mobileMenuToggle) {
-    mobileMenuToggle.addEventListener('click', () => {
+    mobileMenuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       if (mobileMenuOpen) {
         closeMobileMenu();
       } else {
@@ -286,6 +293,27 @@
       }
     });
   }
+
+  if (mobileMenuCloseBtn) {
+    mobileMenuCloseBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeMobileMenu();
+    });
+  }
+
+  // Close mobile menu on Escape key press
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenuOpen) {
+      closeMobileMenu();
+    }
+  });
+
+  // Close mobile menu on desktop resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768 && mobileMenuOpen) {
+      closeMobileMenu();
+    }
+  });
 
   /* ==========================================================================
      7. Interactive Accordion: "I DESIGN / I BUILD / I EXPERIMENT"

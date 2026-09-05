@@ -29,11 +29,16 @@
   <div id="scroll-progress-bar"></div>
 
   <!-- Mobile Navigation Drawer Overlay -->
-  <div id="mobile-nav-menu">
-    <button class="mobile-nav-link" data-nav="work">WORK</button>
-    <button class="mobile-nav-link" data-nav="journey">JOURNEY</button>
-    <button class="mobile-nav-link" data-nav="about">ABOUT</button>
-    <button class="mobile-nav-link" data-nav="contact">CONTACT</button>
+  <div id="mobile-nav-menu" role="dialog" aria-modal="true" aria-label="Mobile Navigation" aria-hidden="true">
+    <button class="mobile-nav-close-btn" id="mobile-nav-close-btn" aria-label="Close menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <div class="mobile-nav-links-wrap">
+      <button class="mobile-nav-link" data-nav="work">WORK</button>
+      <button class="mobile-nav-link" data-nav="journey">JOURNEY</button>
+      <button class="mobile-nav-link" data-nav="about">ABOUT</button>
+      <button class="mobile-nav-link" data-nav="contact">CONTACT</button>
+    </div>
   </div>
 
   <!-- Project Details Modal Dialog -->
@@ -80,9 +85,9 @@
         <span class="nav-link-indicator"></span>
       </button>
     </div>
-    <button class="md:hidden relative w-8 h-8 flex flex-col items-end justify-center gap-1.5 focus:outline-none" aria-label="Toggle menu">
-      <span class="block h-[2px] bg-cream origin-center transition-all duration-300" style="width: 20px;"></span>
-      <span class="block h-[2px] bg-lime origin-center transition-all duration-300" style="width: 14px; opacity: 0.7;"></span>
+    <button class="md:hidden relative w-11 h-11 flex flex-col items-center justify-center gap-1.5 focus:outline-none rounded-lg" aria-label="Toggle menu" aria-expanded="false" id="mobile-menu-toggle">
+      <span class="block h-[2px] bg-cream origin-center transition-all duration-300" style="width: 22px;"></span>
+      <span class="block h-[2px] bg-lime origin-center transition-all duration-300" style="width: 16px; opacity: 0.8;"></span>
     </button>
   </div>
 </nav><main><section class="relative min-h-screen overflow-hidden flex items-center">
