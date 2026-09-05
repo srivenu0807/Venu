@@ -836,8 +836,10 @@
        B. Subtle Desktop Mouse Parallax (Website content does NOT move)
        ------------------------------------------------------------------------ */
     const isDesktopPointer = window.innerWidth >= 1024 && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const heroChar = document.getElementById('hero-character-float');
+    const heroGlow = document.querySelector('.hero-character-ambient-glow');
 
-    if (isDesktopPointer && bgImage) {
+    if (isDesktopPointer && (bgImage || heroChar)) {
       let targetX = 0;
       let targetY = 0;
       let currentX = 0;
@@ -845,7 +847,7 @@
       let isTicking = false;
 
       window.addEventListener('mousemove', (e) => {
-        if (!isTabActive) return;
+        if (!isTabActive || prefersReducedMotion) return;
         const normX = (e.clientX / window.innerWidth) - 0.5;
         const normY = (e.clientY / window.innerHeight) - 0.5;
         // Subtle shift: max 12px horizontal, 8px vertical
@@ -859,16 +861,25 @@
       }, { passive: true });
 
       function updateParallax() {
+        if (prefersReducedMotion) return;
         // Smooth lerp easing
         currentX += (targetX - currentX) * 0.05;
         currentY += (targetY - currentY) * 0.05;
 
-        bgImage.style.transform = `scale(1.03) translate3d(${currentX.toFixed(2)}px, ${currentY.toFixed(2)}px, 0)`;
+        if (bgImage) {
+          bgImage.style.transform = `scale(1.03) translate3d(${currentX.toFixed(2)}px, ${currentY.toFixed(2)}px, 0)`;
+        }
         if (glowLayer) {
           glowLayer.style.transform = `translate3d(${(currentX * 1.5).toFixed(2)}px, ${(currentY * 1.5).toFixed(2)}px, 0)`;
         }
         if (cloudsLayer) {
           cloudsLayer.style.transform = `translate3d(${(currentX * 0.8).toFixed(2)}px, ${(currentY * 0.8).toFixed(2)}px, 0)`;
+        }
+        if (heroChar) {
+          heroChar.style.transform = `translate3d(${(currentX * -0.45).toFixed(2)}px, ${(currentY * -0.45).toFixed(2)}px, 0)`;
+        }
+        if (heroGlow) {
+          heroGlow.style.transform = `translate(-50%, -30%) translate3d(${(currentX * -0.7).toFixed(2)}px, ${(currentY * -0.7).toFixed(2)}px, 0)`;
         }
 
         if (Math.abs(targetX - currentX) > 0.04 || Math.abs(targetY - currentY) > 0.04) {
