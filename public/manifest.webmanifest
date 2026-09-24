@@ -1,0 +1,17 @@
+{
+  "name": "Sri Venu Puduvayila | Web Designer & Developer",
+  "short_name": "Sri Venu",
+  "description": "Portfolio of Sri Venu Puduvayila, Web Designer & Developer specializing in UI/UX, WordPress, Elementor, and responsive websites.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#02060D",
+  "theme_color": "#02060D",
+  "icons": [
+    {
+      "src": "/sv-favicon.svg",
+      "sizes": "64x64 128x128 256x256 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

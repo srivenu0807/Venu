@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://srivenu08.vercel.app/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://srivenu08.vercel.app/images/hero-image.jpg</image:loc>
+      <image:title>Sri Venu Puduvayila - Web Designer and Developer</image:title>
+      <image:caption>Portrait photograph of Sri Venu Puduvayila, Web Designer and Developer</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://srivenu08.vercel.app/images/hero-character.png</image:loc>
+      <image:title>Sri Venu Puduvayila - Illustration</image:title>
+      <image:caption>Sri Venu Puduvayila creative web design and development poster illustration</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://srivenu08.vercel.app/images/maynu-clinics.jpg</image:loc>
+      <image:title>MAYNU CLINICS Website Design Mockup</image:title>
+      <image:caption>Healthcare and clinic website design and development by Sri Venu</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://srivenu08.vercel.app/images/onclick-digital.jpg</image:loc>
+      <image:title>ONCLICK DIGITAL Website Redesign Mockup</image:title>
+      <image:caption>Digital marketing agency website redesign and brand identity by Sri Venu</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://srivenu08.vercel.app/images/jbk-it.jpg</image:loc>
+      <image:title>JBK IT Website Redesign Mockup</image:title>
+      <image:caption>Educational training institute website redesign and course roadmaps by Sri Venu</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://srivenu08.vercel.app/images/smake.jpg</image:loc>
+      <image:title>SMAKE E-Commerce Website Mockup</image:title>
+      <image:caption>Custom apparel and merchandise e-commerce storefront by Sri Venu</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://srivenu08.vercel.app/images/jbk-academy.jpg</image:loc>
+      <image:title>JBK ACADEMY Marathahalli Website Redesign Mockup</image:title>
+      <image:caption>Campus portal and training program showcase website by Sri Venu</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://srivenu08.vercel.app/images/maac-kphb.jpg</image:loc>
+      <image:title>MAAC KPHB Website Redesign Mockup</image:title>
+      <image:caption>Animation, VFX, and creative media academy website redesign by Sri Venu</image:caption>
+    </image:image>
+  </url>
+</urlset>
