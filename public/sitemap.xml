@@ -3,18 +3,18 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://srivenu08.vercel.app/</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://srivenu08.vercel.app/images/hero-image.jpg</image:loc>
-      <image:title>Sri Venu Puduvayila - Web Designer and Developer</image:title>
-      <image:caption>Portrait photograph of Sri Venu Puduvayila, Web Designer and Developer</image:caption>
+      <image:title>Sri Venu - Freelance Web Designer &amp; WordPress Designer</image:title>
+      <image:caption>Portrait photograph of Sri Venu, Freelance Web Designer and WordPress Designer</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://srivenu08.vercel.app/images/hero-character.png</image:loc>
-      <image:title>Sri Venu Puduvayila - Illustration</image:title>
-      <image:caption>Sri Venu Puduvayila creative web design and development poster illustration</image:caption>
+      <image:title>Sri Venu - Freelance Web Designer Illustration</image:title>
+      <image:caption>Sri Venu creative web design and WordPress development poster illustration</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://srivenu08.vercel.app/images/maynu-clinics.jpg</image:loc>
