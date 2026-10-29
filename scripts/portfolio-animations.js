@@ -83,6 +83,7 @@
   /* ==========================================================================
      4. Navigation & Scroll Spy
      ========================================================================== */
+  const header = document.querySelector('header');
   const nav = document.querySelector('nav');
   const desktopNavLinks = document.querySelectorAll('.nav-links-group [data-nav]');
   const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
@@ -91,7 +92,14 @@
   function updateActiveNav() {
     const scrollY = window.scrollY || window.pageYOffset || 0;
 
-    // Navbar background blur enhancement on scroll
+    // Header & Navbar solid dark navy scroll state
+    if (header) {
+      if (scrollY > 40) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    }
     if (nav) {
       if (scrollY > 40) {
         nav.classList.add('is-scrolled');

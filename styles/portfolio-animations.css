@@ -2142,18 +2142,35 @@ div[id] {
    - Smooth hover transitions
    - Subtle dark blue/blue-gray bottom border
    ========================================================================== */
-nav {
-  background-color: rgba(2, 6, 13, 0.85) !important;
-  border-bottom: 1px solid rgba(61, 165, 255, 0.12) !important;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+header,
+.site-header {
+  background-color: #061525 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
   transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
+header.is-scrolled,
+.site-header.is-scrolled {
+  background-color: #061525 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+nav {
+  background-color: transparent !important;
+  border-bottom: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
 nav.is-scrolled {
-  background-color: rgba(2, 6, 13, 0.94) !important;
-  border-bottom-color: rgba(61, 165, 255, 0.22) !important;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.75);
+  background-color: transparent !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
 }
 
 .logo-sv {
@@ -2255,9 +2272,10 @@ nav.is-scrolled {
 #mobile-nav-menu {
   position: fixed;
   inset: 0;
-  background: rgba(2, 6, 13, 0.98);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background-color: #061525 !important;
+  background: #061525 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
   z-index: 60;
   display: flex;
   flex-direction: column;
